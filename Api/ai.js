@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Allow all origins - this fixes the CORS error
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -30,19 +29,18 @@ export default async function handler(req, res) {
       })
     });
 
+    const data = await geminiRes.json();
+
     if (!geminiRes.ok) {
-      const errData = await geminiRes.json();
       return res.status(geminiRes.status).json({
-        error: errData.error?.message || 'Gemini API error'
+        error: data.error?.message || 'Gemini API error'
       });
     }
 
-    const data = await geminiRes.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     return res.status(200).json({ result: text });
 
   } catch (err) {
-    console.error('API route error:', err);
     return res.status(500).json({ error: err.message || 'Server error' });
   }
 }
