@@ -490,7 +490,7 @@ document.getElementById('txtin').addEventListener('keydown',e=>{if(e.key==='Ente
 
 // ── AI PARSE — calls /api/ai (Vercel serverless = no CORS) ──
 async function parse(text){
-  if(!GKEY){showToast('⚠️ API key ዘይብልካ — Go to ⚙️ Settings and add your Gemini key!');go('settings',null);return;}
+  // API key is stored securely on the server
   const card=document.getElementById('pcard');
   card.style.display='block';
   document.getElementById('ptitle').innerHTML='<span class="spin"></span> AI ይሓስብ ኣሎ...';
@@ -509,7 +509,7 @@ Accounts: Cash=ጥረ ገንዘብ,AR=ዕዳ ናይ ዓሚል,Inventory=ንብ�
     const res=await fetch('/api/ai',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt,apiKey:GKEY})
+      body:JSON.stringify({prompt})
     });
     if(!res.ok){const e=await res.json();throw new Error(e.error||'Server error '+res.status);}
     const data=await res.json();
