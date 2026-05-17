@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         'X-Title': 'Asmara Hisab'
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.1-8b-instruct:free',
+        model: 'google/gemini-2.0-flash-exp:free',
         messages: [{ role: 'user', content: prompt }],
         max_tokens: 800
       })
