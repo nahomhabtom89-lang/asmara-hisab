@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         'X-Title': 'Asmara Hisab'
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.0-flash-exp:free',
+        model: 'openrouter/auto',
         messages: [{ role: 'user', content: prompt }],
         max_tokens: 800
       })
