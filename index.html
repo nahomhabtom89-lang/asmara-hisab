@@ -181,7 +181,7 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
 @keyframes sp{to{transform:rotate(360deg)}}
 .toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:3px;padding:.75rem 1.25rem;font-size:13px;font-family:'Noto Sans Ethiopic',sans-serif;z-index:999;box-shadow:var(--shadow);display:none;animation:fi .3s ease;max-width:320px}
 .filter-btns{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
-.fbtn{padding:5px 12px;background:transparent;border:1px solid rgba(184,134,11,.25);border-radius:2px;color:rgba(184,134,11,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.fbtn{padding:5px 12px;background:transparent;border:1px solid rgba(184,134,11,.25);border-radius:2px;color:rgba(184,134,14,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
 .fbtn:hover,.fbtn.on{border-color:var(--gold);color:var(--gold2);background:rgba(184,134,11,.08)}
 @media(max-width:600px){.mbtn{width:68px;height:68px;font-size:26px}.hero{padding:1.25rem 1rem}.kpi{padding:.6rem}.topbar{padding:8px 1rem}}
 </style>
@@ -334,15 +334,6 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
     <div class="page" id="pg-settings">
       <div class="shdr"><h2>Settings</h2><span class="ti">ቅጥዒ</span></div>
       <div class="sc">
-        <h3>🔑 Gemini API Key</h3>
-        <div class="sf"><label>Your Free Gemini Key (from aistudio.google.com)</label><input id="apiF" type="password" placeholder="AIzaSy..."/></div>
-        <button class="save-btn" onclick="saveKey()">Save · ዓቅብ</button>
-        <div id="apiSt"></div>
-        <div class="anote">
-          ✅ Get free key: go to <strong>aistudio.google.com</strong> → Sign in → Get API Key → Create → Copy (starts with AIzaSy...)
-        </div>
-      </div>
-      <div class="sc">
         <h3>🏢 Business Name · ስም ስራሕ</h3>
         <div class="sf"><label>Business Name</label><input id="bizF" type="text" placeholder="e.g. Asmara Trading"/></div>
         <button class="save-btn" onclick="saveBiz()">Save · ዓቅብ</button>
@@ -383,7 +374,7 @@ function doReg(){
   if(!b||!u||!p){re.style.display='block';re.textContent='ኩሎም መሙላ — Fill all fields';return;}
   const users=getU();
   if(users[u]){re.style.display='block';re.textContent='ስም ተጠቃሚ ኣሎ — Username taken';return;}
-  users[u]={pass:btoa(p),biz:b,entries:[],nextId:1,apiKey:''};
+  users[u]={pass:btoa(p),biz:b,entries:[],nextId:1};
   setU(users);setCU(u);loadApp(u,users[u]);
 }
 function showReg(){document.getElementById('loginForm').style.display='none';document.getElementById('regForm').style.display='block';}
@@ -396,8 +387,6 @@ function loadApp(username,data){
   document.getElementById('topUser').textContent='👤 '+username;
   document.getElementById('topBiz').textContent=data.biz||'Pro';
   document.getElementById('bizF').value=data.biz||'';
-  GKEY=data.apiKey||'';
-  if(GKEY)document.getElementById('apiF').value='••••••••••••••••••';
   DB.entries=data.entries||[];
   DB.nextId=data.nextId||1;
   rAll();
@@ -411,14 +400,6 @@ window.addEventListener('load',()=>{
 function saveData(){
   const cu=getCU();if(!cu)return;
   const u=getU();u[cu].entries=DB.entries;u[cu].nextId=DB.nextId;setU(u);
-}
-function saveKey(){
-  const k=document.getElementById('apiF').value.trim();
-  if(!k||k.includes('•')){document.getElementById('apiSt').innerHTML='<div class="serr">Valid key ኣቕርብ</div>';return;}
-  GKEY=k;
-  const cu=getCU();const u=getU();u[cu].apiKey=k;setU(u);
-  document.getElementById('apiSt').innerHTML='<div class="sok">✅ Key saved!</div>';
-  document.getElementById('apiF').value='••••••••••••••••••';
 }
 function saveBiz(){
   const b=document.getElementById('bizF').value.trim();
@@ -439,7 +420,7 @@ function changePw(){
 
 // ── STATE ──
 const DB={entries:[],nextId:1};
-let lang='en',listening=false,recog=null,pending=null,GKEY='';
+let lang='en',listening=false,recog=null,pending=null;
 
 // ── NAV ──
 function go(pg,btn){
@@ -488,78 +469,186 @@ function doSub(){const t=document.getElementById('txtin').value.trim();if(t.leng
 function useSample(t){document.getElementById('txtin').value=t;parse(t);}
 document.getElementById('txtin').addEventListener('keydown',e=>{if(e.key==='Enter')doSub();});
 
-// ── AI PARSE — calls /api/ai (Vercel serverless = no CORS) ──
+// ── AI PARSE ──────────────────────────────────────────────────────────────────
+// The system prompt lives in /api/ai.js on the server.
+// We just send the raw user text. The server returns JSON with this shape:
+// { type, description, date, entries:[{account, type, debit, credit}], amount, currency }
+// ─────────────────────────────────────────────────────────────────────────────
 async function parse(text){
-  // API key is stored securely on the server
   const card=document.getElementById('pcard');
   card.style.display='block';
   document.getElementById('ptitle').innerHTML='<span class="spin"></span> AI ይሓስብ ኣሎ...';
-  document.getElementById('pmeta').innerHTML='';document.getElementById('pprev').innerHTML='';document.getElementById('pmemo').innerHTML='';
-  document.getElementById('postBtn').disabled=true;pending=null;
-
-  const today=new Date().toISOString().split('T')[0];
-  const prompt=`You are a senior Eritrean accountant. User said: "${text}". Today: ${today}. Currency: USD ($).
-Eritrean Tigrinya: ሎሚ=today, ገዝኣ=bought, ሸየጠ=sold, ንብረት=goods/inventory, ገዛ ኪራይ ከፈለ=paid rent, መኸሰብ=profit, ክሳራ=loss, ዓሚል=customer, ብጥረ ገንዘብ=cash, ብዕዳ=on credit, ደሞዝ=salary.
-Return ONLY valid JSON no markdown:
-{"date":"${today}","desc_ti":"Eritrean Tigrinya description","desc_en":"English description","type":"Asset Purchase|Inventory Purchase|Cash Sale|Credit Sale|Rent Expense|Salary Expense|Owner Capital|Bank Loan|Other Expense|Other","amount":0,"payment":"Cash or Credit","is_fixed_asset":false,"asset_life_years":0,"debits":[{"acct":"English","acct_ti":"Tigrinya","amt":0,"atype":"asset|expense|liability|equity|revenue"}],"credits":[{"acct":"English","acct_ti":"Tigrinya","amt":0,"atype":"asset|expense|liability|equity|revenue"}],"memo_ti":"Tigrinya memo","memo_en":"English memo"}
-Accounts: Cash=ጥረ ገንዘብ,AR=ዕዳ ናይ ዓሚል,Inventory=ንብረት,Machinery=ማሽን,Equipment=ናውቲ,Buildings=ህንጻ,AP=ዝኽፈል ዕዳ,Bank Loan=ዕዳ ባንክ,Owner Capital=ካፒታል ናይ ውልቀ,Sales Revenue=ኣታዊ ሸያጥ,COGS=ወጻኢ ንብረት,Rent Expense=ገዛ ኪራይ ወጻኢ,Salary Expense=ደሞዝ ወጻኢ,Depreciation Expense=ምምካን ወጻኢ,Accumulated Depreciation=ዝተዓቀበ ምምካን`;
+  document.getElementById('pmeta').innerHTML='';
+  document.getElementById('pprev').innerHTML='';
+  document.getElementById('pmemo').innerHTML='';
+  document.getElementById('postBtn').disabled=true;
+  pending=null;
 
   try{
-    // Call our own Vercel serverless function — no CORS block!
     const res=await fetch('/api/ai',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt})
+      body:JSON.stringify({prompt:text})
     });
     if(!res.ok){const e=await res.json();throw new Error(e.error||'Server error '+res.status);}
     const data=await res.json();
-    let raw=(data.result||'').replace(/```json|```/g,'').trim();
+
+    // Clean and parse the JSON returned by the AI
+    let raw=(data.result||'').trim();
+    // Strip markdown code fences if model adds them
+    raw=raw.replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/```\s*$/,'').trim();
     const m=raw.match(/\{[\s\S]*\}/);
-    if(!m)throw new Error('No JSON in response');
-    const p=JSON.parse(m[0]);p.id=DB.nextId;pending=p;showParsed(p);
+    if(!m)throw new Error('AI did not return valid JSON. Raw: '+raw.substring(0,200));
+    const p=JSON.parse(m[0]);
+
+    // If AI returned an error field
+    if(p.error)throw new Error(p.error);
+
+    // Validate entries exist
+    if(!p.entries||!Array.isArray(p.entries)||p.entries.length===0){
+      throw new Error('AI returned no journal entries. Please rephrase your transaction.');
+    }
+
+    pending=p;
+    showParsed(p);
+
   }catch(err){
     let msg=err.message||'Unknown error';
-    if(msg.includes('API_KEY_INVALID')||msg.includes('400'))msg='API key is wrong — check Settings. ቁልፊ ጌጋ።';
-    else if(msg.includes('quota')||msg.includes('429'))msg='Free limit reached today — try tomorrow. ሎሚ ዕለት ወዲቑ።';
     document.getElementById('ptitle').textContent='⚠️ ጌጋ — Error';
     document.getElementById('pmemo').textContent=msg;
-    console.error(err);
+    document.getElementById('postBtn').disabled=true;
+    console.error('Parse error:',err);
   }
 }
 
+// ── DISPLAY PARSED RESULT ─────────────────────────────────────────────────────
+// Reads the new format: entries:[{account, type, debit, credit}]
+// ─────────────────────────────────────────────────────────────────────────────
 function showParsed(e){
   document.getElementById('ptitle').textContent='ናይ AI ትንታነ — Analysis';
-  document.getElementById('ptype').textContent=e.type||'—';
-  const dep=e.is_fixed_asset&&e.asset_life_years>0?`<div class="mbox" style="grid-column:1/-1"><div class="mlbl">Auto Depreciation</div><div class="mval">$${fmt(e.amount/e.asset_life_years)}/ዓመት (${e.asset_life_years}yr straight-line)</div></div>`:'';
-  document.getElementById('pmeta').innerHTML=`<div class="mbox"><div class="mlbl">ዕለት</div><div class="mval">${e.date}</div></div><div class="mbox"><div class="mlbl">ዋጋ</div><div class="mval">$${fmt(e.amount)}</div></div><div class="mbox"><div class="mlbl">ክፍሊት</div><div class="mval">${e.payment||'—'}</div></div><div class="mbox" style="grid-column:1/-1"><div class="mlbl">መግለጺ</div><div class="mval">${e.desc_ti||''} · ${e.desc_en||''}</div></div>${dep}`;
-  let rows=(e.debits||[]).map(d=>`<tr><td><span class="drt">Dr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${d.acct_ti||d.acct}</span><br><small style="color:var(--gold);font-size:10px">${d.acct}</small></td><td class="amt dr">$${fmt(d.amt)}</td><td></td></tr>`).join('');
-  rows+=(e.credits||[]).map(c=>`<tr><td style="padding-left:1.5rem"><span class="crt">Cr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${c.acct_ti||c.acct}</span><br><small style="color:var(--gold);font-size:10px">${c.acct}</small></td><td></td><td class="amt cr">$${fmt(c.amt)}</td></tr>`).join('');
-  document.getElementById('pprev').innerHTML=`<table><thead><tr><th>ሕሳብ · Account</th><th class="amt">ዴቢት</th><th class="amt">ክሬዲት</th></tr></thead><tbody>${rows}</tbody></table>`;
-  document.getElementById('pmemo').textContent=(e.memo_ti||'')+' · '+(e.memo_en||'');
-  document.getElementById('postBtn').disabled=false;
+  document.getElementById('ptype').textContent=(e.type||'—').toUpperCase();
+
+  // Meta boxes
+  document.getElementById('pmeta').innerHTML=`
+    <div class="mbox"><div class="mlbl">ዕለት</div><div class="mval">${e.date||'—'}</div></div>
+    <div class="mbox"><div class="mlbl">ዋጋ</div><div class="mval">$${fmt(e.amount||0)}</div></div>
+    <div class="mbox"><div class="mlbl">ገንዘብ</div><div class="mval">${e.currency||'USD'}</div></div>
+    <div class="mbox" style="grid-column:1/-1"><div class="mlbl">መግለጺ</div><div class="mval">${e.description||'—'}</div></div>`;
+
+  // Journal entry rows — new format uses entries[] with debit/credit fields
+  const debits=(e.entries||[]).filter(r=>r.debit>0);
+  const credits=(e.entries||[]).filter(r=>r.credit>0);
+
+  let rows='';
+  debits.forEach(d=>{
+    rows+=`<tr>
+      <td><span class="drt">Dr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${d.account}</span>
+      <br><small style="color:var(--gold);font-size:10px;opacity:.7">${d.type||''}</small></td>
+      <td class="amt dr">$${fmt(d.debit)}</td>
+      <td></td>
+    </tr>`;
+  });
+  credits.forEach(c=>{
+    rows+=`<tr>
+      <td style="padding-left:1.5rem"><span class="crt">Cr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${c.account}</span>
+      <br><small style="color:var(--gold);font-size:10px;opacity:.7">${c.type||''}</small></td>
+      <td></td>
+      <td class="amt cr">$${fmt(c.credit)}</td>
+    </tr>`;
+  });
+
+  // Totals row
+  const totDr=debits.reduce((s,r)=>s+r.debit,0);
+  const totCr=credits.reduce((s,r)=>s+r.credit,0);
+  const balanced=Math.abs(totDr-totCr)<0.01;
+  rows+=`<tr style="background:var(--ink)">
+    <td style="color:var(--gold2);font-family:'DM Mono',monospace;font-size:10px">ጠቅላላ ${balanced?'✅':'⚠️ NOT BALANCED'}</td>
+    <td class="amt" style="color:#7AB4FF;font-family:'DM Mono',monospace">$${fmt(totDr)}</td>
+    <td class="amt" style="color:#7ADA7A;font-family:'DM Mono',monospace">$${fmt(totCr)}</td>
+  </tr>`;
+
+  document.getElementById('pprev').innerHTML=`
+    <table>
+      <thead><tr><th>ሕሳብ · Account</th><th class="amt">ዴቢት</th><th class="amt">ክሬዲት</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+  document.getElementById('pmemo').textContent=e.description||'';
+  document.getElementById('postBtn').disabled=!balanced;
+  if(!balanced)showToast('⚠️ Debits ≠ Credits — please rephrase');
 }
 
+// ── POST TO JOURNAL ───────────────────────────────────────────────────────────
 function postEntry(){
   if(!pending)return;
-  const e={...pending,id:DB.nextId++,postedAt:new Date().toISOString()};
-  DB.entries.push(e);
-  if(e.is_fixed_asset&&e.asset_life_years>0){
-    const dep=Math.round((e.amount/e.asset_life_years)*100)/100;
-    const aa=e.debits.find(d=>d.atype==='asset'&&d.acct!=='Cash');
-    DB.entries.push({id:DB.nextId++,date:e.date,postedAt:new Date().toISOString(),desc_ti:`ዓመታዊ ምምካን — ${aa?aa.acct_ti:'ማሽን'}`,desc_en:`Annual Depreciation — ${aa?aa.acct:'Machinery'}`,type:'Depreciation',amount:dep,payment:'Non-cash',is_fixed_asset:false,asset_life_years:0,debits:[{acct:'Depreciation Expense',acct_ti:'ምምካን ወጻኢ',amt:dep,atype:'expense'}],credits:[{acct:'Accumulated Depreciation',acct_ti:'ዝተዓቀበ ምምካን',amt:dep,atype:'asset'}],memo_ti:`ምምካን ${aa?aa.acct_ti:'ማሽን'} $${fmt(dep)} ንዓመት`,memo_en:`Straight-line depreciation $${fmt(dep)}/year`});
-  }
+
+  // Convert new entries[] format to internal debits[]/credits[] for storage
+  const debits=(pending.entries||[]).filter(r=>r.debit>0).map(r=>({
+    acct:r.account,
+    acct_ti:r.account,
+    amt:r.debit,
+    atype:r.type?r.type.toLowerCase():'asset'
+  }));
+  const credits=(pending.entries||[]).filter(r=>r.credit>0).map(r=>({
+    acct:r.account,
+    acct_ti:r.account,
+    amt:r.credit,
+    atype:r.type?r.type.toLowerCase():'asset'
+  }));
+
+  const entry={
+    id:DB.nextId++,
+    date:pending.date,
+    postedAt:new Date().toISOString(),
+    type:pending.type||'Other',
+    amount:pending.amount||debits.reduce((s,r)=>s+r.amt,0),
+    payment:'Cash',
+    desc_ti:pending.description||'',
+    desc_en:pending.description||'',
+    memo_ti:pending.description||'',
+    memo_en:pending.description||'',
+    is_fixed_asset:false,
+    asset_life_years:0,
+    debits,
+    credits
+  };
+
+  DB.entries.push(entry);
+  pending=null;
+  saveData();
+  rAll();
+
   document.getElementById('postBtn').textContent='✅ ተቐሚጡ!';
   document.getElementById('postBtn').disabled=true;
-  pending=null;saveData();rAll();
   showToast('✅ ሕሳብ ተቐሚጡ — Entry saved!');
-  setTimeout(()=>{document.getElementById('postBtn').textContent='✅ ናብ ደፍተር ምቕማጥ · Post to Journal';},2000);
+  setTimeout(()=>{
+    document.getElementById('postBtn').textContent='✅ ናብ ደፍተር ምቕማጥ · Post to Journal';
+  },2000);
 }
 
 // ── HELPERS ──
-function fmt(v){return(v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmt(v){return(+v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
-function getLedger(){const a={};DB.entries.forEach(e=>{[...(e.debits||[]).map(d=>({...d,side:'dr'})),...(e.credits||[]).map(c=>({...c,side:'cr'}))].forEach(item=>{if(!a[item.acct])a[item.acct]={ti:item.acct_ti||item.acct,type:item.atype,rows:[]};a[item.acct].rows.push({date:e.date,desc:e.desc_ti,side:item.side,amt:item.amt});});});return a;}
-function getBal(){const a=getLedger(),b={};Object.entries(a).forEach(([acc,data])=>{const dr=data.rows.filter(r=>r.side==='dr').reduce((s,r)=>s+r.amt,0);const cr=data.rows.filter(r=>r.side==='cr').reduce((s,r)=>s+r.amt,0);b[acc]={ti:data.ti,type:data.type,dr,cr,net:dr-cr};});return b;}
+
+function getLedger(){
+  const a={};
+  DB.entries.forEach(e=>{
+    [...(e.debits||[]).map(d=>({...d,side:'dr'})),...(e.credits||[]).map(c=>({...c,side:'cr'}))].forEach(item=>{
+      if(!a[item.acct])a[item.acct]={ti:item.acct_ti||item.acct,type:item.atype,rows:[]};
+      a[item.acct].rows.push({date:e.date,desc:e.desc_ti,side:item.side,amt:item.amt});
+    });
+  });
+  return a;
+}
+function getBal(){
+  const a=getLedger(),b={};
+  Object.entries(a).forEach(([acc,data])=>{
+    const dr=data.rows.filter(r=>r.side==='dr').reduce((s,r)=>s+r.amt,0);
+    const cr=data.rows.filter(r=>r.side==='cr').reduce((s,r)=>s+r.amt,0);
+    b[acc]={ti:data.ti,type:data.type,dr,cr,net:dr-cr};
+  });
+  return b;
+}
 
 // ── HISTORY ──
 function filterH(f,btn){document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');rHistory(f);}
@@ -576,7 +665,7 @@ function rHistory(f){
     return true;
   });
   if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>ኣብዚ ዝርዝር ዘይብልካ ።</div>';return;}
-  el.innerHTML=list.map(e=>`<div class="hist-item"><div class="hist-date">${e.date}<br><span style="color:rgba(184,134,11,.35);font-size:9px">#${e.id}</span></div><div class="hist-body"><div class="hist-desc">${e.desc_ti||e.desc_en||'—'}</div><div class="hist-type">${e.type||'—'} · ${e.payment||''}</div></div><div class="hist-amt">$${fmt(e.amount||0)}</div></div>`).join('');
+  el.innerHTML=list.map(e=>`<div class="hist-item"><div class="hist-date">${e.date}<br><span style="color:rgba(184,134,11,.35);font-size:9px">#${e.id}</span></div><div class="hist-body"><div class="hist-desc">${e.desc_ti||e.desc_en||'—'}</div><div class="hist-type">${e.type||'—'}</div></div><div class="hist-amt">$${fmt(e.amount||0)}</div></div>`).join('');
 }
 
 // ── JOURNAL ──
@@ -585,11 +674,29 @@ function rJ(){
   if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📒</span>ሕሳብ ዘይብልካ ።</div>';return;}
   let rows='';
   DB.entries.forEach(e=>{
-    (e.debits||[]).forEach((d,i)=>{rows+=`<tr><td style="white-space:nowrap;font-size:11px">${i===0?e.date:''}</td><td style="font-size:10px;color:var(--gold)">${i===0?'#'+e.id:''}</td><td><span class="drt">Dr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${d.acct_ti||d.acct}</span><br><small style="color:var(--gold);font-size:10px">${d.acct}</small></td><td class="amt dr">$${fmt(d.amt)}</td><td></td></tr>`;});
-    (e.credits||[]).forEach(c=>{rows+=`<tr><td></td><td></td><td style="padding-left:1.5rem"><span class="crt">Cr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${c.acct_ti||c.acct}</span><br><small style="color:var(--gold);font-size:10px">${c.acct}</small></td><td></td><td class="amt cr">$${fmt(c.amt)}</td></tr>`;});
-    rows+=`<tr class="mtr"><td colspan="5">${e.memo_ti||''} · ${e.memo_en||''}</td></tr>`;
+    (e.debits||[]).forEach((d,i)=>{
+      rows+=`<tr>
+        <td style="white-space:nowrap;font-size:11px">${i===0?e.date:''}</td>
+        <td style="font-size:10px;color:var(--gold)">${i===0?'#'+e.id:''}</td>
+        <td><span class="drt">Dr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${d.acct_ti||d.acct}</span>
+        <br><small style="color:var(--gold);font-size:10px">${d.acct}</small></td>
+        <td class="amt dr">$${fmt(d.amt)}</td>
+        <td></td>
+      </tr>`;
+    });
+    (e.credits||[]).forEach(c=>{
+      rows+=`<tr>
+        <td></td><td></td>
+        <td style="padding-left:1.5rem"><span class="crt">Cr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${c.acct_ti||c.acct}</span>
+        <br><small style="color:var(--gold);font-size:10px">${c.acct}</small></td>
+        <td></td>
+        <td class="amt cr">$${fmt(c.amt)}</td>
+      </tr>`;
+    });
+    rows+=`<tr class="mtr"><td colspan="5">${e.memo_ti||e.memo_en||''}</td></tr>`;
   });
   el.innerHTML=`<div class="tw"><table><thead><tr><th>ዕለት</th><th>#</th><th>ሕሳብ</th><th class="amt">ዴቢት</th><th class="amt">ክሬዲት</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  document.getElementById('jcnt').textContent=DB.entries.length;
 }
 
 // ── LEDGER ──
@@ -602,7 +709,17 @@ function rLedger(){
     const cr=data.rows.filter(r=>r.side==='cr').reduce((s,r)=>s+r.amt,0);const net=dr-cr;
     const drR=data.rows.filter(r=>r.side==='dr');const crR=data.rows.filter(r=>r.side==='cr');
     let rows='';
-    for(let i=0;i<Math.max(drR.length,crR.length);i++){const d=drR[i],c=crR[i];rows+=`<tr><td style="font-size:11px;white-space:nowrap">${d?d.date:''}</td><td style="font-size:12px;font-family:'Noto Sans Ethiopic',sans-serif">${d?d.desc:''}</td><td class="amt dr">${d?'$'+fmt(d.amt):''}</td><td style="font-size:11px;white-space:nowrap">${c?c.date:''}</td><td style="font-size:12px;font-family:'Noto Sans Ethiopic',sans-serif">${c?c.desc:''}</td><td class="amt cr">${c?'$'+fmt(c.amt):''}</td></tr>`;}
+    for(let i=0;i<Math.max(drR.length,crR.length);i++){
+      const d=drR[i],c=crR[i];
+      rows+=`<tr>
+        <td style="font-size:11px;white-space:nowrap">${d?d.date:''}</td>
+        <td style="font-size:12px;font-family:'Noto Sans Ethiopic',sans-serif">${d?d.desc:''}</td>
+        <td class="amt dr">${d?'$'+fmt(d.amt):''}</td>
+        <td style="font-size:11px;white-space:nowrap">${c?c.date:''}</td>
+        <td style="font-size:12px;font-family:'Noto Sans Ethiopic',sans-serif">${c?c.desc:''}</td>
+        <td class="amt cr">${c?'$'+fmt(c.amt):''}</td>
+      </tr>`;
+    }
     rows+=`<tr><td colspan="2" style="font-weight:500;font-size:11px;background:var(--paper2)">ጠቅላላ</td><td class="amt dr" style="font-weight:500;background:var(--paper2)">$${fmt(dr)}</td><td colspan="2" style="background:var(--paper2)"></td><td class="amt cr" style="font-weight:500;background:var(--paper2)">$${fmt(cr)}</td></tr>`;
     html+=`<div class="la"><div class="lhdr"><div><div class="an">${acc}</div><div class="at">${data.ti}</div></div><div class="bal ${net>=0?'bdr':'bcr'}">ሚዛን: ${net>=0?'Dr':'Cr'} $${fmt(Math.abs(net))}</div></div><div class="tw" style="border:none;border-radius:0;box-shadow:none"><table><thead><tr><th>ዕለት</th><th>ዴቢት</th><th class="amt">ዋጋ</th><th>ዕለት</th><th>ክሬዲት</th><th class="amt">ዋጋ</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
   });
@@ -622,8 +739,11 @@ function rTrial(){
 function rIncome(){
   const el=document.getElementById('iFull');const b=getBal();
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💰</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
-  const rA=Object.entries(b).filter(([,v])=>v.type==='revenue');const xA=Object.entries(b).filter(([,v])=>v.type==='expense');
-  const tR=rA.reduce((s,[,v])=>s+Math.abs(v.net),0);const tX=xA.reduce((s,[,v])=>s+Math.abs(v.net),0);const net=tR-tX;
+  const rA=Object.entries(b).filter(([,v])=>v.type==='revenue');
+  const xA=Object.entries(b).filter(([,v])=>v.type==='expense');
+  const tR=rA.reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tX=xA.reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const net=tR-tX;
   el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Revenue<span class="kti">ጠቅላላ ኣታዊ</span></div><div class="kv pos">$${fmt(tR)}</div></div><div class="kpi"><div class="kl">Expenses<span class="kti">ጠቅላላ ወጻኢ</span></div><div class="kv neg">$${fmt(tX)}</div></div><div class="kpi"><div class="kl">${net>=0?'መኸሰብ':'ክሳራ'}<span class="kti">${net>=0?'Profit':'Loss'}</span></div><div class="kv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</div></div></div><div class="fsc"><div class="fst">Income Statement</div><div class="fsti">መኸሰብ ወይ ክሳራ</div><div class="fsr lbl"><span>ኣታዊ · Revenue</span></div>${rA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv pos">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ኣታዊ የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr sub"><span class="fsn">ጠቅላላ ኣታዊ</span><span class="fsv pos">$${fmt(tR)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ወጻኢ · Expenses</span></div>${xA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv neg">($${fmt(Math.abs(v.net))})</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ወጻኢ የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr sub"><span class="fsn">ጠቅላላ ወጻኢ</span><span class="fsv neg">($${fmt(tX)})</span></div><div class="fsr tot"><span class="fsn">${net>=0?'መኸሰብ · Net Profit':'ክሳራ · Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div></div>`;
 }
 
@@ -631,10 +751,16 @@ function rIncome(){
 function rBalance(){
   const el=document.getElementById('bFull');const b=getBal();
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏛️</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
-  const aA=Object.entries(b).filter(([,v])=>v.type==='asset');const lA=Object.entries(b).filter(([,v])=>v.type==='liability');const eA=Object.entries(b).filter(([,v])=>v.type==='equity');
-  const rA=Object.entries(b).filter(([,v])=>v.type==='revenue');const xA=Object.entries(b).filter(([,v])=>v.type==='expense');
-  const tA=aA.reduce((s,[,v])=>s+v.net,0);const tL=lA.reduce((s,[,v])=>s+Math.abs(v.net),0);const tEB=eA.reduce((s,[,v])=>s+Math.abs(v.net),0);
-  const re=rA.reduce((s,[,v])=>s+Math.abs(v.net),0)-xA.reduce((s,[,v])=>s+Math.abs(v.net),0);const tE=tEB+re;
+  const aA=Object.entries(b).filter(([,v])=>v.type==='asset');
+  const lA=Object.entries(b).filter(([,v])=>v.type==='liability');
+  const eA=Object.entries(b).filter(([,v])=>v.type==='equity');
+  const rA=Object.entries(b).filter(([,v])=>v.type==='revenue');
+  const xA=Object.entries(b).filter(([,v])=>v.type==='expense');
+  const tA=aA.reduce((s,[,v])=>s+v.net,0);
+  const tL=lA.reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tEB=eA.reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const re=rA.reduce((s,[,v])=>s+Math.abs(v.net),0)-xA.reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tE=tEB+re;
   el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Assets<span class="kti">ጠቅላላ ሃልዋት</span></div><div class="kv">$${fmt(tA)}</div></div><div class="kpi"><div class="kl">Liabilities<span class="kti">ጠቅላላ ዕዳ</span></div><div class="kv neg">$${fmt(tL)}</div></div><div class="kpi"><div class="kl">Equity<span class="kti">ጠቅላላ ካፒታል</span></div><div class="kv pos">$${fmt(tE)}</div></div></div><div class="fsc"><div class="fst">Balance Sheet</div><div class="fsti">ሚዛን ሓሳብ</div><div class="fsr lbl"><span>ሃልዋት · Assets</span></div>${aA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv">$${fmt(v.net)}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ሃልዋት የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr tot"><span class="fsn">ጠቅላላ ሃልዋት</span><span class="fsv">$${fmt(tA)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ዕዳ · Liabilities</span></div>${lA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ዕዳ የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr sub"><span class="fsn">ጠቅላላ ዕዳ</span><span class="fsv neg">$${fmt(tL)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካፒታል · Equity</span></div>${eA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')}<div class="fsr ind"><span class="fsn">ዝተዓቀበ ${re>=0?'መኸሰብ':'ክሳራ'}</span><span class="fsv ${re>=0?'pos':'neg'}">$${fmt(re)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካፒታል</span><span class="fsv pos">$${fmt(tE)}</span></div><div class="fsr tot"><span class="fsn">ዕዳን ካፒታልን</span><span class="fsv">$${fmt(tL+tE)}</span></div></div>`;
 }
 
@@ -643,23 +769,29 @@ function rCF(){
   const el=document.getElementById('cFull');const b=getBal();
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💧</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
   const net=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0)-Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
-  const dep=b['Accumulated Depreciation']?Math.abs(b['Accumulated Depreciation'].net):0;const opCF=net+dep;
-  const fixA=['Machinery','Equipment','Vehicles','Buildings'].reduce((s,a)=>s+(b[a]?b[a].net:0),0);const invCF=-fixA;
-  const cap=b['Owner Capital']?Math.abs(b['Owner Capital'].net):0;const loans=b['Bank Loan']?Math.abs(b['Bank Loan'].net):0;const finCF=cap+loans;const netCF=opCF+invCF+finCF;
-  el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Operating<span class="kti">ካብ ስራሕ</span></div><div class="kv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</div></div><div class="kpi"><div class="kl">Investing<span class="kti">ካብ ኢንቨስት</span></div><div class="kv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</div></div><div class="kpi"><div class="kl">Financing<span class="kti">ካብ ፋይናንስ</span></div><div class="kv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</div></div><div class="kpi"><div class="kl">${netCF>=0?'መኸሰብ':'ክሳራ'}<span class="kti">Net CF</span></div><div class="kv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</div></div></div><div class="fsc"><div class="fst">Cash Flow Statement</div><div class="fsti">ምንቅስቃስ ገንዘብ</div><div class="fsr lbl"><span>ካብ ስራሕ · Operating</span></div><div class="fsr ind"><span class="fsn">${net>=0?'መኸሰብ':'ክሳራ'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(net)}</span></div><div class="fsr ind"><span class="fsn">ምምካን ምምላስ</span><span class="fsv">$${fmt(dep)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ስራሕ</span><span class="fsv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካብ ኢንቨስት · Investing</span></div><div class="fsr ind"><span class="fsn">ሃልዋት ዝወሰደ</span><span class="fsv neg">($${fmt(fixA)})</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ኢንቨስት</span><span class="fsv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካብ ፋይናንስ · Financing</span></div><div class="fsr ind"><span class="fsn">ካፒታልን ዕዳን</span><span class="fsv pos">$${fmt(finCF)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ፋይናንስ</span><span class="fsv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</span></div><div class="fsr tot"><span class="fsn">ጽሩይ ምንቅስቃስ ገንዘብ</span><span class="fsv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</span></div></div>`;
+  const dep=b['Accumulated Depreciation - Equipment']?Math.abs(b['Accumulated Depreciation - Equipment'].net):0;
+  const opCF=net+dep;
+  const fixedAssetAccounts=['Equipment','Heavy Machinery','Vehicles','Land','Building'];
+  const fixA=fixedAssetAccounts.reduce((s,a)=>s+(b[a]?b[a].net:0),0);
+  const invCF=-fixA;
+  const cap=b["Owner's Capital"]?Math.abs(b["Owner's Capital"].net):0;
+  const loans=(b['Loans Payable']?Math.abs(b['Loans Payable'].net):0)+(b['Bank Loan Payable']?Math.abs(b['Bank Loan Payable'].net):0);
+  const finCF=cap+loans;const netCF=opCF+invCF+finCF;
+  el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Operating<span class="kti">ካብ ስራሕ</span></div><div class="kv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</div></div><div class="kpi"><div class="kl">Investing<span class="kti">ካብ ኢንቨስት</span></div><div class="kv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</div></div><div class="kpi"><div class="kl">Financing<span class="kti">ካብ ፋይናንስ</span></div><div class="kv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</div></div><div class="kpi"><div class="kl">Net CF<span class="kti">ጽሩይ</span></div><div class="kv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</div></div></div><div class="fsc"><div class="fst">Cash Flow Statement</div><div class="fsti">ምንቅስቃስ ገንዘብ</div><div class="fsr lbl"><span>ካብ ስራሕ · Operating</span></div><div class="fsr ind"><span class="fsn">${net>=0?'መኸሰብ':'ክሳራ'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(net)}</span></div><div class="fsr ind"><span class="fsn">ምምካን ምምላስ · Depreciation Add-back</span><span class="fsv">$${fmt(dep)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ስራሕ</span><span class="fsv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካብ ኢንቨስት · Investing</span></div><div class="fsr ind"><span class="fsn">ሃልዋት ዝወሰደ</span><span class="fsv neg">($${fmt(fixA)})</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ኢንቨስት</span><span class="fsv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካብ ፋይናንስ · Financing</span></div><div class="fsr ind"><span class="fsn">ካፒታልን ዕዳን</span><span class="fsv pos">$${fmt(finCF)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ፋይናንስ</span><span class="fsv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</span></div><div class="fsr tot"><span class="fsn">ጽሩይ ምንቅስቃስ ገንዘብ</span><span class="fsv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</span></div></div>`;
 }
 
 // ── EQUITY ──
 function rEq(){
   const el=document.getElementById('eFull');const b=getBal();
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏦</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
-  const op=b['Owner Capital']?Math.abs(b['Owner Capital'].net):0;
+  const op=b["Owner's Capital"]?Math.abs(b["Owner's Capital"].net):0;
   const net=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0)-Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
-  const draw=b['Owner Drawings']?Math.abs(b['Owner Drawings'].net):0;const cl=op+net-draw;
+  const draw=b["Owner's Drawing"]?Math.abs(b["Owner's Drawing"].net):0;
+  const cl=op+net-draw;
   el.innerHTML=`<div class="fsc"><div class="fst">Owner's Equity</div><div class="fsti">ካፒታል ናይ ውልቀ</div><div class="fsr ind"><span class="fsn">ኣብ ምጅማር ካፒታል · Opening Capital</span><span class="fsv">$${fmt(op)}</span></div><div class="fsr ind"><span class="fsn">${net>=0?'ዝወሰኸ: መኸሰብ':'ዝነከየ: ክሳራ'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div>${draw>0?`<div class="fsr ind"><span class="fsn">ምስሓብ · Drawings</span><span class="fsv neg">($${fmt(draw)})</span></div>`:''}<div class="fsr tot"><span class="fsn">ጽሩይ ካፒታል · Closing Equity</span><span class="fsv pos">$${fmt(cl)}</span></div></div>`;
 }
 
-// keyboard
+// keyboard shortcuts
 document.getElementById('lp').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 document.getElementById('lu').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('lp').focus();});
 </script>
