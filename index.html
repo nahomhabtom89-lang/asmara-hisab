@@ -19,8 +19,6 @@
 body{font-family:'DM Mono',monospace;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(184,134,11,.05) 39px,rgba(184,134,11,.05) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(184,134,11,.05) 39px,rgba(184,134,11,.05) 40px);pointer-events:none;z-index:0}
 body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 20px,var(--rust) 20px,var(--rust) 40px,var(--teal) 40px,var(--teal) 60px);z-index:500}
-
-/* LOGIN */
 #loginScreen{position:fixed;inset:0;background:var(--ink);z-index:400;display:flex;align-items:center;justify-content:center;padding:2rem}
 .lbox{background:var(--ink2);border:1.5px solid var(--gold);border-radius:6px;padding:2.5rem 2rem;width:100%;max-width:380px;position:relative;box-shadow:var(--shadow)}
 .lbox::before,.lbox::after{content:'';position:absolute;width:28px;height:28px;border-color:var(--gold);border-style:solid;opacity:.5}
@@ -38,8 +36,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 .lerr{font-size:12px;color:#FF8A7A;text-align:center;margin-top:.75rem;font-family:'Noto Sans Ethiopic',sans-serif;display:none}
 .lswitch{text-align:center;margin-top:1rem;font-size:12px;color:rgba(240,192,64,.4)}
 .lswitch a{color:var(--gold2);cursor:pointer;text-decoration:underline}
-
-/* TOP BAR */
 #mainApp{display:none;position:relative;z-index:1}
 .topbar{background:var(--ink);border-bottom:2px solid var(--gold);padding:10px 1.25rem;display:flex;align-items:center;gap:10px;position:sticky;top:5px;z-index:200;box-shadow:0 4px 20px rgba(28,20,9,.3);flex-wrap:wrap}
 .tb-logo{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold3);flex:1;min-width:120px}
@@ -47,20 +43,14 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 .tb-user{font-size:11px;color:var(--gold2);font-family:'DM Mono',monospace}
 .tbtn{padding:5px 10px;background:transparent;border:1px solid rgba(184,134,11,.3);border-radius:2px;color:rgba(240,192,64,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
 .tbtn:hover{background:rgba(184,134,11,.15);color:var(--gold2)}
-
 .app{max-width:900px;margin:0 auto;padding:1rem 1rem 4rem}
-
-/* NAV */
 .nav{display:flex;background:var(--ink2);border:1px solid var(--border);border-radius:4px;overflow-x:auto;scrollbar-width:none;margin-bottom:1.25rem;box-shadow:0 2px 10px rgba(28,20,9,.15)}
 .nav::-webkit-scrollbar{display:none}
 .nb{flex-shrink:0;padding:9px 12px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:11px;color:rgba(240,192,64,.38);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;display:flex;flex-direction:column;align-items:center;gap:1px}
 .nb .en{font-family:'DM Mono',monospace;font-size:9px;opacity:.3;text-transform:uppercase;letter-spacing:.06em}
 .nb:hover{color:var(--gold3)}.nb.on{color:var(--gold3);border-bottom-color:var(--gold2);background:rgba(184,134,11,.07)}
-
 .page{display:none;animation:fi .2s ease}.page.on{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-/* HERO */
 .hero{background:var(--ink2);border:1.5px solid var(--gold);border-radius:4px;padding:1.75rem 1.5rem;text-align:center;margin-bottom:1.25rem;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .hero::before,.hero::after{content:'';position:absolute;width:30px;height:30px;border-color:var(--gold);border-style:solid;opacity:.28}
 .hero::before{top:8px;left:8px;border-width:2px 0 0 2px}.hero::after{bottom:8px;right:8px;border-width:0 2px 2px 0}
@@ -68,8 +58,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 .lang-row{display:flex;gap:8px;justify-content:center;margin-bottom:1rem}
 .lb{padding:5px 14px;border-radius:2px;border:1px solid var(--border);background:transparent;color:rgba(240,192,64,.38);font-size:12px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
 .lb.on{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:500}
-
-/* MIC */
 .mic-wrap{position:relative;width:80px;height:80px;margin:0 auto 1rem}
 .mring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(184,134,11,.18);animation:rp 2.5s ease-in-out infinite}
 .mring:nth-child(2){animation-delay:.7s;inset:-8px}
@@ -79,7 +67,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 @keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(193,68,14,.5)}50%{box-shadow:0 0 0 18px rgba(193,68,14,0)}}
 .mic-st{font-family:'Noto Sans Ethiopic',sans-serif;font-size:12px;color:var(--gold2);margin-bottom:.2rem;font-weight:600}
 .mic-hint{font-size:11px;color:rgba(240,192,64,.32);margin-bottom:1rem;font-family:'Noto Sans Ethiopic',sans-serif}
-
 .inp-row{display:flex;gap:8px;margin-bottom:.85rem}
 .txtin{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:2px;padding:10px 12px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color .2s}
 .txtin::placeholder{color:rgba(240,192,64,.22)}.txtin:focus{border-color:var(--gold2)}
@@ -88,8 +75,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 .chips{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
 .chip{padding:4px 10px;border:1px solid rgba(184,134,11,.22);border-radius:2px;font-size:10px;color:rgba(240,192,64,.4);cursor:pointer;font-family:'Noto Sans Ethiopic',sans-serif;transition:all .15s}
 .chip:hover{background:rgba(184,134,11,.12);color:var(--gold2);border-color:var(--gold)}
-
-/* PARSE CARD */
 .pcard{display:none;background:var(--paper2);border:1.5px solid var(--gold);border-radius:4px;padding:1.25rem;margin-bottom:1.25rem;animation:fi .3s ease}
 .phdr{display:flex;align-items:center;gap:8px;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border2)}
 .phdr h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink)}
@@ -97,40 +82,31 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:7px;margin-bottom:1rem}
 .mbox{background:var(--paper);border:1px solid var(--border2);border-radius:2px;padding:.55rem .75rem}
 .mlbl{font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;font-family:'DM Mono',monospace}
-.mval{font-size:13px;font-weight:500;color:var(--ink);font-family:'Noto Sans Ethiopic',sans-serif;line-height:1.3}
-.memo-line{font-size:12px;color:var(--gold);font-style:italic;margin-bottom:.75rem;font-family:'Noto Sans Ethiopic',sans-serif;line-height:1.6}
-
-/* TABLES */
+.mval{font-size:13px;font-weight:500;color:var(--ink);line-height:1.3}
+.memo-line{font-size:12px;color:var(--gold);font-style:italic;margin-bottom:.75rem;line-height:1.6}
 .tw{overflow-x:auto;border:1px solid var(--border);border-radius:4px;margin-bottom:.75rem}
 table{width:100%;border-collapse:collapse;font-size:12px}
 thead th{background:var(--ink);color:var(--gold2);font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:8px 10px;text-align:left;font-family:'DM Mono',monospace;white-space:nowrap}
 tbody td{padding:7px 10px;border-bottom:1px solid var(--border2);background:var(--paper);vertical-align:top}
 tbody tr:nth-child(even) td{background:var(--paper2)}
-tbody tr.mtr td{background:var(--paper3);font-size:11px;color:var(--gold);font-style:italic;padding:3px 10px 7px 20px;font-family:'Noto Sans Ethiopic',sans-serif;border-bottom:2px solid var(--border)}
+tbody tr.mtr td{background:var(--paper3);font-size:11px;color:var(--gold);font-style:italic;padding:3px 10px 7px 20px;border-bottom:2px solid var(--border)}
 tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10px;font-family:'DM Mono',monospace;font-size:11px}
 .drt,.crt{display:inline-block;font-size:9px;padding:1px 5px;border-radius:1px;margin-right:4px;font-family:'DM Mono',monospace;font-weight:500}
 .drt{background:#D4E8FF;color:#0C447C}.crt{background:#D4EED4;color:#175017}
 .amt{font-family:'DM Mono',monospace;text-align:right;white-space:nowrap}
 .amt.dr{color:#0C447C}.amt.cr{color:#175017}
-
-/* SECTION HDR */
 .shdr{display:flex;align-items:baseline;gap:10px;margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:2px solid var(--gold)}
 .shdr h2{font-family:'Playfair Display',serif;font-size:18px;color:var(--ink)}
 .shdr .ti{font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;color:var(--gold)}
 .shdr .cnt{margin-left:auto;background:var(--ink);color:var(--gold2);font-size:10px;padding:2px 9px;border-radius:1px;font-family:'DM Mono',monospace}
-
 .postbtn{width:100%;padding:12px;background:var(--ink);color:var(--gold2);border:1.5px solid var(--gold);border-radius:2px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:.5rem}
 .postbtn:hover{background:var(--gold);color:var(--ink)}.postbtn:disabled{opacity:.3;cursor:not-allowed}
-
-/* LEDGER */
 .la{background:var(--paper);border:1px solid var(--border);border-radius:4px;margin-bottom:1rem;overflow:hidden}
 .lhdr{background:var(--ink2);color:var(--gold2);padding:10px 13px;display:flex;align-items:center;gap:8px}
 .lhdr .an{font-family:'Playfair Display',serif;font-size:14px}
 .lhdr .at{font-family:'Noto Sans Ethiopic',sans-serif;font-size:12px;color:rgba(240,192,64,.38)}
 .lhdr .bal{margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;font-weight:500}
 .bdr{color:#7AB4FF}.bcr{color:#7ADA7A}
-
-/* FS */
 .fsc{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.25rem;margin-bottom:1rem;position:relative}
 .fsc::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--gold),var(--rust));border-radius:4px 0 0 4px}
 .fst{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin-bottom:2px}
@@ -140,11 +116,9 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
 .fsr.lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border-bottom:none;margin-top:8px;font-family:'DM Mono',monospace}
 .fsr.sub{font-weight:500;color:var(--ink2);border-top:1px solid var(--border2);margin-top:2px}
 .fsr.tot{font-family:'Playfair Display',serif;font-size:15px;border-top:2px solid var(--border);margin-top:4px;padding-top:8px;font-weight:700}
-.fsn{font-family:'Noto Sans Ethiopic',sans-serif;line-height:1.4}
-.fsn small{display:block;font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;opacity:.6}
+.fsn{line-height:1.4}.fsn small{display:block;font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;opacity:.6}
 .fsv{font-family:'DM Mono',monospace;white-space:nowrap;font-size:13px}
 .pos{color:var(--green)}.neg{color:var(--red)}
-
 .krow{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:1rem}
 .kpi{background:var(--ink);border:1px solid var(--border);border-radius:2px;padding:.75rem}
 .kl{font-size:9px;color:rgba(240,192,64,.38);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px;font-family:'DM Mono',monospace}
@@ -153,42 +127,65 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
 .kv.pos{color:#7ADA7A}.kv.neg{color:#FF8A7A}
 .bok,.bno{display:block;padding:7px 14px;border-radius:2px;font-size:12px;font-weight:500;margin-bottom:1rem;font-family:'DM Mono',monospace}
 .bok{background:#D4EED4;color:#175017;border:1px solid #7ADA7A}.bno{background:#FFE0D0;color:#7A1A1A;border:1px solid #FF8A7A}
-
-/* HISTORY */
 .hist-item{background:var(--paper2);border:1px solid var(--border2);border-radius:3px;padding:.75rem 1rem;margin-bottom:.6rem;display:flex;align-items:flex-start;gap:10px}
 .hist-date{font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;white-space:nowrap;margin-top:2px}
 .hist-body{flex:1}
-.hist-desc{font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;color:var(--ink);margin-bottom:2px}
+.hist-desc{font-size:13px;color:var(--ink);margin-bottom:2px}
 .hist-type{font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;text-transform:uppercase}
 .hist-amt{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap}
-
-/* SETTINGS */
 .sc{background:var(--paper2);border:1px solid var(--border);border-radius:4px;padding:1.25rem;margin-bottom:1rem}
 .sc h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border2)}
 .sf{margin-bottom:.85rem}
 .sf label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:4px;font-family:'DM Mono',monospace}
 .sf input{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:9px 11px;font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);outline:none}
 .sf input:focus{border-color:var(--gold2)}
-.save-btn{padding:9px 18px;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:2px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;cursor:pointer;transition:all .2s}
+.save-btn{padding:9px 18px;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:2px;font-size:13px;cursor:pointer;transition:all .2s}
 .save-btn:hover{background:var(--gold);color:var(--ink)}
-.sok{font-size:12px;color:#3B6D11;margin-top:.5rem;font-family:'Noto Sans Ethiopic',sans-serif}
-.serr{font-size:12px;color:var(--red);margin-top:.5rem;font-family:'Noto Sans Ethiopic',sans-serif}
-.anote{background:rgba(184,134,11,.07);border:1px solid rgba(184,134,11,.22);border-radius:3px;padding:.75rem;margin-top:.75rem;font-size:11px;color:var(--gold);font-family:'Noto Sans Ethiopic',sans-serif;line-height:1.7}
-
+.sok{font-size:12px;color:#3B6D11;margin-top:.5rem}.serr{font-size:12px;color:var(--red);margin-top:.5rem}
 .empty{text-align:center;padding:2rem 1rem;color:var(--gold);font-size:13px;font-family:'Noto Sans Ethiopic',sans-serif;opacity:.4}
 .empty .ico{font-size:28px;display:block;margin-bottom:.5rem}
 .spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(184,134,11,.2);border-top-color:var(--gold);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:5px}
 @keyframes sp{to{transform:rotate(360deg)}}
-.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:3px;padding:.75rem 1.25rem;font-size:13px;font-family:'Noto Sans Ethiopic',sans-serif;z-index:999;box-shadow:var(--shadow);display:none;animation:fi .3s ease;max-width:320px}
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:3px;padding:.75rem 1.25rem;font-size:13px;z-index:999;box-shadow:var(--shadow);display:none;animation:fi .3s ease;max-width:320px}
 .filter-btns{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
-.fbtn{padding:5px 12px;background:transparent;border:1px solid rgba(184,134,11,.25);border-radius:2px;color:rgba(184,134,14,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.fbtn{padding:5px 12px;background:transparent;border:1px solid rgba(184,134,11,.25);border-radius:2px;color:rgba(184,134,11,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
 .fbtn:hover,.fbtn.on{border-color:var(--gold);color:var(--gold2);background:rgba(184,134,11,.08)}
-@media(max-width:600px){.mbtn{width:68px;height:68px;font-size:26px}.hero{padding:1.25rem 1rem}.kpi{padding:.6rem}.topbar{padding:8px 1rem}}
+/* DEPRECIATION */
+.dep-banner{background:linear-gradient(135deg,var(--ink2),var(--ink3));border:2px solid var(--rust);border-radius:4px;padding:1.25rem;margin-bottom:1.25rem}
+.dep-banner h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold3);margin-bottom:.5rem}
+.dep-banner p{font-size:12px;color:rgba(240,192,64,.7);margin-bottom:1rem}
+.dep-item{background:rgba(255,255,255,.04);border:1px solid rgba(184,134,11,.2);border-radius:3px;padding:.75rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
+.dep-item-info{flex:1}
+.dep-item-name{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold3);margin-bottom:2px}
+.dep-item-detail{font-size:11px;color:rgba(240,192,64,.5);font-family:'DM Mono',monospace}
+.dep-item-amt{font-family:'DM Mono',monospace;font-size:14px;color:#7ADA7A;font-weight:500;white-space:nowrap}
+.dep-post-btn{padding:8px 16px;background:var(--rust);color:#fff;border:none;border-radius:2px;font-size:12px;cursor:pointer;white-space:nowrap}
+.dep-post-btn:hover{background:#E05520}
+.dep-post-all{width:100%;padding:11px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:13px;font-weight:600;cursor:pointer;margin-top:.5rem}
+.dep-post-all:hover{background:var(--gold3)}
+.asset-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:.75rem}
+.asset-grid input,.asset-grid select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);outline:none}
+.asset-grid input:focus,.asset-grid select:focus{border-color:var(--gold2)}
+.asset-grid label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px;font-family:'DM Mono',monospace}
+.add-asset-btn{padding:8px 14px;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:2px;font-size:12px;cursor:pointer;font-family:'DM Mono',monospace;white-space:nowrap}
+.add-asset-btn:hover{background:var(--gold);color:var(--ink)}
+.asset-list-item{display:flex;align-items:center;gap:8px;padding:.6rem .85rem;background:var(--paper);border:1px solid var(--border2);border-radius:2px;margin-bottom:.4rem}
+.asset-list-item .ai{flex:1;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink)}
+.asset-list-item .ai small{display:block;font-size:10px;color:var(--gold);margin-top:1px}
+.asset-list-item .adep{font-family:'DM Mono',monospace;font-size:12px;color:#0C447C;white-space:nowrap}
+.del-btn{padding:3px 8px;background:transparent;border:1px solid rgba(193,68,14,.3);border-radius:2px;color:var(--rust);font-size:11px;cursor:pointer}
+.del-btn:hover{background:rgba(193,68,14,.1)}
+@media(max-width:600px){
+  .mbtn{width:68px;height:68px;font-size:26px}
+  .hero{padding:1.25rem 1rem}
+  .kpi{padding:.6rem}
+  .topbar{padding:8px 1rem}
+  .asset-grid{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="loginScreen">
   <div class="lbox">
     <div class="llogo">
@@ -200,29 +197,27 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
       <div class="lf"><label>Username · ስም ተጠቃሚ</label><input id="lu" type="text" placeholder="your username" autocomplete="username"/></div>
       <div class="lf"><label>Password · ምስጢር ቁጽሪ</label><input id="lp" type="password" placeholder="your password" autocomplete="current-password"/></div>
       <button class="lbtn-main" onclick="doLogin()">🔓 ኣቱ · Login</button>
-      <div class="lerr" id="lerr">ስም ወይ ምስጢር ጌጋ — Wrong username or password</div>
+      <div class="lerr" id="lerr">Wrong username or password</div>
       <div class="lswitch">ሓድሽ? <a onclick="showReg()">ምዝጋብ — Register</a></div>
     </div>
     <div id="regForm" style="display:none">
-      <div class="lf"><label>Business Name · ስም ስራሕ</label><input id="rb" type="text" placeholder="e.g. Asmara Trading"/></div>
-      <div class="lf"><label>Username · ስም ተጠቃሚ</label><input id="ru" type="text" placeholder="choose username"/></div>
-      <div class="lf"><label>Password · ምስጢር ቁጽሪ</label><input id="rp" type="password" placeholder="choose password"/></div>
-      <button class="lbtn-main" onclick="doReg()">✅ ምዝጋብ · Register</button>
+      <div class="lf"><label>Business Name</label><input id="rb" type="text" placeholder="e.g. Asmara Construction"/></div>
+      <div class="lf"><label>Username</label><input id="ru" type="text" placeholder="choose username"/></div>
+      <div class="lf"><label>Password</label><input id="rp" type="password" placeholder="choose password"/></div>
+      <button class="lbtn-main" onclick="doReg()">✅ Register</button>
       <div class="lerr" id="rerr" style="display:none"></div>
-      <div class="lswitch">ሕሳብ ኣሎካ? <a onclick="showLogin()">ምእታው — Login</a></div>
+      <div class="lswitch">Have account? <a onclick="showLogin()">Login</a></div>
     </div>
   </div>
 </div>
 
-<!-- MAIN APP -->
 <div id="mainApp">
   <div class="topbar">
     <div class="tb-logo">🏛️ ሓሳቢ ኣስመራ <span id="topBiz">Pro</span></div>
     <div class="tb-user" id="topUser">—</div>
     <button class="tbtn" onclick="go('settings',this)">⚙️</button>
-    <button class="tbtn" onclick="doLogout()" style="color:#FF8A7A;border-color:rgba(193,68,14,.3)">🔒 ምውጻእ</button>
+    <button class="tbtn" onclick="doLogout()" style="color:#FF8A7A;border-color:rgba(193,68,14,.3)">🔒 Exit</button>
   </div>
-
   <div class="app">
     <div class="nav">
       <button class="nb on" onclick="go('home',this)">🎙️<span>ሎሚ</span><span class="en">Record</span></button>
@@ -234,13 +229,15 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
       <button class="nb" onclick="go('balance',this)">🏛️<span>ሚዛን ሓሳብ</span><span class="en">Balance</span></button>
       <button class="nb" onclick="go('cashflow',this)">💧<span>ምንቅስቃስ</span><span class="en">Cash Flow</span></button>
       <button class="nb" onclick="go('equity',this)">🏦<span>ካፒታል</span><span class="en">Equity</span></button>
+      <button class="nb" onclick="go('depreciation',this)">📉<span>ምምካን</span><span class="en">Depreciation</span></button>
       <button class="nb" onclick="go('settings',this)">⚙️<span>ቅጥዒ</span><span class="en">Settings</span></button>
     </div>
 
     <!-- HOME -->
     <div class="page on" id="pg-home">
+      <div id="depReminder" style="display:none"></div>
       <div class="hero">
-        <div class="hero-tag">ሎሚ እንታይ ዓሚልካ? ገዝኣካ? ሸየጥካ? — What happened today?</div>
+        <div class="hero-tag">ሎሚ እንታይ ዓሚልካ? — What happened today?</div>
         <div class="lang-row">
           <button class="lb on" id="l-en" onclick="setLang('en')">English</button>
           <button class="lb" id="l-ti" onclick="setLang('ti')">ትግርኛ</button>
@@ -252,21 +249,20 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
         <div class="mic-st" id="micSt">ንምዝራብ ጠውቕ · Tap to Speak</div>
         <div class="mic-hint" id="micHint">ሎሚ ዝኾነ ዓሚልካ ተዛረብ ወይ ጸሓፍ</div>
         <div class="inp-row">
-          <input class="txtin" id="txtin" placeholder="ወይ ኣብዚ ጸሓፍ… e.g. ሎሚ ዓሚል ንብረት ሸየጠ $500"/>
+          <input class="txtin" id="txtin" placeholder="e.g. paid salary 3000 cash / bought cement 50 bags 150 each"/>
           <button class="gobtn" onclick="doSub()">↗</button>
         </div>
         <div class="chips">
-          <div class="chip" onclick="useSample(this.textContent)">ሎሚ ማሽን ገዝኣ $5000 ብጥረ</div>
-          <div class="chip" onclick="useSample(this.textContent)">ዓሚል ንብረት ሸየጠ $800</div>
-          <div class="chip" onclick="useSample(this.textContent)">ገዛ ኪራይ ከፈለ $300</div>
-          <div class="chip" onclick="useSample(this.textContent)">ንብረት ገዝኣ $1200 ብዕዳ</div>
+          <div class="chip" onclick="useSample(this.textContent)">paid salary 3000</div>
+          <div class="chip" onclick="useSample(this.textContent)">bought cement 30 bags each 200$</div>
+          <div class="chip" onclick="useSample(this.textContent)">we add money 5000</div>
+          <div class="chip" onclick="useSample(this.textContent)">paid rent 1000</div>
+          <div class="chip" onclick="useSample(this.textContent)">client paid advance 10000</div>
           <div class="chip" onclick="useSample(this.textContent)">ሰራሕተኛ ደሞዝ $400</div>
-          <div class="chip" onclick="useSample(this.textContent)">ካፒታል ናይ ውልቀ $10000</div>
           <div class="chip" onclick="useSample(this.textContent)">Customer paid $500 cash</div>
           <div class="chip" onclick="useSample(this.textContent)">Bought inventory $1200 credit</div>
         </div>
       </div>
-
       <div class="pcard" id="pcard">
         <div class="phdr"><span>🤖</span><h3 id="ptitle">ትንታነ</h3><span class="ptag" id="ptype">—</span></div>
         <div class="mgrid" id="pmeta"></div>
@@ -280,75 +276,111 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
     <div class="page" id="pg-history">
       <div class="shdr"><h2>History</h2><span class="ti">ታሪኽ ዕዳጋ</span><span class="cnt" id="hcnt">0</span></div>
       <div class="filter-btns">
-        <button class="fbtn on" onclick="filterH('all',this)">All · ኩሎም</button>
-        <button class="fbtn" onclick="filterH('today',this)">Today · ሎሚ</button>
+        <button class="fbtn on" onclick="filterH('all',this)">All</button>
+        <button class="fbtn" onclick="filterH('today',this)">Today</button>
         <button class="fbtn" onclick="filterH('week',this)">This Week</button>
         <button class="fbtn" onclick="filterH('month',this)">This Month</button>
       </div>
-      <div id="histList"><div class="empty"><span class="ico">📅</span>ታሪኽ ዘይብልካ ።</div></div>
+      <div id="histList"><div class="empty"><span class="ico">📅</span>No history yet</div></div>
     </div>
 
     <!-- JOURNAL -->
     <div class="page" id="pg-journal">
       <div class="shdr"><h2>General Journal</h2><span class="ti">ደፍተር ሕሳብ</span><span class="cnt" id="jcnt">0</span></div>
-      <div id="jFull"><div class="empty"><span class="ico">📒</span>ሕሳብ ዘይብልካ ።</div></div>
+      <div id="jFull"><div class="empty"><span class="ico">📒</span>No entries yet</div></div>
     </div>
 
     <!-- LEDGER -->
     <div class="page" id="pg-ledger">
       <div class="shdr"><h2>General Ledger</h2><span class="ti">ሌጀር</span></div>
-      <div id="lFull"><div class="empty"><span class="ico">📗</span>ሌጀር ባዶ ።</div></div>
+      <div id="lFull"><div class="empty"><span class="ico">📗</span>No entries yet</div></div>
     </div>
 
     <!-- TRIAL -->
     <div class="page" id="pg-trial">
       <div class="shdr"><h2>Trial Balance</h2><span class="ti">ፈተነ ሚዛን</span></div>
-      <div id="tFull"><div class="empty"><span class="ico">⚖️</span>ፈተነ ሚዛን ባዶ ።</div></div>
+      <div id="tFull"><div class="empty"><span class="ico">⚖️</span>No entries yet</div></div>
     </div>
 
     <!-- INCOME -->
     <div class="page" id="pg-income">
       <div class="shdr"><h2>Income Statement</h2><span class="ti">መኸሰብ ወይ ክሳራ</span></div>
-      <div id="iFull"><div class="empty"><span class="ico">💰</span>ሕሳብ ምስ ኣለዎ ።</div></div>
+      <div id="iFull"><div class="empty"><span class="ico">💰</span>No entries yet</div></div>
     </div>
 
     <!-- BALANCE -->
     <div class="page" id="pg-balance">
       <div class="shdr"><h2>Balance Sheet</h2><span class="ti">ሚዛን ሓሳብ</span></div>
-      <div id="bFull"><div class="empty"><span class="ico">🏛️</span>ሕሳብ ምስ ኣለዎ ።</div></div>
+      <div id="bFull"><div class="empty"><span class="ico">🏛️</span>No entries yet</div></div>
     </div>
 
     <!-- CASHFLOW -->
     <div class="page" id="pg-cashflow">
       <div class="shdr"><h2>Cash Flow</h2><span class="ti">ምንቅስቃስ ገንዘብ</span></div>
-      <div id="cFull"><div class="empty"><span class="ico">💧</span>ሕሳብ ምስ ኣለዎ ።</div></div>
+      <div id="cFull"><div class="empty"><span class="ico">💧</span>No entries yet</div></div>
     </div>
 
     <!-- EQUITY -->
     <div class="page" id="pg-equity">
       <div class="shdr"><h2>Owner's Equity</h2><span class="ti">ካፒታል ናይ ውልቀ</span></div>
-      <div id="eFull"><div class="empty"><span class="ico">🏦</span>ሕሳብ ምስ ኣለዎ ።</div></div>
+      <div id="eFull"><div class="empty"><span class="ico">🏦</span>No entries yet</div></div>
+    </div>
+
+    <!-- DEPRECIATION -->
+    <div class="page" id="pg-depreciation">
+      <div class="shdr"><h2>Depreciation</h2><span class="ti">ምምካን ንብረት</span></div>
+      <div class="sc">
+        <h3>➕ Add Asset · ሓድሽ ንብረት</h3>
+        <div class="asset-grid">
+          <div><label>Asset Name</label><input id="aName" type="text" placeholder="e.g. Excavator"/></div>
+          <div><label>Type</label>
+            <select id="aType">
+              <option value="Equipment">Equipment</option>
+              <option value="Vehicles">Vehicles</option>
+              <option value="Building">Building</option>
+              <option value="Heavy Machinery">Heavy Machinery</option>
+            </select>
+          </div>
+          <div><label>Cost ($)</label><input id="aCost" type="number" placeholder="50000"/></div>
+          <div><label>Life (Years)</label><input id="aLife" type="number" placeholder="10"/></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap;margin-bottom:.5rem">
+          <div style="flex:1;min-width:160px">
+            <label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px;font-family:'DM Mono',monospace">Purchase Date</label>
+            <input id="aDate" type="date" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);outline:none"/>
+          </div>
+          <button class="add-asset-btn" onclick="addAsset()">➕ Add Asset</button>
+        </div>
+        <div id="assetAddSt" style="font-size:12px;font-family:'DM Mono',monospace"></div>
+      </div>
+      <div class="sc">
+        <h3>📋 Asset Register</h3>
+        <div id="assetList"><div class="empty"><span class="ico">🏗️</span>No assets yet</div></div>
+      </div>
+      <div class="sc">
+        <h3>📅 Monthly Depreciation Due</h3>
+        <div id="depDueList"><div class="empty"><span class="ico">📉</span>Add assets above to track depreciation</div></div>
+      </div>
     </div>
 
     <!-- SETTINGS -->
     <div class="page" id="pg-settings">
       <div class="shdr"><h2>Settings</h2><span class="ti">ቅጥዒ</span></div>
       <div class="sc">
-        <h3>🏢 Business Name · ስም ስራሕ</h3>
-        <div class="sf"><label>Business Name</label><input id="bizF" type="text" placeholder="e.g. Asmara Trading"/></div>
-        <button class="save-btn" onclick="saveBiz()">Save · ዓቅብ</button>
+        <h3>🏢 Business Name</h3>
+        <div class="sf"><label>Business Name</label><input id="bizF" type="text" placeholder="e.g. Asmara Construction"/></div>
+        <button class="save-btn" onclick="saveBiz()">Save</button>
       </div>
       <div class="sc">
-        <h3>🔐 Change Password · ቀይር ምስጢር</h3>
-        <div class="sf"><label>Current Password</label><input id="op" type="password" placeholder="current password"/></div>
-        <div class="sf"><label>New Password</label><input id="np" type="password" placeholder="new password"/></div>
-        <button class="save-btn" onclick="changePw()">Change · ቀይር</button>
+        <h3>🔐 Change Password</h3>
+        <div class="sf"><label>Current Password</label><input id="op" type="password"/></div>
+        <div class="sf"><label>New Password</label><input id="np" type="password"/></div>
+        <button class="save-btn" onclick="changePw()">Change</button>
         <div id="pwSt"></div>
       </div>
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
@@ -357,30 +389,22 @@ function getU(){return JSON.parse(localStorage.getItem('hisab_u')||'{}');}
 function setU(u){localStorage.setItem('hisab_u',JSON.stringify(u));}
 function getCU(){return localStorage.getItem('hisab_cu');}
 function setCU(u){localStorage.setItem('hisab_cu',u);}
-
 function doLogin(){
-  const u=document.getElementById('lu').value.trim();
-  const p=document.getElementById('lp').value;
-  const users=getU();
+  const u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value,users=getU();
   if(!users[u]||users[u].pass!==btoa(p)){document.getElementById('lerr').style.display='block';return;}
-  document.getElementById('lerr').style.display='none';
-  setCU(u);loadApp(u,users[u]);
+  document.getElementById('lerr').style.display='none';setCU(u);loadApp(u,users[u]);
 }
 function doReg(){
-  const b=document.getElementById('rb').value.trim();
-  const u=document.getElementById('ru').value.trim();
-  const p=document.getElementById('rp').value;
-  const re=document.getElementById('rerr');
-  if(!b||!u||!p){re.style.display='block';re.textContent='ኩሎም መሙላ — Fill all fields';return;}
+  const b=document.getElementById('rb').value.trim(),u=document.getElementById('ru').value.trim(),p=document.getElementById('rp').value,re=document.getElementById('rerr');
+  if(!b||!u||!p){re.style.display='block';re.textContent='Fill all fields';return;}
   const users=getU();
-  if(users[u]){re.style.display='block';re.textContent='ስም ተጠቃሚ ኣሎ — Username taken';return;}
-  users[u]={pass:btoa(p),biz:b,entries:[],nextId:1};
+  if(users[u]){re.style.display='block';re.textContent='Username taken';return;}
+  users[u]={pass:btoa(p),biz:b,entries:[],nextId:1,assets:[]};
   setU(users);setCU(u);loadApp(u,users[u]);
 }
 function showReg(){document.getElementById('loginForm').style.display='none';document.getElementById('regForm').style.display='block';}
 function showLogin(){document.getElementById('regForm').style.display='none';document.getElementById('loginForm').style.display='block';}
 function doLogout(){localStorage.removeItem('hisab_cu');document.getElementById('mainApp').style.display='none';document.getElementById('loginScreen').style.display='flex';document.getElementById('lu').value='';document.getElementById('lp').value='';}
-
 function loadApp(username,data){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('mainApp').style.display='block';
@@ -389,37 +413,33 @@ function loadApp(username,data){
   document.getElementById('bizF').value=data.biz||'';
   DB.entries=data.entries||[];
   DB.nextId=data.nextId||1;
+  DB.assets=data.assets||[];
   rAll();
+  checkDepReminder();
 }
-
 window.addEventListener('load',()=>{
   const cu=getCU();
   if(cu){const u=getU();if(u[cu])loadApp(cu,u[cu]);}
+  document.getElementById('aDate').value=new Date().toISOString().split('T')[0];
 });
-
 function saveData(){
   const cu=getCU();if(!cu)return;
-  const u=getU();u[cu].entries=DB.entries;u[cu].nextId=DB.nextId;setU(u);
+  const u=getU();u[cu].entries=DB.entries;u[cu].nextId=DB.nextId;u[cu].assets=DB.assets;setU(u);
 }
 function saveBiz(){
-  const b=document.getElementById('bizF').value.trim();
-  const cu=getCU();const u=getU();u[cu].biz=b;setU(u);
-  document.getElementById('topBiz').textContent=b||'Pro';
-  showToast('✅ Business name saved!');
+  const b=document.getElementById('bizF').value.trim(),cu=getCU(),u=getU();u[cu].biz=b;setU(u);
+  document.getElementById('topBiz').textContent=b||'Pro';showToast('✅ Business name saved!');
 }
 function changePw(){
-  const o=document.getElementById('op').value;
-  const n=document.getElementById('np').value;
-  const cu=getCU();const u=getU();
-  if(u[cu].pass!==btoa(o)){document.getElementById('pwSt').innerHTML='<div class="serr">ሕጂ ምስጢር ጌጋ</div>';return;}
-  if(!n){document.getElementById('pwSt').innerHTML='<div class="serr">ሓድሽ ምስጢር ኣቕርብ</div>';return;}
-  u[cu].pass=btoa(n);setU(u);
-  document.getElementById('pwSt').innerHTML='<div class="sok">✅ ምስጢር ቀይሩ!</div>';
+  const o=document.getElementById('op').value,n=document.getElementById('np').value,cu=getCU(),u=getU();
+  if(u[cu].pass!==btoa(o)){document.getElementById('pwSt').innerHTML='<div class="serr">Wrong password</div>';return;}
+  if(!n){document.getElementById('pwSt').innerHTML='<div class="serr">Enter new password</div>';return;}
+  u[cu].pass=btoa(n);setU(u);document.getElementById('pwSt').innerHTML='<div class="sok">✅ Changed!</div>';
   document.getElementById('op').value='';document.getElementById('np').value='';
 }
 
 // ── STATE ──
-const DB={entries:[],nextId:1};
+const DB={entries:[],nextId:1,assets:[]};
 let lang='en',listening=false,recog=null,pending=null;
 
 // ── NAV ──
@@ -428,214 +448,131 @@ function go(pg,btn){
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
   document.getElementById('pg-'+pg).classList.add('on');
   if(btn)btn.classList.add('on');
-  if(pg==='journal')rJ();
-  if(pg==='ledger')rLedger();
-  if(pg==='trial')rTrial();
-  if(pg==='income')rIncome();
-  if(pg==='balance')rBalance();
-  if(pg==='cashflow')rCF();
-  if(pg==='equity')rEq();
-  if(pg==='history')rHistory('all');
+  // Always re-render the target page so it shows latest data
+  const renders={journal:rJ,ledger:rLedger,trial:rTrial,income:rIncome,balance:rBalance,cashflow:rCF,equity:rEq,history:()=>rHistory('all'),depreciation:rDepPage};
+  if(renders[pg])renders[pg]();
 }
+
+// ── rAll: called after every post to update everything ──
 function rAll(){
   rJ();rLedger();rTrial();rIncome();rBalance();rCF();rEq();rHistory('all');
   document.getElementById('jcnt').textContent=DB.entries.length;
   document.getElementById('hcnt').textContent=DB.entries.length;
 }
 
-// ── LANG ──
 function setLang(l){
   lang=l;
   document.getElementById('l-en').classList.toggle('on',l==='en');
   document.getElementById('l-ti').classList.toggle('on',l==='ti');
-  document.getElementById('txtin').placeholder=l==='ti'?'ሎሚ እንታይ ዓሚልካ… ዓሚል ንብረት ሸየጠ $500':'Or type here… e.g. Customer bought goods $500 cash';
 }
 
 // ── VOICE ──
 function toggleMic(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){showToast('⚠️ Use Chrome or Edge for voice. Please type instead.');return;}
+  if(!SR){showToast('⚠️ Use Chrome/Edge for voice.');return;}
   if(listening){recog.stop();return;}
-  recog=new SR();
-  recog.lang=lang==='ti'?'ti-ET':'en-US';
-  recog.continuous=false;recog.interimResults=true;
-  recog.onstart=()=>{listening=true;document.getElementById('micBtn').classList.add('listening');document.getElementById('micSt').textContent='🔴 ይሰምዕ ኣሎ · Listening...';document.getElementById('micIco').textContent='🔴';};
-  recog.onresult=e=>{const t=Array.from(e.results).map(r=>r[0].transcript).join('');document.getElementById('txtin').value=t;document.getElementById('micHint').textContent='📝 '+t;};
+  recog=new SR();recog.lang=lang==='ti'?'ti-ET':'en-US';recog.continuous=false;recog.interimResults=true;
+  recog.onstart=()=>{listening=true;document.getElementById('micBtn').classList.add('listening');document.getElementById('micSt').textContent='🔴 Listening...';document.getElementById('micIco').textContent='🔴';};
+  recog.onresult=e=>{const t=Array.from(e.results).map(r=>r[0].transcript).join('');document.getElementById('txtin').value=t;};
   recog.onend=()=>{listening=false;document.getElementById('micBtn').classList.remove('listening');document.getElementById('micSt').textContent='ንምዝራብ ጠውቕ · Tap to Speak';document.getElementById('micIco').textContent='🎙️';const t=document.getElementById('txtin').value.trim();if(t.length>2)parse(t);};
-  recog.onerror=e=>{listening=false;document.getElementById('micBtn').classList.remove('listening');document.getElementById('micIco').textContent='🎙️';if(e.error==='not-allowed')showToast('⚠️ Allow microphone access in browser settings.');else showToast('⚠️ Voice error: '+e.error+'. Please type.');};
-  try{recog.start();}catch(e){showToast('⚠️ Microphone error. Please type.');}
+  recog.onerror=()=>{listening=false;document.getElementById('micBtn').classList.remove('listening');document.getElementById('micIco').textContent='🎙️';showToast('⚠️ Voice error. Please type.');};
+  try{recog.start();}catch(e){showToast('⚠️ Mic error. Please type.');}
 }
 function doSub(){const t=document.getElementById('txtin').value.trim();if(t.length>2)parse(t);}
 function useSample(t){document.getElementById('txtin').value=t;parse(t);}
 document.getElementById('txtin').addEventListener('keydown',e=>{if(e.key==='Enter')doSub();});
 
-// ── AI PARSE ──────────────────────────────────────────────────────────────────
-// The system prompt lives in /api/ai.js on the server.
-// We just send the raw user text. The server returns JSON with this shape:
-// { type, description, date, entries:[{account, type, debit, credit}], amount, currency }
-// ─────────────────────────────────────────────────────────────────────────────
+// ── AI PARSE ──
 async function parse(text){
   const card=document.getElementById('pcard');
   card.style.display='block';
   document.getElementById('ptitle').innerHTML='<span class="spin"></span> AI ይሓስብ ኣሎ...';
-  document.getElementById('pmeta').innerHTML='';
-  document.getElementById('pprev').innerHTML='';
-  document.getElementById('pmemo').innerHTML='';
-  document.getElementById('postBtn').disabled=true;
-  pending=null;
-
+  document.getElementById('pmeta').innerHTML='';document.getElementById('pprev').innerHTML='';document.getElementById('pmemo').innerHTML='';
+  document.getElementById('postBtn').disabled=true;pending=null;
   try{
-    const res=await fetch('/api/ai',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({prompt:text})
-    });
-    if(!res.ok){const e=await res.json();throw new Error(e.error||'Server error '+res.status);}
+    const res=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:text})});
+    if(!res.ok){const e=await res.json();throw new Error(e.error||'Server error');}
     const data=await res.json();
-
-    // Clean and parse the JSON returned by the AI
-    let raw=(data.result||'').trim();
-    // Strip markdown code fences if model adds them
-    raw=raw.replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/```\s*$/,'').trim();
+    let raw=(data.result||'').trim().replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/```\s*$/,'').trim();
     const m=raw.match(/\{[\s\S]*\}/);
-    if(!m)throw new Error('AI did not return valid JSON. Raw: '+raw.substring(0,200));
+    if(!m)throw new Error('AI did not return valid JSON');
     const p=JSON.parse(m[0]);
-
-    // If AI returned an error field
     if(p.error)throw new Error(p.error);
-
-    // Validate entries exist
-    if(!p.entries||!Array.isArray(p.entries)||p.entries.length===0){
-      throw new Error('AI returned no journal entries. Please rephrase your transaction.');
-    }
-
-    pending=p;
-    showParsed(p);
-
+    if(!p.entries||!p.entries.length)throw new Error('No journal entries returned. Please rephrase.');
+    pending=p;showParsed(p);
   }catch(err){
-    let msg=err.message||'Unknown error';
-    document.getElementById('ptitle').textContent='⚠️ ጌጋ — Error';
-    document.getElementById('pmemo').textContent=msg;
-    document.getElementById('postBtn').disabled=true;
-    console.error('Parse error:',err);
+    document.getElementById('ptitle').textContent='⚠️ Error';
+    document.getElementById('pmemo').textContent=err.message;
+    console.error(err);
   }
 }
 
-// ── DISPLAY PARSED RESULT ─────────────────────────────────────────────────────
-// Reads the new format: entries:[{account, type, debit, credit}]
-// ─────────────────────────────────────────────────────────────────────────────
+// ── SHOW PARSED ──
 function showParsed(e){
   document.getElementById('ptitle').textContent='ናይ AI ትንታነ — Analysis';
   document.getElementById('ptype').textContent=(e.type||'—').toUpperCase();
-
-  // Meta boxes
   document.getElementById('pmeta').innerHTML=`
     <div class="mbox"><div class="mlbl">ዕለት</div><div class="mval">${e.date||'—'}</div></div>
     <div class="mbox"><div class="mlbl">ዋጋ</div><div class="mval">$${fmt(e.amount||0)}</div></div>
-    <div class="mbox"><div class="mlbl">ገንዘብ</div><div class="mval">${e.currency||'USD'}</div></div>
-    <div class="mbox" style="grid-column:1/-1"><div class="mlbl">መግለጺ</div><div class="mval">${e.description||'—'}</div></div>`;
-
-  // Journal entry rows — new format uses entries[] with debit/credit fields
-  const debits=(e.entries||[]).filter(r=>r.debit>0);
-  const credits=(e.entries||[]).filter(r=>r.credit>0);
-
+    <div class="mbox"><div class="mlbl">Currency</div><div class="mval">${e.currency||'USD'}</div></div>
+    <div class="mbox" style="grid-column:1/-1"><div class="mlbl">Description</div><div class="mval">${e.description||'—'}</div></div>`;
+  const debits=(e.entries||[]).filter(r=>(+r.debit)>0);
+  const credits=(e.entries||[]).filter(r=>(+r.credit)>0);
   let rows='';
-  debits.forEach(d=>{
-    rows+=`<tr>
-      <td><span class="drt">Dr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${d.account}</span>
-      <br><small style="color:var(--gold);font-size:10px;opacity:.7">${d.type||''}</small></td>
-      <td class="amt dr">$${fmt(d.debit)}</td>
-      <td></td>
-    </tr>`;
-  });
-  credits.forEach(c=>{
-    rows+=`<tr>
-      <td style="padding-left:1.5rem"><span class="crt">Cr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${c.account}</span>
-      <br><small style="color:var(--gold);font-size:10px;opacity:.7">${c.type||''}</small></td>
-      <td></td>
-      <td class="amt cr">$${fmt(c.credit)}</td>
-    </tr>`;
-  });
-
-  // Totals row
-  const totDr=debits.reduce((s,r)=>s+r.debit,0);
-  const totCr=credits.reduce((s,r)=>s+r.credit,0);
-  const balanced=Math.abs(totDr-totCr)<0.01;
-  rows+=`<tr style="background:var(--ink)">
-    <td style="color:var(--gold2);font-family:'DM Mono',monospace;font-size:10px">ጠቅላላ ${balanced?'✅':'⚠️ NOT BALANCED'}</td>
-    <td class="amt" style="color:#7AB4FF;font-family:'DM Mono',monospace">$${fmt(totDr)}</td>
-    <td class="amt" style="color:#7ADA7A;font-family:'DM Mono',monospace">$${fmt(totCr)}</td>
-  </tr>`;
-
-  document.getElementById('pprev').innerHTML=`
-    <table>
-      <thead><tr><th>ሕሳብ · Account</th><th class="amt">ዴቢት</th><th class="amt">ክሬዲት</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>`;
-
+  debits.forEach(d=>{rows+=`<tr><td><span class="drt">Dr</span>${d.account}<br><small style="color:var(--gold);font-size:10px">${d.type||''}</small></td><td class="amt dr">$${fmt(+d.debit)}</td><td></td></tr>`;});
+  credits.forEach(c=>{rows+=`<tr><td style="padding-left:1.5rem"><span class="crt">Cr</span>${c.account}<br><small style="color:var(--gold);font-size:10px">${c.type||''}</small></td><td></td><td class="amt cr">$${fmt(+c.credit)}</td></tr>`;});
+  const totDr=debits.reduce((s,r)=>s+(+r.debit),0);
+  const totCr=credits.reduce((s,r)=>s+(+r.credit),0);
+  const balanced=Math.abs(totDr-totCr)<0.02;
+  rows+=`<tr style="background:var(--ink)"><td style="color:var(--gold2);font-size:10px">Total ${balanced?'✅ Balanced':'⚠️ NOT BALANCED'}</td><td class="amt" style="color:#7AB4FF">$${fmt(totDr)}</td><td class="amt" style="color:#7ADA7A">$${fmt(totCr)}</td></tr>`;
+  document.getElementById('pprev').innerHTML=`<table><thead><tr><th>Account</th><th class="amt">Debit</th><th class="amt">Credit</th></tr></thead><tbody>${rows}</tbody></table>`;
   document.getElementById('pmemo').textContent=e.description||'';
   document.getElementById('postBtn').disabled=!balanced;
-  if(!balanced)showToast('⚠️ Debits ≠ Credits — please rephrase');
+  if(!balanced)showToast('⚠️ Debits do not equal Credits — try rephrasing');
 }
 
-// ── POST TO JOURNAL ───────────────────────────────────────────────────────────
+// ── POST TO JOURNAL ──
 function postEntry(){
   if(!pending)return;
-
-  // Convert new entries[] format to internal debits[]/credits[] for storage
-  const debits=(pending.entries||[]).filter(r=>r.debit>0).map(r=>({
-    acct:r.account,
-    acct_ti:r.account,
-    amt:r.debit,
-    atype:r.type?r.type.toLowerCase():'asset'
+  // Convert entries[] → internal debits[]/credits[] format
+  // KEY FIX: store atype as lowercase — this is what financial statements filter on
+  const debits=(pending.entries||[]).filter(r=>(+r.debit)>0).map(r=>({
+    acct:r.account, acct_ti:r.account,
+    amt:+(+r.debit).toFixed(2),
+    atype:(r.type||'asset').toLowerCase()   // ← ALWAYS lowercase
   }));
-  const credits=(pending.entries||[]).filter(r=>r.credit>0).map(r=>({
-    acct:r.account,
-    acct_ti:r.account,
-    amt:r.credit,
-    atype:r.type?r.type.toLowerCase():'asset'
+  const credits=(pending.entries||[]).filter(r=>(+r.credit)>0).map(r=>({
+    acct:r.account, acct_ti:r.account,
+    amt:+(+r.credit).toFixed(2),
+    atype:(r.type||'asset').toLowerCase()   // ← ALWAYS lowercase
   }));
-
   const entry={
-    id:DB.nextId++,
-    date:pending.date,
-    postedAt:new Date().toISOString(),
+    id:DB.nextId++, date:pending.date, postedAt:new Date().toISOString(),
     type:pending.type||'Other',
     amount:pending.amount||debits.reduce((s,r)=>s+r.amt,0),
-    payment:'Cash',
-    desc_ti:pending.description||'',
-    desc_en:pending.description||'',
-    memo_ti:pending.description||'',
-    memo_en:pending.description||'',
-    is_fixed_asset:false,
-    asset_life_years:0,
-    debits,
-    credits
+    desc_ti:pending.description||'', desc_en:pending.description||'',
+    memo_ti:pending.description||'', memo_en:pending.description||'',
+    debits, credits
   };
-
   DB.entries.push(entry);
   pending=null;
   saveData();
-  rAll();
-
-  document.getElementById('postBtn').textContent='✅ ተቐሚጡ!';
+  rAll(); // ← updates ALL financial statements immediately
+  document.getElementById('postBtn').textContent='✅ Posted!';
   document.getElementById('postBtn').disabled=true;
-  showToast('✅ ሕሳብ ተቐሚጡ — Entry saved!');
-  setTimeout(()=>{
-    document.getElementById('postBtn').textContent='✅ ናብ ደፍተር ምቕማጥ · Post to Journal';
-  },2000);
+  showToast('✅ Entry saved — all statements updated!');
+  setTimeout(()=>{document.getElementById('postBtn').textContent='✅ ናብ ደፍተር ምቕማጥ · Post to Journal';},2500);
 }
 
-// ── HELPERS ──
-function fmt(v){return(+v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
-
+// ══════════════════════════════════════════
+// LEDGER & BALANCE — core data functions
+// ══════════════════════════════════════════
 function getLedger(){
   const a={};
   DB.entries.forEach(e=>{
     [...(e.debits||[]).map(d=>({...d,side:'dr'})),...(e.credits||[]).map(c=>({...c,side:'cr'}))].forEach(item=>{
       if(!a[item.acct])a[item.acct]={ti:item.acct_ti||item.acct,type:item.atype,rows:[]};
-      a[item.acct].rows.push({date:e.date,desc:e.desc_ti,side:item.side,amt:item.amt});
+      a[item.acct].rows.push({date:e.date,desc:e.desc_ti||e.desc_en,side:item.side,amt:item.amt});
     });
   });
   return a;
@@ -654,7 +591,7 @@ function getBal(){
 function filterH(f,btn){document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');rHistory(f);}
 function rHistory(f){
   const el=document.getElementById('histList');
-  if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>ታሪኽ ዘይብልካ ።</div>';return;}
+  if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>No history yet</div>';return;}
   const now=new Date();
   let list=[...DB.entries].reverse().filter(e=>{
     if(f==='all')return true;
@@ -664,93 +601,86 @@ function rHistory(f){
     if(f==='month'){const m=new Date(now);m.setMonth(now.getMonth()-1);return d>=m;}
     return true;
   });
-  if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>ኣብዚ ዝርዝር ዘይብልካ ።</div>';return;}
-  el.innerHTML=list.map(e=>`<div class="hist-item"><div class="hist-date">${e.date}<br><span style="color:rgba(184,134,11,.35);font-size:9px">#${e.id}</span></div><div class="hist-body"><div class="hist-desc">${e.desc_ti||e.desc_en||'—'}</div><div class="hist-type">${e.type||'—'}</div></div><div class="hist-amt">$${fmt(e.amount||0)}</div></div>`).join('');
+  if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>No entries for this period</div>';return;}
+  el.innerHTML=list.map(e=>`<div class="hist-item"><div class="hist-date">${e.date}<br><span style="color:rgba(184,134,11,.35);font-size:9px">#${e.id}</span></div><div class="hist-body"><div class="hist-desc">${e.desc_en||'—'}</div><div class="hist-type">${e.type||'—'}</div></div><div class="hist-amt">$${fmt(e.amount||0)}</div></div>`).join('');
+  document.getElementById('hcnt').textContent=DB.entries.length;
 }
 
 // ── JOURNAL ──
 function rJ(){
   const el=document.getElementById('jFull');
-  if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📒</span>ሕሳብ ዘይብልካ ።</div>';return;}
+  if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📒</span>No entries yet</div>';return;}
   let rows='';
   DB.entries.forEach(e=>{
-    (e.debits||[]).forEach((d,i)=>{
-      rows+=`<tr>
-        <td style="white-space:nowrap;font-size:11px">${i===0?e.date:''}</td>
-        <td style="font-size:10px;color:var(--gold)">${i===0?'#'+e.id:''}</td>
-        <td><span class="drt">Dr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${d.acct_ti||d.acct}</span>
-        <br><small style="color:var(--gold);font-size:10px">${d.acct}</small></td>
-        <td class="amt dr">$${fmt(d.amt)}</td>
-        <td></td>
-      </tr>`;
-    });
-    (e.credits||[]).forEach(c=>{
-      rows+=`<tr>
-        <td></td><td></td>
-        <td style="padding-left:1.5rem"><span class="crt">Cr</span><span style="font-family:'Noto Sans Ethiopic',sans-serif">${c.acct_ti||c.acct}</span>
-        <br><small style="color:var(--gold);font-size:10px">${c.acct}</small></td>
-        <td></td>
-        <td class="amt cr">$${fmt(c.amt)}</td>
-      </tr>`;
-    });
-    rows+=`<tr class="mtr"><td colspan="5">${e.memo_ti||e.memo_en||''}</td></tr>`;
+    (e.debits||[]).forEach((d,i)=>{rows+=`<tr><td style="white-space:nowrap;font-size:11px">${i===0?e.date:''}</td><td style="font-size:10px;color:var(--gold)">${i===0?'#'+e.id:''}</td><td><span class="drt">Dr</span>${d.acct}<br><small style="color:var(--gold);font-size:10px">${d.atype}</small></td><td class="amt dr">$${fmt(d.amt)}</td><td></td></tr>`;});
+    (e.credits||[]).forEach(c=>{rows+=`<tr><td></td><td></td><td style="padding-left:1.5rem"><span class="crt">Cr</span>${c.acct}<br><small style="color:var(--gold);font-size:10px">${c.atype}</small></td><td></td><td class="amt cr">$${fmt(c.amt)}</td></tr>`;});
+    rows+=`<tr class="mtr"><td colspan="5">${e.memo_en||''}</td></tr>`;
   });
-  el.innerHTML=`<div class="tw"><table><thead><tr><th>ዕለት</th><th>#</th><th>ሕሳብ</th><th class="amt">ዴቢት</th><th class="amt">ክሬዲት</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  el.innerHTML=`<div class="tw"><table><thead><tr><th>Date</th><th>#</th><th>Account</th><th class="amt">Debit</th><th class="amt">Credit</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   document.getElementById('jcnt').textContent=DB.entries.length;
 }
 
 // ── LEDGER ──
 function rLedger(){
-  const el=document.getElementById('lFull');const a=getLedger();
-  if(!Object.keys(a).length){el.innerHTML='<div class="empty"><span class="ico">📗</span>ሌጀር ባዶ ።</div>';return;}
+  const el=document.getElementById('lFull'),a=getLedger();
+  if(!Object.keys(a).length){el.innerHTML='<div class="empty"><span class="ico">📗</span>No entries yet</div>';return;}
   let html='';
   Object.entries(a).forEach(([acc,data])=>{
     const dr=data.rows.filter(r=>r.side==='dr').reduce((s,r)=>s+r.amt,0);
     const cr=data.rows.filter(r=>r.side==='cr').reduce((s,r)=>s+r.amt,0);const net=dr-cr;
-    const drR=data.rows.filter(r=>r.side==='dr');const crR=data.rows.filter(r=>r.side==='cr');
+    const drR=data.rows.filter(r=>r.side==='dr'),crR=data.rows.filter(r=>r.side==='cr');
     let rows='';
-    for(let i=0;i<Math.max(drR.length,crR.length);i++){
-      const d=drR[i],c=crR[i];
-      rows+=`<tr>
-        <td style="font-size:11px;white-space:nowrap">${d?d.date:''}</td>
-        <td style="font-size:12px;font-family:'Noto Sans Ethiopic',sans-serif">${d?d.desc:''}</td>
-        <td class="amt dr">${d?'$'+fmt(d.amt):''}</td>
-        <td style="font-size:11px;white-space:nowrap">${c?c.date:''}</td>
-        <td style="font-size:12px;font-family:'Noto Sans Ethiopic',sans-serif">${c?c.desc:''}</td>
-        <td class="amt cr">${c?'$'+fmt(c.amt):''}</td>
-      </tr>`;
-    }
-    rows+=`<tr><td colspan="2" style="font-weight:500;font-size:11px;background:var(--paper2)">ጠቅላላ</td><td class="amt dr" style="font-weight:500;background:var(--paper2)">$${fmt(dr)}</td><td colspan="2" style="background:var(--paper2)"></td><td class="amt cr" style="font-weight:500;background:var(--paper2)">$${fmt(cr)}</td></tr>`;
-    html+=`<div class="la"><div class="lhdr"><div><div class="an">${acc}</div><div class="at">${data.ti}</div></div><div class="bal ${net>=0?'bdr':'bcr'}">ሚዛን: ${net>=0?'Dr':'Cr'} $${fmt(Math.abs(net))}</div></div><div class="tw" style="border:none;border-radius:0;box-shadow:none"><table><thead><tr><th>ዕለት</th><th>ዴቢት</th><th class="amt">ዋጋ</th><th>ዕለት</th><th>ክሬዲት</th><th class="amt">ዋጋ</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+    for(let i=0;i<Math.max(drR.length,crR.length);i++){const d=drR[i],c=crR[i];rows+=`<tr><td style="font-size:11px;white-space:nowrap">${d?d.date:''}</td><td style="font-size:12px">${d?d.desc:''}</td><td class="amt dr">${d?'$'+fmt(d.amt):''}</td><td style="font-size:11px;white-space:nowrap">${c?c.date:''}</td><td style="font-size:12px">${c?c.desc:''}</td><td class="amt cr">${c?'$'+fmt(c.amt):''}</td></tr>`;}
+    rows+=`<tr><td colspan="2" style="background:var(--paper2);font-weight:500;font-size:11px">Total</td><td class="amt dr" style="background:var(--paper2);font-weight:500">$${fmt(dr)}</td><td colspan="2" style="background:var(--paper2)"></td><td class="amt cr" style="background:var(--paper2);font-weight:500">$${fmt(cr)}</td></tr>`;
+    html+=`<div class="la"><div class="lhdr"><div><div class="an">${acc}</div><div class="at">${data.type}</div></div><div class="bal ${net>=0?'bdr':'bcr'}">Balance: ${net>=0?'Dr':'Cr'} $${fmt(Math.abs(net))}</div></div><div class="tw" style="border:none;border-radius:0;box-shadow:none"><table><thead><tr><th>Date</th><th>Debit Side</th><th class="amt">Amount</th><th>Date</th><th>Credit Side</th><th class="amt">Amount</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
   });
   el.innerHTML=html;
 }
 
-// ── TRIAL ──
+// ── TRIAL BALANCE ──
 function rTrial(){
-  const el=document.getElementById('tFull');const b=getBal();
-  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">⚖️</span>ፈተነ ሚዛን ባዶ ።</div>';return;}
+  const el=document.getElementById('tFull'),b=getBal();
+  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">⚖️</span>No entries yet</div>';return;}
   const rows=Object.entries(b).map(([a,v])=>({a,ti:v.ti,type:v.type,dr:v.net>0?v.net:0,cr:v.net<0?Math.abs(v.net):0}));
-  const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0);const ok=Math.abs(tDr-tCr)<0.01;
-  el.innerHTML=`<div class="${ok?'bok':'bno'}">${ok?'✅ ሚዛን ኣሎ — Balanced':'⚠️ ሚዛን የለን — Not Balanced'} · Dr $${fmt(tDr)} | Cr $${fmt(tCr)}</div><div class="tw"><table><thead><tr><th>ሕሳብ</th><th>Type</th><th class="amt">ዴቢት</th><th class="amt">ክሬዲት</th></tr></thead><tbody>${rows.map(r=>`<tr><td><span style="font-family:'Noto Sans Ethiopic',sans-serif">${r.ti}</span><br><small style="color:var(--gold);font-size:10px">${r.a}</small></td><td style="font-size:10px;color:var(--gold);text-transform:uppercase">${r.type}</td><td class="amt dr">${r.dr>0?'$'+fmt(r.dr):''}</td><td class="amt cr">${r.cr>0?'$'+fmt(r.cr):''}</td></tr>`).join('')}</tbody><tfoot><tr><td colspan="2">ጠቅላላ</td><td class="amt">$${fmt(tDr)}</td><td class="amt">$${fmt(tCr)}</td></tr></tfoot></table></div>`;
+  const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0),ok=Math.abs(tDr-tCr)<0.02;
+  el.innerHTML=`<div class="${ok?'bok':'bno'}">${ok?'✅ Balanced':'⚠️ Not Balanced'} · Dr $${fmt(tDr)} | Cr $${fmt(tCr)}</div>
+  <div class="tw"><table><thead><tr><th>Account</th><th>Type</th><th class="amt">Debit</th><th class="amt">Credit</th></tr></thead>
+  <tbody>${rows.map(r=>`<tr><td>${r.a}<br><small style="color:var(--gold);font-size:10px">${r.type}</small></td><td style="font-size:10px;color:var(--gold);text-transform:uppercase">${r.type}</td><td class="amt dr">${r.dr>0?'$'+fmt(r.dr):''}</td><td class="amt cr">${r.cr>0?'$'+fmt(r.cr):''}</td></tr>`).join('')}</tbody>
+  <tfoot><tr><td colspan="2">Total</td><td class="amt">$${fmt(tDr)}</td><td class="amt">$${fmt(tCr)}</td></tr></tfoot></table></div>`;
 }
 
-// ── INCOME ──
+// ── INCOME STATEMENT ──
+// KEY FIX: filter by atype === 'revenue' and atype === 'expense' (lowercase)
 function rIncome(){
-  const el=document.getElementById('iFull');const b=getBal();
-  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💰</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
+  const el=document.getElementById('iFull'),b=getBal();
+  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💰</span>No entries yet</div>';return;}
   const rA=Object.entries(b).filter(([,v])=>v.type==='revenue');
   const xA=Object.entries(b).filter(([,v])=>v.type==='expense');
   const tR=rA.reduce((s,[,v])=>s+Math.abs(v.net),0);
   const tX=xA.reduce((s,[,v])=>s+Math.abs(v.net),0);
   const net=tR-tX;
-  el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Revenue<span class="kti">ጠቅላላ ኣታዊ</span></div><div class="kv pos">$${fmt(tR)}</div></div><div class="kpi"><div class="kl">Expenses<span class="kti">ጠቅላላ ወጻኢ</span></div><div class="kv neg">$${fmt(tX)}</div></div><div class="kpi"><div class="kl">${net>=0?'መኸሰብ':'ክሳራ'}<span class="kti">${net>=0?'Profit':'Loss'}</span></div><div class="kv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</div></div></div><div class="fsc"><div class="fst">Income Statement</div><div class="fsti">መኸሰብ ወይ ክሳራ</div><div class="fsr lbl"><span>ኣታዊ · Revenue</span></div>${rA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv pos">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ኣታዊ የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr sub"><span class="fsn">ጠቅላላ ኣታዊ</span><span class="fsv pos">$${fmt(tR)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ወጻኢ · Expenses</span></div>${xA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv neg">($${fmt(Math.abs(v.net))})</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ወጻኢ የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr sub"><span class="fsn">ጠቅላላ ወጻኢ</span><span class="fsv neg">($${fmt(tX)})</span></div><div class="fsr tot"><span class="fsn">${net>=0?'መኸሰብ · Net Profit':'ክሳራ · Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div></div>`;
+  el.innerHTML=`
+  <div class="krow">
+    <div class="kpi"><div class="kl">Revenue<span class="kti">ጠቅላላ ኣታዊ</span></div><div class="kv pos">$${fmt(tR)}</div></div>
+    <div class="kpi"><div class="kl">Expenses<span class="kti">ጠቅላላ ወጻኢ</span></div><div class="kv neg">$${fmt(tX)}</div></div>
+    <div class="kpi"><div class="kl">${net>=0?'Net Profit':'Net Loss'}<span class="kti">${net>=0?'መኸሰብ':'ክሳራ'}</span></div><div class="kv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</div></div>
+  </div>
+  <div class="fsc">
+    <div class="fst">Income Statement</div><div class="fsti">መኸሰብ ወይ ክሳራ</div>
+    <div class="fsr lbl"><span>Revenue ኣታዊ</span></div>
+    ${rA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}<small>${v.type}</small></span><span class="fsv pos">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">No revenue yet</span><span class="fsv">$0.00</span></div>'}
+    <div class="fsr sub"><span class="fsn">Total Revenue</span><span class="fsv pos">$${fmt(tR)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Expenses ወጻኢ</span></div>
+    ${xA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}<small>${v.type}</small></span><span class="fsv neg">($${fmt(Math.abs(v.net))})</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">No expenses yet</span><span class="fsv">$0.00</span></div>'}
+    <div class="fsr sub"><span class="fsn">Total Expenses</span><span class="fsv neg">($${fmt(tX)})</span></div>
+    <div class="fsr tot"><span class="fsn">${net>=0?'Net Profit':'Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div>
+  </div>`;
 }
 
 // ── BALANCE SHEET ──
 function rBalance(){
-  const el=document.getElementById('bFull');const b=getBal();
-  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏛️</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
+  const el=document.getElementById('bFull'),b=getBal();
+  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏛️</span>No entries yet</div>';return;}
   const aA=Object.entries(b).filter(([,v])=>v.type==='asset');
   const lA=Object.entries(b).filter(([,v])=>v.type==='liability');
   const eA=Object.entries(b).filter(([,v])=>v.type==='equity');
@@ -761,37 +691,201 @@ function rBalance(){
   const tEB=eA.reduce((s,[,v])=>s+Math.abs(v.net),0);
   const re=rA.reduce((s,[,v])=>s+Math.abs(v.net),0)-xA.reduce((s,[,v])=>s+Math.abs(v.net),0);
   const tE=tEB+re;
-  el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Assets<span class="kti">ጠቅላላ ሃልዋት</span></div><div class="kv">$${fmt(tA)}</div></div><div class="kpi"><div class="kl">Liabilities<span class="kti">ጠቅላላ ዕዳ</span></div><div class="kv neg">$${fmt(tL)}</div></div><div class="kpi"><div class="kl">Equity<span class="kti">ጠቅላላ ካፒታል</span></div><div class="kv pos">$${fmt(tE)}</div></div></div><div class="fsc"><div class="fst">Balance Sheet</div><div class="fsti">ሚዛን ሓሳብ</div><div class="fsr lbl"><span>ሃልዋት · Assets</span></div>${aA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv">$${fmt(v.net)}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ሃልዋት የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr tot"><span class="fsn">ጠቅላላ ሃልዋት</span><span class="fsv">$${fmt(tA)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ዕዳ · Liabilities</span></div>${lA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">ዕዳ የለን</span><span class="fsv">$0.00</span></div>'}<div class="fsr sub"><span class="fsn">ጠቅላላ ዕዳ</span><span class="fsv neg">$${fmt(tL)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካፒታል · Equity</span></div>${eA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${v.ti}<small>${a}</small></span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')}<div class="fsr ind"><span class="fsn">ዝተዓቀበ ${re>=0?'መኸሰብ':'ክሳራ'}</span><span class="fsv ${re>=0?'pos':'neg'}">$${fmt(re)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካፒታል</span><span class="fsv pos">$${fmt(tE)}</span></div><div class="fsr tot"><span class="fsn">ዕዳን ካፒታልን</span><span class="fsv">$${fmt(tL+tE)}</span></div></div>`;
+  el.innerHTML=`
+  <div class="krow">
+    <div class="kpi"><div class="kl">Assets<span class="kti">ሃልዋት</span></div><div class="kv">$${fmt(tA)}</div></div>
+    <div class="kpi"><div class="kl">Liabilities<span class="kti">ዕዳ</span></div><div class="kv neg">$${fmt(tL)}</div></div>
+    <div class="kpi"><div class="kl">Equity<span class="kti">ካፒታል</span></div><div class="kv pos">$${fmt(tE)}</div></div>
+  </div>
+  <div class="fsc">
+    <div class="fst">Balance Sheet</div><div class="fsti">ሚዛን ሓሳብ</div>
+    <div class="fsr lbl"><span>Assets ሃልዋት</span></div>
+    ${aA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">$${fmt(v.net)}</span></div>`).join('')||'<div class="fsr ind"><span>None</span><span class="fsv">$0.00</span></div>'}
+    <div class="fsr tot"><span class="fsn">Total Assets</span><span class="fsv">$${fmt(tA)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Liabilities ዕዳ</span></div>
+    ${lA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span>None</span><span class="fsv">$0.00</span></div>'}
+    <div class="fsr sub"><span class="fsn">Total Liabilities</span><span class="fsv neg">$${fmt(tL)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Equity ካፒታል</span></div>
+    ${eA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')}
+    <div class="fsr ind"><span class="fsn">Retained ${re>=0?'Earnings':'Loss'}</span><span class="fsv ${re>=0?'pos':'neg'}">$${fmt(re)}</span></div>
+    <div class="fsr sub"><span class="fsn">Total Equity</span><span class="fsv pos">$${fmt(tE)}</span></div>
+    <div class="fsr tot"><span class="fsn">Total Liabilities + Equity</span><span class="fsv">$${fmt(tL+tE)}</span></div>
+  </div>`;
 }
 
 // ── CASH FLOW ──
 function rCF(){
-  const el=document.getElementById('cFull');const b=getBal();
-  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💧</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
-  const net=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0)-Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
-  const dep=b['Accumulated Depreciation - Equipment']?Math.abs(b['Accumulated Depreciation - Equipment'].net):0;
+  const el=document.getElementById('cFull'),b=getBal();
+  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💧</span>No entries yet</div>';return;}
+  const tR=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tX=Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const net=tR-tX;
+  const depAccs=['Accumulated Depreciation - Equipment','Accumulated Depreciation - Vehicles','Accumulated Depreciation - Building'];
+  const dep=depAccs.reduce((s,a)=>s+(b[a]?Math.abs(b[a].net):0),0);
   const opCF=net+dep;
-  const fixedAssetAccounts=['Equipment','Heavy Machinery','Vehicles','Land','Building'];
-  const fixA=fixedAssetAccounts.reduce((s,a)=>s+(b[a]?b[a].net:0),0);
+  const fixedAccs=['Equipment','Heavy Machinery','Vehicles','Land','Building'];
+  const fixA=fixedAccs.reduce((s,a)=>s+(b[a]?b[a].net:0),0);
   const invCF=-fixA;
   const cap=b["Owner's Capital"]?Math.abs(b["Owner's Capital"].net):0;
   const loans=(b['Loans Payable']?Math.abs(b['Loans Payable'].net):0)+(b['Bank Loan Payable']?Math.abs(b['Bank Loan Payable'].net):0);
   const finCF=cap+loans;const netCF=opCF+invCF+finCF;
-  el.innerHTML=`<div class="krow"><div class="kpi"><div class="kl">Operating<span class="kti">ካብ ስራሕ</span></div><div class="kv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</div></div><div class="kpi"><div class="kl">Investing<span class="kti">ካብ ኢንቨስት</span></div><div class="kv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</div></div><div class="kpi"><div class="kl">Financing<span class="kti">ካብ ፋይናንስ</span></div><div class="kv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</div></div><div class="kpi"><div class="kl">Net CF<span class="kti">ጽሩይ</span></div><div class="kv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</div></div></div><div class="fsc"><div class="fst">Cash Flow Statement</div><div class="fsti">ምንቅስቃስ ገንዘብ</div><div class="fsr lbl"><span>ካብ ስራሕ · Operating</span></div><div class="fsr ind"><span class="fsn">${net>=0?'መኸሰብ':'ክሳራ'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(net)}</span></div><div class="fsr ind"><span class="fsn">ምምካን ምምላስ · Depreciation Add-back</span><span class="fsv">$${fmt(dep)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ስራሕ</span><span class="fsv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካብ ኢንቨስት · Investing</span></div><div class="fsr ind"><span class="fsn">ሃልዋት ዝወሰደ</span><span class="fsv neg">($${fmt(fixA)})</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ኢንቨስት</span><span class="fsv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</span></div><div class="fsr lbl" style="margin-top:8px"><span>ካብ ፋይናንስ · Financing</span></div><div class="fsr ind"><span class="fsn">ካፒታልን ዕዳን</span><span class="fsv pos">$${fmt(finCF)}</span></div><div class="fsr sub"><span class="fsn">ጠቅላላ ካብ ፋይናንስ</span><span class="fsv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</span></div><div class="fsr tot"><span class="fsn">ጽሩይ ምንቅስቃስ ገንዘብ</span><span class="fsv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</span></div></div>`;
+  el.innerHTML=`
+  <div class="krow">
+    <div class="kpi"><div class="kl">Operating</div><div class="kv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</div></div>
+    <div class="kpi"><div class="kl">Investing</div><div class="kv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</div></div>
+    <div class="kpi"><div class="kl">Financing</div><div class="kv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</div></div>
+    <div class="kpi"><div class="kl">Net CF</div><div class="kv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</div></div>
+  </div>
+  <div class="fsc">
+    <div class="fst">Cash Flow Statement</div><div class="fsti">ምንቅስቃስ ገንዘብ</div>
+    <div class="fsr lbl"><span>Operating Activities</span></div>
+    <div class="fsr ind"><span class="fsn">${net>=0?'Net Profit':'Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(net)}</span></div>
+    <div class="fsr ind"><span class="fsn">Add: Depreciation</span><span class="fsv">$${fmt(dep)}</span></div>
+    <div class="fsr sub"><span class="fsn">Net Operating CF</span><span class="fsv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Investing Activities</span></div>
+    <div class="fsr ind"><span class="fsn">Fixed Asset Purchases</span><span class="fsv neg">($${fmt(fixA)})</span></div>
+    <div class="fsr sub"><span class="fsn">Net Investing CF</span><span class="fsv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Financing Activities</span></div>
+    <div class="fsr ind"><span class="fsn">Owner Capital + Loans</span><span class="fsv pos">$${fmt(finCF)}</span></div>
+    <div class="fsr sub"><span class="fsn">Net Financing CF</span><span class="fsv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</span></div>
+    <div class="fsr tot"><span class="fsn">Net Cash Flow</span><span class="fsv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</span></div>
+  </div>`;
 }
 
 // ── EQUITY ──
 function rEq(){
-  const el=document.getElementById('eFull');const b=getBal();
-  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏦</span>ሕሳብ ምስ ኣለዎ ።</div>';return;}
+  const el=document.getElementById('eFull'),b=getBal();
+  if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏦</span>No entries yet</div>';return;}
   const op=b["Owner's Capital"]?Math.abs(b["Owner's Capital"].net):0;
-  const net=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0)-Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tR=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tX=Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const net=tR-tX;
   const draw=b["Owner's Drawing"]?Math.abs(b["Owner's Drawing"].net):0;
   const cl=op+net-draw;
-  el.innerHTML=`<div class="fsc"><div class="fst">Owner's Equity</div><div class="fsti">ካፒታል ናይ ውልቀ</div><div class="fsr ind"><span class="fsn">ኣብ ምጅማር ካፒታል · Opening Capital</span><span class="fsv">$${fmt(op)}</span></div><div class="fsr ind"><span class="fsn">${net>=0?'ዝወሰኸ: መኸሰብ':'ዝነከየ: ክሳራ'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div>${draw>0?`<div class="fsr ind"><span class="fsn">ምስሓብ · Drawings</span><span class="fsv neg">($${fmt(draw)})</span></div>`:''}<div class="fsr tot"><span class="fsn">ጽሩይ ካፒታል · Closing Equity</span><span class="fsv pos">$${fmt(cl)}</span></div></div>`;
+  el.innerHTML=`<div class="fsc">
+    <div class="fst">Owner's Equity</div><div class="fsti">ካፒታል ናይ ውልቀ</div>
+    <div class="fsr ind"><span class="fsn">Opening Capital</span><span class="fsv">$${fmt(op)}</span></div>
+    <div class="fsr ind"><span class="fsn">${net>=0?'Add: Net Profit':'Less: Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div>
+    ${draw>0?`<div class="fsr ind"><span class="fsn">Less: Drawings</span><span class="fsv neg">($${fmt(draw)})</span></div>`:''}
+    <div class="fsr tot"><span class="fsn">Closing Equity</span><span class="fsv pos">$${fmt(cl)}</span></div>
+  </div>`;
 }
 
-// keyboard shortcuts
+// ══════════════════════════════════════════
+// DEPRECIATION SYSTEM
+// ══════════════════════════════════════════
+function getDepAccounts(t){
+  const m={
+    'Equipment':      {dep:'Depreciation Expense - Equipment',acc:'Accumulated Depreciation - Equipment'},
+    'Heavy Machinery':{dep:'Depreciation Expense - Equipment',acc:'Accumulated Depreciation - Equipment'},
+    'Vehicles':       {dep:'Depreciation Expense - Vehicles', acc:'Accumulated Depreciation - Vehicles'},
+    'Building':       {dep:'Depreciation Expense - Building', acc:'Accumulated Depreciation - Building'},
+  };
+  return m[t]||m['Equipment'];
+}
+function addAsset(){
+  const name=document.getElementById('aName').value.trim();
+  const type=document.getElementById('aType').value;
+  const cost=parseFloat(document.getElementById('aCost').value);
+  const life=parseInt(document.getElementById('aLife').value);
+  const date=document.getElementById('aDate').value;
+  const st=document.getElementById('assetAddSt');
+  if(!name){st.innerHTML='<span style="color:var(--rust)">Enter asset name</span>';return;}
+  if(!cost||cost<=0){st.innerHTML='<span style="color:var(--rust)">Enter valid cost</span>';return;}
+  if(!life||life<=0){st.innerHTML='<span style="color:var(--rust)">Enter useful life in years</span>';return;}
+  if(!date){st.innerHTML='<span style="color:var(--rust)">Select purchase date</span>';return;}
+  const monthlyDep=Math.round((cost/life/12)*100)/100;
+  DB.assets.push({id:Date.now(),name,type,cost,life,date,monthlyDep,lastPostedMonth:null});
+  saveData();
+  document.getElementById('aName').value='';document.getElementById('aCost').value='';document.getElementById('aLife').value='';
+  st.innerHTML=`<span style="color:var(--green)">✅ ${name} added — $${fmt(monthlyDep)}/month</span>`;
+  rDepPage();checkDepReminder();
+  setTimeout(()=>st.innerHTML='',3000);
+}
+function deleteAsset(id){
+  if(!confirm('Delete this asset?'))return;
+  DB.assets=DB.assets.filter(a=>a.id!==id);
+  saveData();rDepPage();checkDepReminder();
+}
+function rDepPage(){
+  const al=document.getElementById('assetList');
+  if(!DB.assets.length){al.innerHTML='<div class="empty"><span class="ico">🏗️</span>No assets yet</div>';document.getElementById('depDueList').innerHTML='<div class="empty"><span class="ico">📉</span>Add assets above</div>';return;}
+  al.innerHTML=DB.assets.map(a=>`
+    <div class="asset-list-item">
+      <div class="ai"><strong>${a.name}</strong> <span style="font-size:10px;color:var(--gold)">${a.type}</span>
+      <small>Cost: $${fmt(a.cost)} · ${a.life}yr life · Since ${a.date} · Last posted: ${a.lastPostedMonth||'Never'}</small></div>
+      <div class="adep">$${fmt(a.monthlyDep)}/mo</div>
+      <button class="del-btn" onclick="deleteAsset(${a.id})">✕</button>
+    </div>`).join('');
+  const now=new Date();
+  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const due=DB.assets.filter(a=>a.lastPostedMonth!==thisMonth);
+  const dl=document.getElementById('depDueList');
+  if(!due.length){dl.innerHTML=`<div class="bok">✅ All depreciation posted for ${thisMonth}</div>`;return;}
+  const total=due.reduce((s,a)=>s+a.monthlyDep,0);
+  dl.innerHTML=`
+    <p style="font-size:12px;color:var(--gold);margin-bottom:.75rem;font-family:'DM Mono',monospace">
+      📅 ${thisMonth} — ${due.length} pending · Total: <strong>$${fmt(total)}</strong>
+    </p>
+    ${due.map(a=>`
+      <div class="dep-item">
+        <div class="dep-item-info"><div class="dep-item-name">${a.name}</div>
+        <div class="dep-item-detail">${a.type} · $${fmt(a.cost)} / ${a.life}yr straight-line</div></div>
+        <div class="dep-item-amt">$${fmt(a.monthlyDep)}/mo</div>
+        <button class="dep-post-btn" onclick="postDepreciation(${a.id})">Post ↗</button>
+      </div>`).join('')}
+    <button class="dep-post-all" onclick="postAllDepreciation()">✅ Post All for ${thisMonth} — $${fmt(total)}</button>`;
+}
+function postDepreciation(assetId){
+  const asset=DB.assets.find(a=>a.id===assetId);if(!asset)return;
+  const now=new Date();
+  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const today=now.toISOString().split('T')[0];
+  const accts=getDepAccounts(asset.type);
+  DB.entries.push({
+    id:DB.nextId++,date:today,postedAt:new Date().toISOString(),
+    type:'Monthly Depreciation',amount:asset.monthlyDep,
+    desc_en:`Monthly depreciation - ${asset.name}`,
+    desc_ti:`Monthly depreciation - ${asset.name}`,
+    memo_en:`${asset.name} $${fmt(asset.monthlyDep)}/month (${asset.life}yr straight-line)`,
+    memo_ti:`${asset.name} $${fmt(asset.monthlyDep)}/month (${asset.life}yr straight-line)`,
+    debits:[{acct:accts.dep,acct_ti:accts.dep,amt:asset.monthlyDep,atype:'expense'}],
+    credits:[{acct:accts.acc,acct_ti:accts.acc,amt:asset.monthlyDep,atype:'asset'}]
+  });
+  asset.lastPostedMonth=thisMonth;
+  saveData();rAll();rDepPage();checkDepReminder();
+  showToast(`✅ Depreciation posted — ${asset.name} $${fmt(asset.monthlyDep)}`);
+}
+function postAllDepreciation(){
+  const now=new Date();
+  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const due=DB.assets.filter(a=>a.lastPostedMonth!==thisMonth);
+  if(!due.length){showToast('✅ All already posted!');return;}
+  due.forEach(a=>postDepreciation(a.id));
+}
+function checkDepReminder(){
+  const banner=document.getElementById('depReminder');
+  if(!DB.assets.length){banner.style.display='none';return;}
+  const now=new Date();
+  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const due=DB.assets.filter(a=>a.lastPostedMonth!==thisMonth);
+  if(!due.length){banner.style.display='none';return;}
+  const total=due.reduce((s,a)=>s+a.monthlyDep,0);
+  banner.style.display='block';
+  banner.innerHTML=`<div class="dep-banner">
+    <h3>⏰ Monthly Depreciation Reminder</h3>
+    <p>${due.length} asset(s) need depreciation for ${thisMonth} — Total: $${fmt(total)}</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="dep-post-all" style="flex:1;margin-top:0" onclick="postAllDepreciation()">✅ Post All Now — $${fmt(total)}</button>
+      <button onclick="go('depreciation',null)" style="padding:11px 16px;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:2px;cursor:pointer;font-size:12px">View Details ↗</button>
+    </div>
+  </div>`;
+}
+
+// ── HELPERS ──
+function fmt(v){return(+v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
+
 document.getElementById('lp').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 document.getElementById('lu').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('lp').focus();});
 </script>
