@@ -25,87 +25,85 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:5px;background
 .lbox::before{top:8px;left:8px;border-width:2px 0 0 2px}.lbox::after{bottom:8px;right:8px;border-width:0 2px 2px 0}
 .llogo{text-align:center;margin-bottom:1.75rem}
 .llogo h1{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold3);margin-bottom:4px}
-.llogo p{font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;color:rgba(240,192,64,.5)}
+.llogo p{font-size:13px;color:rgba(240,192,64,.5)}
 .llogo .orn{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto}
 .lf{margin-bottom:1rem}
 .lf label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold2);margin-bottom:5px}
-.lf input{width:100%;background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:3px;padding:10px 12px;font-family:'DM Mono',monospace;font-size:13px;color:#fff;outline:none;transition:border-color .2s}
-.lf input::placeholder{color:rgba(240,192,64,.22)}.lf input:focus{border-color:var(--gold2)}
-.lbtn-main{width:100%;padding:12px;background:var(--gold);color:var(--ink);border:none;border-radius:3px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:.5rem;transition:background .15s}
+.lf input{width:100%;background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:3px;padding:10px 12px;font-family:'DM Mono',monospace;font-size:13px;color:#fff;outline:none}
+.lf input:focus{border-color:var(--gold2)}
+.lbtn-main{width:100%;padding:12px;background:var(--gold);color:var(--ink);border:none;border-radius:3px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:.5rem}
 .lbtn-main:hover{background:var(--gold3)}
-.lerr{font-size:12px;color:#FF8A7A;text-align:center;margin-top:.75rem;font-family:'Noto Sans Ethiopic',sans-serif;display:none}
+.lerr{font-size:12px;color:#FF8A7A;text-align:center;margin-top:.75rem;display:none}
 .lswitch{text-align:center;margin-top:1rem;font-size:12px;color:rgba(240,192,64,.4)}
 .lswitch a{color:var(--gold2);cursor:pointer;text-decoration:underline}
 #mainApp{display:none;position:relative;z-index:1}
 .topbar{background:var(--ink);border-bottom:2px solid var(--gold);padding:10px 1.25rem;display:flex;align-items:center;gap:10px;position:sticky;top:5px;z-index:200;box-shadow:0 4px 20px rgba(28,20,9,.3);flex-wrap:wrap}
 .tb-logo{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold3);flex:1;min-width:120px}
-.tb-logo span{font-family:'Noto Sans Ethiopic',sans-serif;font-size:11px;color:rgba(240,192,64,.45);display:block}
-.tb-user{font-size:11px;color:var(--gold2);font-family:'DM Mono',monospace}
-.tbtn{padding:5px 10px;background:transparent;border:1px solid rgba(184,134,11,.3);border-radius:2px;color:rgba(240,192,64,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.tb-logo span{font-size:11px;color:rgba(240,192,64,.45);display:block}
+.tb-user{font-size:11px;color:var(--gold2)}
+.tbtn{padding:5px 10px;background:transparent;border:1px solid rgba(184,134,11,.3);border-radius:2px;color:rgba(240,192,64,.5);font-size:11px;cursor:pointer;transition:all .15s}
 .tbtn:hover{background:rgba(184,134,11,.15);color:var(--gold2)}
-.app{max-width:900px;margin:0 auto;padding:1rem 1rem 4rem}
-.nav{display:flex;background:var(--ink2);border:1px solid var(--border);border-radius:4px;overflow-x:auto;scrollbar-width:none;margin-bottom:1.25rem;box-shadow:0 2px 10px rgba(28,20,9,.15)}
+.app{max-width:960px;margin:0 auto;padding:1rem 1rem 4rem}
+.nav{display:flex;background:var(--ink2);border:1px solid var(--border);border-radius:4px;overflow-x:auto;scrollbar-width:none;margin-bottom:1.25rem}
 .nav::-webkit-scrollbar{display:none}
 .nb{flex-shrink:0;padding:9px 12px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:11px;color:rgba(240,192,64,.38);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap;display:flex;flex-direction:column;align-items:center;gap:1px}
-.nb .en{font-family:'DM Mono',monospace;font-size:9px;opacity:.3;text-transform:uppercase;letter-spacing:.06em}
+.nb .en{font-size:9px;opacity:.3;text-transform:uppercase;letter-spacing:.06em}
 .nb:hover{color:var(--gold3)}.nb.on{color:var(--gold3);border-bottom-color:var(--gold2);background:rgba(184,134,11,.07)}
 .page{display:none;animation:fi .2s ease}.page.on{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.hero{background:var(--ink2);border:1.5px solid var(--gold);border-radius:4px;padding:1.75rem 1.5rem;text-align:center;margin-bottom:1.25rem;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.hero{background:var(--ink2);border:1.5px solid var(--gold);border-radius:4px;padding:1.5rem;text-align:center;margin-bottom:1rem;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .hero::before,.hero::after{content:'';position:absolute;width:30px;height:30px;border-color:var(--gold);border-style:solid;opacity:.28}
 .hero::before{top:8px;left:8px;border-width:2px 0 0 2px}.hero::after{bottom:8px;right:8px;border-width:0 2px 2px 0}
-.hero-tag{font-family:'Noto Sans Ethiopic',sans-serif;font-size:12px;color:var(--gold2);margin-bottom:1rem;opacity:.8}
-.lang-row{display:flex;gap:8px;justify-content:center;margin-bottom:1rem}
-.lb{padding:5px 14px;border-radius:2px;border:1px solid var(--border);background:transparent;color:rgba(240,192,64,.38);font-size:12px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.hero-tag{font-family:'Noto Sans Ethiopic',sans-serif;font-size:12px;color:var(--gold2);margin-bottom:.75rem;opacity:.8}
+.lang-row{display:flex;gap:8px;justify-content:center;margin-bottom:.75rem}
+.lb{padding:4px 12px;border-radius:2px;border:1px solid var(--border);background:transparent;color:rgba(240,192,64,.38);font-size:11px;cursor:pointer;transition:all .15s}
 .lb.on{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:500}
-.mic-wrap{position:relative;width:80px;height:80px;margin:0 auto 1rem}
+.mic-wrap{position:relative;width:72px;height:72px;margin:0 auto .75rem}
 .mring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(184,134,11,.18);animation:rp 2.5s ease-in-out infinite}
 .mring:nth-child(2){animation-delay:.7s;inset:-8px}
 @keyframes rp{0%,100%{opacity:.18;transform:scale(1)}50%{opacity:.06;transform:scale(1.08)}}
-.mbtn{position:relative;z-index:1;width:80px;height:80px;border-radius:50%;border:2px solid var(--gold);background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:30px;cursor:pointer;transition:all .2s;user-select:none}
+.mbtn{position:relative;z-index:1;width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;transition:all .2s;user-select:none}
 .mbtn:hover{transform:scale(1.05)}.mbtn.listening{border-color:var(--rust);animation:mp 1s ease-in-out infinite}
-@keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(193,68,14,.5)}50%{box-shadow:0 0 0 18px rgba(193,68,14,0)}}
-.mic-st{font-family:'Noto Sans Ethiopic',sans-serif;font-size:12px;color:var(--gold2);margin-bottom:.2rem;font-weight:600}
-.mic-hint{font-size:11px;color:rgba(240,192,64,.32);margin-bottom:1rem;font-family:'Noto Sans Ethiopic',sans-serif}
-.inp-row{display:flex;gap:8px;margin-bottom:.85rem}
-.txtin{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:2px;padding:10px 12px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color .2s}
-.txtin::placeholder{color:rgba(240,192,64,.22)}.txtin:focus{border-color:var(--gold2)}
-.gobtn{padding:10px 16px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:16px;cursor:pointer;font-weight:700;transition:background .15s}
+@keyframes mp{0%,100%{box-shadow:0 0 0 0 rgba(193,68,14,.5)}50%{box-shadow:0 0 0 16px rgba(193,68,14,0)}}
+.mic-st{font-family:'Noto Sans Ethiopic',sans-serif;font-size:11px;color:var(--gold2);margin-bottom:.15rem;font-weight:600}
+.inp-row{display:flex;gap:8px;margin-bottom:.75rem}
+.txtin{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:2px;padding:10px 12px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;color:#fff;outline:none}
+.txtin:focus{border-color:var(--gold2)}
+.gobtn{padding:10px 16px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:16px;cursor:pointer;font-weight:700}
 .gobtn:hover{background:var(--gold3)}
 .chips{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
-.chip{padding:4px 10px;border:1px solid rgba(184,134,11,.22);border-radius:2px;font-size:10px;color:rgba(240,192,64,.4);cursor:pointer;font-family:'Noto Sans Ethiopic',sans-serif;transition:all .15s}
+.chip{padding:4px 10px;border:1px solid rgba(184,134,11,.22);border-radius:2px;font-size:10px;color:rgba(240,192,64,.4);cursor:pointer;transition:all .15s}
 .chip:hover{background:rgba(184,134,11,.12);color:var(--gold2);border-color:var(--gold)}
-.pcard{display:none;background:var(--paper2);border:1.5px solid var(--gold);border-radius:4px;padding:1.25rem;margin-bottom:1.25rem;animation:fi .3s ease}
+.pcard{display:none;background:var(--paper2);border:1.5px solid var(--gold);border-radius:4px;padding:1.25rem;margin-bottom:1rem;animation:fi .3s ease}
 .phdr{display:flex;align-items:center;gap:8px;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border2)}
 .phdr h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink)}
-.ptag{margin-left:auto;font-size:10px;padding:3px 10px;background:var(--ink);color:var(--gold3);border-radius:2px;font-family:'DM Mono',monospace;text-transform:uppercase}
+.ptag{margin-left:auto;font-size:10px;padding:3px 10px;background:var(--ink);color:var(--gold3);border-radius:2px;text-transform:uppercase}
 .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:7px;margin-bottom:1rem}
 .mbox{background:var(--paper);border:1px solid var(--border2);border-radius:2px;padding:.55rem .75rem}
-.mlbl{font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;font-family:'DM Mono',monospace}
+.mlbl{font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
 .mval{font-size:13px;font-weight:500;color:var(--ink);line-height:1.3}
-.memo-line{font-size:12px;color:var(--gold);font-style:italic;margin-bottom:.75rem;line-height:1.6}
 .tw{overflow-x:auto;border:1px solid var(--border);border-radius:4px;margin-bottom:.75rem}
 table{width:100%;border-collapse:collapse;font-size:12px}
-thead th{background:var(--ink);color:var(--gold2);font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:8px 10px;text-align:left;font-family:'DM Mono',monospace;white-space:nowrap}
+thead th{background:var(--ink);color:var(--gold2);font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:8px 10px;text-align:left;white-space:nowrap}
 tbody td{padding:7px 10px;border-bottom:1px solid var(--border2);background:var(--paper);vertical-align:top}
 tbody tr:nth-child(even) td{background:var(--paper2)}
 tbody tr.mtr td{background:var(--paper3);font-size:11px;color:var(--gold);font-style:italic;padding:3px 10px 7px 20px;border-bottom:2px solid var(--border)}
-tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10px;font-family:'DM Mono',monospace;font-size:11px}
-.drt,.crt{display:inline-block;font-size:9px;padding:1px 5px;border-radius:1px;margin-right:4px;font-family:'DM Mono',monospace;font-weight:500}
+tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10px;font-size:11px}
+.drt,.crt{display:inline-block;font-size:9px;padding:1px 5px;border-radius:1px;margin-right:4px;font-weight:500}
 .drt{background:#D4E8FF;color:#0C447C}.crt{background:#D4EED4;color:#175017}
 .amt{font-family:'DM Mono',monospace;text-align:right;white-space:nowrap}
 .amt.dr{color:#0C447C}.amt.cr{color:#175017}
 .shdr{display:flex;align-items:baseline;gap:10px;margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:2px solid var(--gold)}
 .shdr h2{font-family:'Playfair Display',serif;font-size:18px;color:var(--ink)}
 .shdr .ti{font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;color:var(--gold)}
-.shdr .cnt{margin-left:auto;background:var(--ink);color:var(--gold2);font-size:10px;padding:2px 9px;border-radius:1px;font-family:'DM Mono',monospace}
+.shdr .cnt{margin-left:auto;background:var(--ink);color:var(--gold2);font-size:10px;padding:2px 9px;border-radius:1px}
 .postbtn{width:100%;padding:12px;background:var(--ink);color:var(--gold2);border:1.5px solid var(--gold);border-radius:2px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:.5rem}
 .postbtn:hover{background:var(--gold);color:var(--ink)}.postbtn:disabled{opacity:.3;cursor:not-allowed}
 .la{background:var(--paper);border:1px solid var(--border);border-radius:4px;margin-bottom:1rem;overflow:hidden}
 .lhdr{background:var(--ink2);color:var(--gold2);padding:10px 13px;display:flex;align-items:center;gap:8px}
 .lhdr .an{font-family:'Playfair Display',serif;font-size:14px}
-.lhdr .at{font-family:'Noto Sans Ethiopic',sans-serif;font-size:12px;color:rgba(240,192,64,.38)}
-.lhdr .bal{margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;font-weight:500}
+.lhdr .at{font-size:12px;color:rgba(240,192,64,.38)}
+.lhdr .bal{margin-left:auto;font-size:12px;font-weight:500}
 .bdr{color:#7AB4FF}.bcr{color:#7ADA7A}
 .fsc{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.25rem;margin-bottom:1rem;position:relative}
 .fsc::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--gold),var(--rust));border-radius:4px 0 0 4px}
@@ -113,32 +111,33 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
 .fsti{font-family:'Noto Sans Ethiopic',sans-serif;font-size:11px;color:var(--gold);margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:1px solid var(--border2)}
 .fsr{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid rgba(200,168,74,.12);font-size:13px;gap:8px}
 .fsr:last-child{border-bottom:none}.fsr.ind{padding-left:1.1rem}
-.fsr.lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border-bottom:none;margin-top:8px;font-family:'DM Mono',monospace}
+.fsr.lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border-bottom:none;margin-top:8px}
 .fsr.sub{font-weight:500;color:var(--ink2);border-top:1px solid var(--border2);margin-top:2px}
 .fsr.tot{font-family:'Playfair Display',serif;font-size:15px;border-top:2px solid var(--border);margin-top:4px;padding-top:8px;font-weight:700}
-.fsn{line-height:1.4}.fsn small{display:block;font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;opacity:.6}
+.fsn{line-height:1.4}.fsn small{display:block;font-size:10px;color:var(--gold);opacity:.6}
 .fsv{font-family:'DM Mono',monospace;white-space:nowrap;font-size:13px}
 .pos{color:var(--green)}.neg{color:var(--red)}
 .krow{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:1rem}
 .kpi{background:var(--ink);border:1px solid var(--border);border-radius:2px;padding:.75rem}
-.kl{font-size:9px;color:rgba(240,192,64,.38);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px;font-family:'DM Mono',monospace}
+.kl{font-size:9px;color:rgba(240,192,64,.38);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
 .kti{font-family:'Noto Sans Ethiopic',sans-serif;font-size:10px;color:rgba(240,192,64,.28);display:block;margin-bottom:3px}
 .kv{font-size:17px;font-weight:500;font-family:'DM Mono',monospace;color:var(--gold2)}
 .kv.pos{color:#7ADA7A}.kv.neg{color:#FF8A7A}
-.bok,.bno{display:block;padding:7px 14px;border-radius:2px;font-size:12px;font-weight:500;margin-bottom:1rem;font-family:'DM Mono',monospace}
+.bok,.bno{display:block;padding:7px 14px;border-radius:2px;font-size:12px;font-weight:500;margin-bottom:1rem}
 .bok{background:#D4EED4;color:#175017;border:1px solid #7ADA7A}.bno{background:#FFE0D0;color:#7A1A1A;border:1px solid #FF8A7A}
-.hist-item{background:var(--paper2);border:1px solid var(--border2);border-radius:3px;padding:.75rem 1rem;margin-bottom:.6rem;display:flex;align-items:flex-start;gap:10px}
-.hist-date{font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;white-space:nowrap;margin-top:2px}
+.hist-item{background:var(--paper2);border:1px solid var(--border2);border-radius:3px;padding:.75rem 1rem;margin-bottom:.5rem;display:flex;align-items:flex-start;gap:10px}
+.hist-date{font-size:10px;color:var(--gold);white-space:nowrap;margin-top:2px}
 .hist-body{flex:1}
 .hist-desc{font-size:13px;color:var(--ink);margin-bottom:2px}
-.hist-type{font-size:10px;color:var(--gold);font-family:'DM Mono',monospace;text-transform:uppercase}
+.hist-type{font-size:10px;color:var(--gold);text-transform:uppercase}
 .hist-amt{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap}
+.hist-del{padding:3px 8px;background:transparent;border:1px solid rgba(193,68,14,.3);border-radius:2px;color:var(--rust);font-size:10px;cursor:pointer;margin-left:4px}
 .sc{background:var(--paper2);border:1px solid var(--border);border-radius:4px;padding:1.25rem;margin-bottom:1rem}
 .sc h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border2)}
 .sf{margin-bottom:.85rem}
-.sf label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:4px;font-family:'DM Mono',monospace}
-.sf input{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:9px 11px;font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);outline:none}
-.sf input:focus{border-color:var(--gold2)}
+.sf label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:4px}
+.sf input,.sf select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:9px 11px;font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);outline:none}
+.sf input:focus,.sf select:focus{border-color:var(--gold2)}
 .save-btn{padding:9px 18px;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:2px;font-size:13px;cursor:pointer;transition:all .2s}
 .save-btn:hover{background:var(--gold);color:var(--ink)}
 .sok{font-size:12px;color:#3B6D11;margin-top:.5rem}.serr{font-size:12px;color:var(--red);margin-top:.5rem}
@@ -146,46 +145,93 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
 .empty .ico{font-size:28px;display:block;margin-bottom:.5rem}
 .spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(184,134,11,.2);border-top-color:var(--gold);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:5px}
 @keyframes sp{to{transform:rotate(360deg)}}
-.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:3px;padding:.75rem 1.25rem;font-size:13px;z-index:999;box-shadow:var(--shadow);display:none;animation:fi .3s ease;max-width:320px}
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:3px;padding:.75rem 1.25rem;font-size:13px;z-index:999;box-shadow:var(--shadow);display:none;max-width:320px}
 .filter-btns{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
-.fbtn{padding:5px 12px;background:transparent;border:1px solid rgba(184,134,11,.25);border-radius:2px;color:rgba(184,134,11,.5);font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.fbtn{padding:5px 12px;background:transparent;border:1px solid rgba(184,134,11,.25);border-radius:2px;color:rgba(184,134,11,.5);font-size:11px;cursor:pointer;transition:all .15s}
 .fbtn:hover,.fbtn.on{border-color:var(--gold);color:var(--gold2);background:rgba(184,134,11,.08)}
+.search-row{display:flex;gap:8px;margin-bottom:1rem}
+.search-inp{flex:1;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 12px;font-size:12px;color:var(--ink);outline:none}
+.search-inp:focus{border-color:var(--gold2)}
+/* CURRENCY TOGGLE */
+.cur-toggle{display:flex;gap:6px;align-items:center;margin-bottom:1rem}
+.cur-btn{padding:4px 12px;border-radius:2px;border:1px solid var(--border);background:transparent;color:rgba(240,192,64,.5);font-size:11px;cursor:pointer;transition:all .15s}
+.cur-btn.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.rate-inp{width:100px;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:4px 8px;font-size:11px;color:var(--ink);outline:none}
 /* DEPRECIATION */
-.dep-banner{background:linear-gradient(135deg,var(--ink2),var(--ink3));border:2px solid var(--rust);border-radius:4px;padding:1.25rem;margin-bottom:1.25rem}
+.dep-banner{background:linear-gradient(135deg,var(--ink2),var(--ink3));border:2px solid var(--rust);border-radius:4px;padding:1.25rem;margin-bottom:1rem}
 .dep-banner h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold3);margin-bottom:.5rem}
 .dep-banner p{font-size:12px;color:rgba(240,192,64,.7);margin-bottom:1rem}
 .dep-item{background:rgba(255,255,255,.04);border:1px solid rgba(184,134,11,.2);border-radius:3px;padding:.75rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
 .dep-item-info{flex:1}
-.dep-item-name{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold3);margin-bottom:2px}
-.dep-item-detail{font-size:11px;color:rgba(240,192,64,.5);font-family:'DM Mono',monospace}
+.dep-item-name{font-size:13px;color:var(--gold3);margin-bottom:2px}
+.dep-item-detail{font-size:11px;color:rgba(240,192,64,.5)}
 .dep-item-amt{font-family:'DM Mono',monospace;font-size:14px;color:#7ADA7A;font-weight:500;white-space:nowrap}
-.dep-post-btn{padding:8px 16px;background:var(--rust);color:#fff;border:none;border-radius:2px;font-size:12px;cursor:pointer;white-space:nowrap}
+.dep-post-btn{padding:8px 14px;background:var(--rust);color:#fff;border:none;border-radius:2px;font-size:12px;cursor:pointer}
 .dep-post-btn:hover{background:#E05520}
 .dep-post-all{width:100%;padding:11px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:13px;font-weight:600;cursor:pointer;margin-top:.5rem}
 .dep-post-all:hover{background:var(--gold3)}
 .asset-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:.75rem}
-.asset-grid input,.asset-grid select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);outline:none}
-.asset-grid input:focus,.asset-grid select:focus{border-color:var(--gold2)}
-.asset-grid label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px;font-family:'DM Mono',monospace}
-.add-asset-btn{padding:8px 14px;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:2px;font-size:12px;cursor:pointer;font-family:'DM Mono',monospace;white-space:nowrap}
-.add-asset-btn:hover{background:var(--gold);color:var(--ink)}
+.asset-grid input,.asset-grid select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none}
+.asset-grid label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px}
+.add-btn{padding:8px 14px;background:var(--ink);color:var(--gold2);border:1px solid var(--gold);border-radius:2px;font-size:12px;cursor:pointer}
+.add-btn:hover{background:var(--gold);color:var(--ink)}
 .asset-list-item{display:flex;align-items:center;gap:8px;padding:.6rem .85rem;background:var(--paper);border:1px solid var(--border2);border-radius:2px;margin-bottom:.4rem}
-.asset-list-item .ai{flex:1;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink)}
+.asset-list-item .ai{flex:1;font-size:12px;color:var(--ink)}
 .asset-list-item .ai small{display:block;font-size:10px;color:var(--gold);margin-top:1px}
 .asset-list-item .adep{font-family:'DM Mono',monospace;font-size:12px;color:#0C447C;white-space:nowrap}
 .del-btn{padding:3px 8px;background:transparent;border:1px solid rgba(193,68,14,.3);border-radius:2px;color:var(--rust);font-size:11px;cursor:pointer}
-.del-btn:hover{background:rgba(193,68,14,.1)}
+/* INVENTORY */
+.inv-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:8px;margin-bottom:.75rem}
+.inv-grid input,.inv-grid select{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none}
+.inv-grid label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px}
+.inv-item{display:flex;align-items:center;gap:8px;padding:.65rem .85rem;background:var(--paper);border:1px solid var(--border2);border-radius:2px;margin-bottom:.4rem}
+.inv-item.low{border-color:var(--rust);background:#FFF5F3}
+.inv-item .ii{flex:1;font-size:12px;color:var(--ink)}
+.inv-item .ii small{display:block;font-size:10px;color:var(--gold);margin-top:1px}
+.inv-qty{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;white-space:nowrap}
+.inv-qty.low{color:var(--rust)}
+.inv-badge{font-size:9px;padding:2px 6px;border-radius:2px;background:var(--ink);color:var(--gold2)}
+.inv-badge.low{background:#FFE0D0;color:var(--rust)}
+/* AI ADVISOR */
+.advisor-box{background:var(--ink2);border:1.5px solid var(--gold);border-radius:4px;padding:1.25rem;margin-bottom:1rem}
+.advisor-box h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold3);margin-bottom:.5rem}
+.advisor-inp-row{display:flex;gap:8px;margin-bottom:1rem}
+.advisor-inp{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:2px;padding:10px 12px;font-family:'Noto Sans Ethiopic',sans-serif;font-size:13px;color:#fff;outline:none}
+.advisor-inp:focus{border-color:var(--gold2)}
+.advisor-send{padding:10px 16px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:16px;cursor:pointer;font-weight:700}
+.advisor-send:hover{background:var(--gold3)}
+.advisor-msgs{max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.msg{padding:.75rem 1rem;border-radius:4px;font-size:13px;line-height:1.6;max-width:90%}
+.msg.user{background:rgba(184,134,11,.12);border:1px solid rgba(184,134,11,.2);align-self:flex-end;color:var(--gold3)}
+.msg.ai{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);align-self:flex-start;color:rgba(240,192,64,.9);font-family:'Noto Sans Ethiopic',sans-serif}
+.msg.ai.loading{opacity:.5;font-style:italic}
+/* PROJECTS */
+.proj-item{background:var(--paper);border:1px solid var(--border2);border-radius:3px;padding:.85rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
+.proj-item .pi{flex:1;font-size:13px;color:var(--ink)}
+.proj-item .pi small{display:block;font-size:10px;color:var(--gold);margin-top:1px}
+.proj-tag{font-size:10px;padding:2px 8px;border-radius:2px;background:var(--ink);color:var(--gold2)}
+.proj-tag.active{background:#D4EED4;color:#175017}
+.proj-tag.done{background:rgba(184,134,11,.1);color:var(--gold)}
+/* PDF PRINT */
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.nav,.hero,.pcard,#depReminder,.toast,.no-print{display:none!important}
+  .page{display:block!important}
+  .fsc{border:1px solid #ccc;padding:.75rem}
+  .fst{font-size:14px;font-weight:bold}
+}
 @media(max-width:600px){
-  .mbtn{width:68px;height:68px;font-size:26px}
-  .hero{padding:1.25rem 1rem}
+  .mbtn{width:64px;height:64px;font-size:24px}
+  .hero{padding:1rem}
   .kpi{padding:.6rem}
   .topbar{padding:8px 1rem}
-  .asset-grid{grid-template-columns:1fr 1fr}
+  .asset-grid,.inv-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="lbox">
     <div class="llogo">
@@ -194,11 +240,11 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
       <p>Professional Accounting · ሙሉእ ሓሳቢ ስርዓት</p>
     </div>
     <div id="loginForm">
-      <div class="lf"><label>Username · ስም ተጠቃሚ</label><input id="lu" type="text" placeholder="your username" autocomplete="username"/></div>
-      <div class="lf"><label>Password · ምስጢር ቁጽሪ</label><input id="lp" type="password" placeholder="your password" autocomplete="current-password"/></div>
+      <div class="lf"><label>Username</label><input id="lu" type="text" placeholder="your username" autocomplete="username"/></div>
+      <div class="lf"><label>Password</label><input id="lp" type="password" placeholder="your password" autocomplete="current-password"/></div>
       <button class="lbtn-main" onclick="doLogin()">🔓 ኣቱ · Login</button>
       <div class="lerr" id="lerr">Wrong username or password</div>
-      <div class="lswitch">ሓድሽ? <a onclick="showReg()">ምዝጋብ — Register</a></div>
+      <div class="lswitch">ሓድሽ? <a onclick="showReg()">Register</a></div>
     </div>
     <div id="regForm" style="display:none">
       <div class="lf"><label>Business Name</label><input id="rb" type="text" placeholder="e.g. Asmara Construction"/></div>
@@ -211,16 +257,22 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
   </div>
 </div>
 
+<!-- MAIN APP -->
 <div id="mainApp">
   <div class="topbar">
     <div class="tb-logo">🏛️ ሓሳቢ ኣስመራ <span id="topBiz">Pro</span></div>
     <div class="tb-user" id="topUser">—</div>
-    <button class="tbtn" onclick="go('settings',this)">⚙️</button>
-    <button class="tbtn" onclick="doLogout()" style="color:#FF8A7A;border-color:rgba(193,68,14,.3)">🔒 Exit</button>
+    <span id="curDisplay" style="font-size:11px;color:var(--gold);cursor:pointer" onclick="go('settings',null)">USD</span>
+    <button class="tbtn" onclick="printReport()">🖨️</button>
+    <button class="tbtn" onclick="go('settings',null)">⚙️</button>
+    <button class="tbtn" onclick="doLogout()" style="color:#FF8A7A;border-color:rgba(193,68,14,.3)">🔒</button>
   </div>
   <div class="app">
     <div class="nav">
       <button class="nb on" onclick="go('home',this)">🎙️<span>ሎሚ</span><span class="en">Record</span></button>
+      <button class="nb" onclick="go('advisor',this)">🤖<span>ሓጋዚ</span><span class="en">Advisor</span></button>
+      <button class="nb" onclick="go('inventory',this)">📦<span>ዕቃ</span><span class="en">Inventory</span></button>
+      <button class="nb" onclick="go('projects',this)">🏗️<span>ፕሮጀክት</span><span class="en">Projects</span></button>
       <button class="nb" onclick="go('history',this)">📅<span>ታሪኽ</span><span class="en">History</span></button>
       <button class="nb" onclick="go('journal',this)">📒<span>ደፍተር</span><span class="en">Journal</span></button>
       <button class="nb" onclick="go('ledger',this)">📗<span>ሌጀር</span><span class="en">Ledger</span></button>
@@ -236,6 +288,7 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
     <!-- HOME -->
     <div class="page on" id="pg-home">
       <div id="depReminder" style="display:none"></div>
+      <div id="lowStockAlert" style="display:none"></div>
       <div class="hero">
         <div class="hero-tag">ሎሚ እንታይ ዓሚልካ? — What happened today?</div>
         <div class="lang-row">
@@ -247,9 +300,8 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
           <div class="mbtn" id="micBtn" onclick="toggleMic()"><span id="micIco">🎙️</span></div>
         </div>
         <div class="mic-st" id="micSt">ንምዝራብ ጠውቕ · Tap to Speak</div>
-        <div class="mic-hint" id="micHint">ሎሚ ዝኾነ ዓሚልካ ተዛረብ ወይ ጸሓፍ</div>
         <div class="inp-row">
-          <input class="txtin" id="txtin" placeholder="e.g. paid salary 3000 cash / bought cement 50 bags 150 each"/>
+          <input class="txtin" id="txtin" placeholder="e.g. paid salary 3000 / bought cement 50 bags 150 each / we add money 5000"/>
           <button class="gobtn" onclick="doSub()">↗</button>
         </div>
         <div class="chips">
@@ -267,14 +319,105 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
         <div class="phdr"><span>🤖</span><h3 id="ptitle">ትንታነ</h3><span class="ptag" id="ptype">—</span></div>
         <div class="mgrid" id="pmeta"></div>
         <div class="tw" id="pprev" style="margin-bottom:.75rem"></div>
-        <div class="memo-line" id="pmemo"></div>
+        <div style="font-size:12px;color:var(--gold);font-style:italic;margin-bottom:.75rem" id="pmemo"></div>
         <button class="postbtn" id="postBtn" onclick="postEntry()">✅ ናብ ደፍተር ምቕማጥ · Post to Journal</button>
+      </div>
+    </div>
+
+    <!-- AI ADVISOR -->
+    <div class="page" id="pg-advisor">
+      <div class="shdr"><h2>AI Advisor</h2><span class="ti">ሓጋዚ ሓሳቢ</span></div>
+      <div class="advisor-box">
+        <h3>🤖 Ask your business anything · ዝደሊ ሕተት</h3>
+        <p style="font-size:11px;color:rgba(240,192,64,.5);margin-bottom:1rem">Ask about profits, inventory levels, expenses, project costs, business advice...</p>
+        <div class="advisor-msgs" id="advisorMsgs">
+          <div class="msg ai">Hello! I am your AI business advisor. Ask me anything about your business — inventory levels, profits, cash flow, project costs, or business advice. I have access to all your financial data.</div>
+        </div>
+        <div style="margin-top:.75rem" class="advisor-inp-row">
+          <input class="advisor-inp" id="advisorInp" placeholder="How much profit did I make? / How many kg tomatoes do I have? / Should I take a loan?" onkeydown="if(event.key==='Enter')askAdvisor()"/>
+          <button class="advisor-send" onclick="askAdvisor()">↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTORY -->
+    <div class="page" id="pg-inventory">
+      <div class="shdr"><h2>Inventory</h2><span class="ti">ዕቃ ዝርዝር</span></div>
+      <div class="sc">
+        <h3>➕ Add Inventory Item</h3>
+        <div class="inv-grid">
+          <div><label>Item Name</label><input id="iName" type="text" placeholder="e.g. Tomatoes"/></div>
+          <div><label>Category</label>
+            <select id="iCat">
+              <option>Construction Materials</option>
+              <option>Food & Produce</option>
+              <option>Tools & Equipment</option>
+              <option>Office Supplies</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div><label>Quantity</label><input id="iQty" type="number" placeholder="100"/></div>
+          <div><label>Unit</label>
+            <select id="iUnit">
+              <option>kg</option><option>bags</option><option>pieces</option>
+              <option>liters</option><option>meters</option><option>tons</option>
+              <option>boxes</option><option>rolls</option>
+            </select>
+          </div>
+          <div><label>Min Alert Level</label><input id="iMin" type="number" placeholder="10"/></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap">
+          <div style="flex:1;min-width:120px">
+            <label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">Unit Cost ($)</label>
+            <input id="iCost" type="number" placeholder="2.50" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/>
+          </div>
+          <button class="add-btn" onclick="addInventory()">➕ Add Item</button>
+        </div>
+        <div id="invAddSt" style="font-size:12px;margin-top:.5rem"></div>
+      </div>
+      <div class="sc">
+        <h3>📦 Stock Register · ዕቃ ዝርዝር</h3>
+        <div class="search-row">
+          <input class="search-inp" id="invSearch" placeholder="Search inventory..." oninput="renderInventory()"/>
+        </div>
+        <div id="invList"><div class="empty"><span class="ico">📦</span>No inventory yet</div></div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="page" id="pg-projects">
+      <div class="shdr"><h2>Projects</h2><span class="ti">ፕሮጀክት</span></div>
+      <div class="sc">
+        <h3>➕ New Project</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:.75rem">
+          <div><label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">Project Name</label>
+            <input id="pjName" type="text" placeholder="e.g. Villa Construction" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/></div>
+          <div><label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">Client Name</label>
+            <input id="pjClient" type="text" placeholder="Client name" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/></div>
+          <div><label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">Contract Value ($)</label>
+            <input id="pjValue" type="number" placeholder="50000" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.75rem">
+          <div><label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">Start Date</label>
+            <input id="pjStart" type="date" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/></div>
+          <div><label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">End Date (Est.)</label>
+            <input id="pjEnd" type="date" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/></div>
+        </div>
+        <button class="add-btn" onclick="addProject()">➕ Add Project</button>
+        <div id="projAddSt" style="font-size:12px;margin-top:.5rem"></div>
+      </div>
+      <div class="sc">
+        <h3>🏗️ Active Projects</h3>
+        <div id="projList"><div class="empty"><span class="ico">🏗️</span>No projects yet</div></div>
       </div>
     </div>
 
     <!-- HISTORY -->
     <div class="page" id="pg-history">
       <div class="shdr"><h2>History</h2><span class="ti">ታሪኽ ዕዳጋ</span><span class="cnt" id="hcnt">0</span></div>
+      <div class="search-row">
+        <input class="search-inp" id="histSearch" placeholder="Search transactions..." oninput="rHistory('all')"/>
+      </div>
       <div class="filter-btns">
         <button class="fbtn on" onclick="filterH('all',this)">All</button>
         <button class="fbtn" onclick="filterH('today',this)">Today</button>
@@ -287,6 +430,12 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
     <!-- JOURNAL -->
     <div class="page" id="pg-journal">
       <div class="shdr"><h2>General Journal</h2><span class="ti">ደፍተር ሕሳብ</span><span class="cnt" id="jcnt">0</span></div>
+      <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap" class="no-print">
+        <input class="search-inp" id="jSearch" placeholder="Search journal..." oninput="rJ()" style="flex:1;min-width:180px"/>
+        <input type="date" id="jFrom" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:7px 10px;font-size:12px;color:var(--ink);outline:none" onchange="rJ()"/>
+        <input type="date" id="jTo" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:7px 10px;font-size:12px;color:var(--ink);outline:none" onchange="rJ()"/>
+        <button class="fbtn" onclick="clearJFilter()">Clear</button>
+      </div>
       <div id="jFull"><div class="empty"><span class="ico">📒</span>No entries yet</div></div>
     </div>
 
@@ -305,6 +454,11 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
     <!-- INCOME -->
     <div class="page" id="pg-income">
       <div class="shdr"><h2>Income Statement</h2><span class="ti">መኸሰብ ወይ ክሳራ</span></div>
+      <div class="no-print" style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+        <input type="date" id="iFrom" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:7px 10px;font-size:12px;color:var(--ink);outline:none" onchange="rIncome()"/>
+        <input type="date" id="iTo" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:7px 10px;font-size:12px;color:var(--ink);outline:none" onchange="rIncome()"/>
+        <button class="fbtn" onclick="document.getElementById('iFrom').value='';document.getElementById('iTo').value='';rIncome()">All Time</button>
+      </div>
       <div id="iFull"><div class="empty"><span class="ico">💰</span>No entries yet</div></div>
     </div>
 
@@ -330,28 +484,23 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
     <div class="page" id="pg-depreciation">
       <div class="shdr"><h2>Depreciation</h2><span class="ti">ምምካን ንብረት</span></div>
       <div class="sc">
-        <h3>➕ Add Asset · ሓድሽ ንብረት</h3>
+        <h3>➕ Add Asset</h3>
         <div class="asset-grid">
           <div><label>Asset Name</label><input id="aName" type="text" placeholder="e.g. Excavator"/></div>
           <div><label>Type</label>
-            <select id="aType">
-              <option value="Equipment">Equipment</option>
-              <option value="Vehicles">Vehicles</option>
-              <option value="Building">Building</option>
-              <option value="Heavy Machinery">Heavy Machinery</option>
-            </select>
+            <select id="aType"><option>Equipment</option><option>Vehicles</option><option>Building</option><option>Heavy Machinery</option></select>
           </div>
           <div><label>Cost ($)</label><input id="aCost" type="number" placeholder="50000"/></div>
           <div><label>Life (Years)</label><input id="aLife" type="number" placeholder="10"/></div>
         </div>
         <div style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap;margin-bottom:.5rem">
           <div style="flex:1;min-width:160px">
-            <label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px;font-family:'DM Mono',monospace">Purchase Date</label>
-            <input id="aDate" type="date" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);outline:none"/>
+            <label style="display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:3px">Purchase Date</label>
+            <input id="aDate" type="date" style="width:100%;background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:8px 10px;font-size:12px;color:var(--ink);outline:none"/>
           </div>
-          <button class="add-asset-btn" onclick="addAsset()">➕ Add Asset</button>
+          <button class="add-btn" onclick="addAsset()">➕ Add Asset</button>
         </div>
-        <div id="assetAddSt" style="font-size:12px;font-family:'DM Mono',monospace"></div>
+        <div id="assetAddSt" style="font-size:12px"></div>
       </div>
       <div class="sc">
         <h3>📋 Asset Register</h3>
@@ -359,7 +508,7 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
       </div>
       <div class="sc">
         <h3>📅 Monthly Depreciation Due</h3>
-        <div id="depDueList"><div class="empty"><span class="ico">📉</span>Add assets above to track depreciation</div></div>
+        <div id="depDueList"><div class="empty"><span class="ico">📉</span>Add assets above</div></div>
       </div>
     </div>
 
@@ -368,8 +517,28 @@ tfoot td{background:var(--ink);color:var(--gold2);font-weight:500;padding:8px 10
       <div class="shdr"><h2>Settings</h2><span class="ti">ቅጥዒ</span></div>
       <div class="sc">
         <h3>🏢 Business Name</h3>
-        <div class="sf"><label>Business Name</label><input id="bizF" type="text" placeholder="e.g. Asmara Construction"/></div>
+        <div class="sf"><label>Business Name</label><input id="bizF" type="text"/></div>
         <button class="save-btn" onclick="saveBiz()">Save</button>
+      </div>
+      <div class="sc">
+        <h3>💱 Currency Settings</h3>
+        <div class="sf"><label>Display Currency</label>
+          <select id="curSel" onchange="saveCurrency()">
+            <option value="USD">USD — US Dollar ($)</option>
+            <option value="ERN">ERN — Eritrean Nakfa (Nfk)</option>
+            <option value="BOTH">Show Both (USD + ERN)</option>
+          </select>
+        </div>
+        <div class="sf"><label>ERN/USD Exchange Rate (1 USD = ? ERN)</label>
+          <input id="rateInp" type="number" placeholder="15" value="15" oninput="saveCurrency()"/>
+        </div>
+        <div style="font-size:11px;color:var(--gold);margin-top:.25rem">Example: if 1 USD = 15 ERN, enter 15</div>
+      </div>
+      <div class="sc">
+        <h3>📧 Email Report</h3>
+        <div class="sf"><label>Your Email</label><input id="emailF" type="email" placeholder="you@email.com"/></div>
+        <button class="save-btn" onclick="emailReport()">📧 Send Report to Email</button>
+        <div id="emailSt" style="font-size:12px;margin-top:.5rem"></div>
       </div>
       <div class="sc">
         <h3>🔐 Change Password</h3>
@@ -389,6 +558,7 @@ function getU(){return JSON.parse(localStorage.getItem('hisab_u')||'{}');}
 function setU(u){localStorage.setItem('hisab_u',JSON.stringify(u));}
 function getCU(){return localStorage.getItem('hisab_cu');}
 function setCU(u){localStorage.setItem('hisab_cu',u);}
+
 function doLogin(){
   const u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value,users=getU();
   if(!users[u]||users[u].pass!==btoa(p)){document.getElementById('lerr').style.display='block';return;}
@@ -399,12 +569,13 @@ function doReg(){
   if(!b||!u||!p){re.style.display='block';re.textContent='Fill all fields';return;}
   const users=getU();
   if(users[u]){re.style.display='block';re.textContent='Username taken';return;}
-  users[u]={pass:btoa(p),biz:b,entries:[],nextId:1,assets:[]};
+  users[u]={pass:btoa(p),biz:b,entries:[],nextId:1,assets:[],inventory:[],projects:[]};
   setU(users);setCU(u);loadApp(u,users[u]);
 }
 function showReg(){document.getElementById('loginForm').style.display='none';document.getElementById('regForm').style.display='block';}
 function showLogin(){document.getElementById('regForm').style.display='none';document.getElementById('loginForm').style.display='block';}
 function doLogout(){localStorage.removeItem('hisab_cu');document.getElementById('mainApp').style.display='none';document.getElementById('loginScreen').style.display='flex';document.getElementById('lu').value='';document.getElementById('lp').value='';}
+
 function loadApp(username,data){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('mainApp').style.display='block';
@@ -414,21 +585,39 @@ function loadApp(username,data){
   DB.entries=data.entries||[];
   DB.nextId=data.nextId||1;
   DB.assets=data.assets||[];
-  rAll();
-  checkDepReminder();
+  DB.inventory=data.inventory||[];
+  DB.projects=data.projects||[];
+  // load currency settings
+  CURRENCY=data.currency||'USD';
+  RATE=data.rate||15;
+  document.getElementById('curSel').value=CURRENCY;
+  document.getElementById('rateInp').value=RATE;
+  document.getElementById('curDisplay').textContent=CURRENCY==='BOTH'?'USD+ERN':CURRENCY;
+  rAll();checkDepReminder();checkLowStock();
 }
 window.addEventListener('load',()=>{
   const cu=getCU();
   if(cu){const u=getU();if(u[cu])loadApp(cu,u[cu]);}
   document.getElementById('aDate').value=new Date().toISOString().split('T')[0];
+  document.getElementById('pjStart').value=new Date().toISOString().split('T')[0];
 });
 function saveData(){
   const cu=getCU();if(!cu)return;
-  const u=getU();u[cu].entries=DB.entries;u[cu].nextId=DB.nextId;u[cu].assets=DB.assets;setU(u);
+  const u=getU();
+  u[cu].entries=DB.entries;u[cu].nextId=DB.nextId;u[cu].assets=DB.assets;
+  u[cu].inventory=DB.inventory;u[cu].projects=DB.projects;
+  u[cu].currency=CURRENCY;u[cu].rate=RATE;
+  setU(u);
 }
 function saveBiz(){
   const b=document.getElementById('bizF').value.trim(),cu=getCU(),u=getU();u[cu].biz=b;setU(u);
-  document.getElementById('topBiz').textContent=b||'Pro';showToast('✅ Business name saved!');
+  document.getElementById('topBiz').textContent=b||'Pro';showToast('✅ Saved!');
+}
+function saveCurrency(){
+  CURRENCY=document.getElementById('curSel').value;
+  RATE=parseFloat(document.getElementById('rateInp').value)||15;
+  document.getElementById('curDisplay').textContent=CURRENCY==='BOTH'?'USD+ERN':CURRENCY;
+  saveData();rAll();
 }
 function changePw(){
   const o=document.getElementById('op').value,n=document.getElementById('np').value,cu=getCU(),u=getU();
@@ -439,32 +628,36 @@ function changePw(){
 }
 
 // ── STATE ──
-const DB={entries:[],nextId:1,assets:[]};
-let lang='en',listening=false,recog=null,pending=null;
+const DB={entries:[],nextId:1,assets:[],inventory:[],projects:[]};
+let lang='en',listening=false,recog=null,pending=null,CURRENCY='USD',RATE=15;
+
+// ── CURRENCY FORMAT ──
+function fmtCur(v){
+  const usd=(+v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  if(CURRENCY==='USD')return '$'+usd;
+  if(CURRENCY==='ERN')return 'Nfk '+(((+v||0)*RATE).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}));
+  return '$'+usd+' / Nfk '+(((+v||0)*RATE).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}));
+}
+function fmt(v){return(+v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 
 // ── NAV ──
 function go(pg,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
-  document.getElementById('pg-'+pg).classList.add('on');
+  const el=document.getElementById('pg-'+pg);
+  if(el)el.classList.add('on');
   if(btn)btn.classList.add('on');
-  // Always re-render the target page so it shows latest data
-  const renders={journal:rJ,ledger:rLedger,trial:rTrial,income:rIncome,balance:rBalance,cashflow:rCF,equity:rEq,history:()=>rHistory('all'),depreciation:rDepPage};
+  const renders={journal:rJ,ledger:rLedger,trial:rTrial,income:rIncome,balance:rBalance,cashflow:rCF,equity:rEq,history:()=>rHistory('all'),depreciation:rDepPage,inventory:renderInventory,projects:renderProjects};
   if(renders[pg])renders[pg]();
 }
-
-// ── rAll: called after every post to update everything ──
 function rAll(){
   rJ();rLedger();rTrial();rIncome();rBalance();rCF();rEq();rHistory('all');
   document.getElementById('jcnt').textContent=DB.entries.length;
   document.getElementById('hcnt').textContent=DB.entries.length;
 }
 
-function setLang(l){
-  lang=l;
-  document.getElementById('l-en').classList.toggle('on',l==='en');
-  document.getElementById('l-ti').classList.toggle('on',l==='ti');
-}
+// ── LANG ──
+function setLang(l){lang=l;document.getElementById('l-en').classList.toggle('on',l==='en');document.getElementById('l-ti').classList.toggle('on',l==='ti');}
 
 // ── VOICE ──
 function toggleMic(){
@@ -476,7 +669,7 @@ function toggleMic(){
   recog.onresult=e=>{const t=Array.from(e.results).map(r=>r[0].transcript).join('');document.getElementById('txtin').value=t;};
   recog.onend=()=>{listening=false;document.getElementById('micBtn').classList.remove('listening');document.getElementById('micSt').textContent='ንምዝራብ ጠውቕ · Tap to Speak';document.getElementById('micIco').textContent='🎙️';const t=document.getElementById('txtin').value.trim();if(t.length>2)parse(t);};
   recog.onerror=()=>{listening=false;document.getElementById('micBtn').classList.remove('listening');document.getElementById('micIco').textContent='🎙️';showToast('⚠️ Voice error. Please type.');};
-  try{recog.start();}catch(e){showToast('⚠️ Mic error. Please type.');}
+  try{recog.start();}catch(e){showToast('⚠️ Mic error.');}
 }
 function doSub(){const t=document.getElementById('txtin').value.trim();if(t.length>2)parse(t);}
 function useSample(t){document.getElementById('txtin').value=t;parse(t);}
@@ -503,120 +696,115 @@ async function parse(text){
   }catch(err){
     document.getElementById('ptitle').textContent='⚠️ Error';
     document.getElementById('pmemo').textContent=err.message;
-    console.error(err);
   }
 }
 
-// ── SHOW PARSED ──
 function showParsed(e){
   document.getElementById('ptitle').textContent='ናይ AI ትንታነ — Analysis';
   document.getElementById('ptype').textContent=(e.type||'—').toUpperCase();
   document.getElementById('pmeta').innerHTML=`
     <div class="mbox"><div class="mlbl">ዕለት</div><div class="mval">${e.date||'—'}</div></div>
-    <div class="mbox"><div class="mlbl">ዋጋ</div><div class="mval">$${fmt(e.amount||0)}</div></div>
+    <div class="mbox"><div class="mlbl">ዋጋ</div><div class="mval">${fmtCur(e.amount||0)}</div></div>
     <div class="mbox"><div class="mlbl">Currency</div><div class="mval">${e.currency||'USD'}</div></div>
     <div class="mbox" style="grid-column:1/-1"><div class="mlbl">Description</div><div class="mval">${e.description||'—'}</div></div>`;
   const debits=(e.entries||[]).filter(r=>(+r.debit)>0);
   const credits=(e.entries||[]).filter(r=>(+r.credit)>0);
   let rows='';
-  debits.forEach(d=>{rows+=`<tr><td><span class="drt">Dr</span>${d.account}<br><small style="color:var(--gold);font-size:10px">${d.type||''}</small></td><td class="amt dr">$${fmt(+d.debit)}</td><td></td></tr>`;});
-  credits.forEach(c=>{rows+=`<tr><td style="padding-left:1.5rem"><span class="crt">Cr</span>${c.account}<br><small style="color:var(--gold);font-size:10px">${c.type||''}</small></td><td></td><td class="amt cr">$${fmt(+c.credit)}</td></tr>`;});
-  const totDr=debits.reduce((s,r)=>s+(+r.debit),0);
-  const totCr=credits.reduce((s,r)=>s+(+r.credit),0);
-  const balanced=Math.abs(totDr-totCr)<0.02;
-  rows+=`<tr style="background:var(--ink)"><td style="color:var(--gold2);font-size:10px">Total ${balanced?'✅ Balanced':'⚠️ NOT BALANCED'}</td><td class="amt" style="color:#7AB4FF">$${fmt(totDr)}</td><td class="amt" style="color:#7ADA7A">$${fmt(totCr)}</td></tr>`;
+  debits.forEach(d=>{rows+=`<tr><td><span class="drt">Dr</span>${d.account}<br><small style="color:var(--gold);font-size:10px">${d.type}</small></td><td class="amt dr">${fmtCur(+d.debit)}</td><td></td></tr>`;});
+  credits.forEach(c=>{rows+=`<tr><td style="padding-left:1.5rem"><span class="crt">Cr</span>${c.account}<br><small style="color:var(--gold);font-size:10px">${c.type}</small></td><td></td><td class="amt cr">${fmtCur(+c.credit)}</td></tr>`;});
+  const totDr=debits.reduce((s,r)=>s+(+r.debit),0),totCr=credits.reduce((s,r)=>s+(+r.credit),0),balanced=Math.abs(totDr-totCr)<0.02;
+  rows+=`<tr style="background:var(--ink)"><td style="color:var(--gold2);font-size:10px">Total ${balanced?'✅':'⚠️ NOT BALANCED'}</td><td class="amt" style="color:#7AB4FF">${fmtCur(totDr)}</td><td class="amt" style="color:#7ADA7A">${fmtCur(totCr)}</td></tr>`;
   document.getElementById('pprev').innerHTML=`<table><thead><tr><th>Account</th><th class="amt">Debit</th><th class="amt">Credit</th></tr></thead><tbody>${rows}</tbody></table>`;
   document.getElementById('pmemo').textContent=e.description||'';
   document.getElementById('postBtn').disabled=!balanced;
-  if(!balanced)showToast('⚠️ Debits do not equal Credits — try rephrasing');
 }
 
-// ── POST TO JOURNAL ──
+// ── POST ──
 function postEntry(){
   if(!pending)return;
-  // Convert entries[] → internal debits[]/credits[] format
-  // KEY FIX: store atype as lowercase — this is what financial statements filter on
-  const debits=(pending.entries||[]).filter(r=>(+r.debit)>0).map(r=>({
-    acct:r.account, acct_ti:r.account,
-    amt:+(+r.debit).toFixed(2),
-    atype:(r.type||'asset').toLowerCase()   // ← ALWAYS lowercase
-  }));
-  const credits=(pending.entries||[]).filter(r=>(+r.credit)>0).map(r=>({
-    acct:r.account, acct_ti:r.account,
-    amt:+(+r.credit).toFixed(2),
-    atype:(r.type||'asset').toLowerCase()   // ← ALWAYS lowercase
-  }));
-  const entry={
-    id:DB.nextId++, date:pending.date, postedAt:new Date().toISOString(),
-    type:pending.type||'Other',
-    amount:pending.amount||debits.reduce((s,r)=>s+r.amt,0),
-    desc_ti:pending.description||'', desc_en:pending.description||'',
-    memo_ti:pending.description||'', memo_en:pending.description||'',
-    debits, credits
-  };
-  DB.entries.push(entry);
-  pending=null;
-  saveData();
-  rAll(); // ← updates ALL financial statements immediately
+  const debits=(pending.entries||[]).filter(r=>(+r.debit)>0).map(r=>({acct:r.account,acct_ti:r.account,amt:+(+r.debit).toFixed(2),atype:(r.type||'asset').toLowerCase()}));
+  const credits=(pending.entries||[]).filter(r=>(+r.credit)>0).map(r=>({acct:r.account,acct_ti:r.account,amt:+(+r.credit).toFixed(2),atype:(r.type||'asset').toLowerCase()}));
+  DB.entries.push({id:DB.nextId++,date:pending.date,postedAt:new Date().toISOString(),type:pending.type||'Other',amount:pending.amount||debits.reduce((s,r)=>s+r.amt,0),desc_en:pending.description||'',desc_ti:pending.description||'',memo_en:pending.description||'',memo_ti:pending.description||'',debits,credits});
+  pending=null;saveData();rAll();
   document.getElementById('postBtn').textContent='✅ Posted!';
   document.getElementById('postBtn').disabled=true;
   showToast('✅ Entry saved — all statements updated!');
   setTimeout(()=>{document.getElementById('postBtn').textContent='✅ ናብ ደፍተር ምቕማጥ · Post to Journal';},2500);
 }
 
-// ══════════════════════════════════════════
-// LEDGER & BALANCE — core data functions
-// ══════════════════════════════════════════
-function getLedger(){
+// ── DELETE ENTRY ──
+function deleteEntry(id){
+  if(!confirm('Delete this entry? This cannot be undone.'))return;
+  DB.entries=DB.entries.filter(e=>e.id!==id);
+  saveData();rAll();showToast('🗑️ Entry deleted');
+}
+
+// ── LEDGER / BALANCE ──
+function getLedger(from,to){
   const a={};
   DB.entries.forEach(e=>{
+    if(from&&e.date<from)return;
+    if(to&&e.date>to)return;
     [...(e.debits||[]).map(d=>({...d,side:'dr'})),...(e.credits||[]).map(c=>({...c,side:'cr'}))].forEach(item=>{
       if(!a[item.acct])a[item.acct]={ti:item.acct_ti||item.acct,type:item.atype,rows:[]};
-      a[item.acct].rows.push({date:e.date,desc:e.desc_ti||e.desc_en,side:item.side,amt:item.amt});
+      a[item.acct].rows.push({date:e.date,desc:e.desc_en,side:item.side,amt:item.amt});
     });
-  });
-  return a;
+  });return a;
 }
-function getBal(){
-  const a=getLedger(),b={};
+function getBal(from,to){
+  const a=getLedger(from,to),b={};
   Object.entries(a).forEach(([acc,data])=>{
     const dr=data.rows.filter(r=>r.side==='dr').reduce((s,r)=>s+r.amt,0);
     const cr=data.rows.filter(r=>r.side==='cr').reduce((s,r)=>s+r.amt,0);
     b[acc]={ti:data.ti,type:data.type,dr,cr,net:dr-cr};
-  });
-  return b;
+  });return b;
 }
 
 // ── HISTORY ──
-function filterH(f,btn){document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');rHistory(f);}
+let histFilter='all';
+function filterH(f,btn){histFilter=f;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');rHistory(f);}
 function rHistory(f){
   const el=document.getElementById('histList');
+  const q=(document.getElementById('histSearch')||{}).value||'';
   if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>No history yet</div>';return;}
   const now=new Date();
   let list=[...DB.entries].reverse().filter(e=>{
-    if(f==='all')return true;
-    const d=new Date(e.date);
-    if(f==='today')return d.toDateString()===now.toDateString();
-    if(f==='week'){const w=new Date(now);w.setDate(now.getDate()-7);return d>=w;}
-    if(f==='month'){const m=new Date(now);m.setMonth(now.getMonth()-1);return d>=m;}
+    if(f==='today')return new Date(e.date).toDateString()===now.toDateString();
+    if(f==='week'){const w=new Date(now);w.setDate(now.getDate()-7);return new Date(e.date)>=w;}
+    if(f==='month'){const m=new Date(now);m.setMonth(now.getMonth()-1);return new Date(e.date)>=m;}
     return true;
-  });
-  if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>No entries for this period</div>';return;}
-  el.innerHTML=list.map(e=>`<div class="hist-item"><div class="hist-date">${e.date}<br><span style="color:rgba(184,134,11,.35);font-size:9px">#${e.id}</span></div><div class="hist-body"><div class="hist-desc">${e.desc_en||'—'}</div><div class="hist-type">${e.type||'—'}</div></div><div class="hist-amt">$${fmt(e.amount||0)}</div></div>`).join('');
+  }).filter(e=>!q||e.desc_en.toLowerCase().includes(q.toLowerCase())||e.type.toLowerCase().includes(q.toLowerCase()));
+  if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📅</span>No matching entries</div>';return;}
+  el.innerHTML=list.map(e=>`<div class="hist-item">
+    <div class="hist-date">${e.date}<br><span style="color:rgba(184,134,11,.35);font-size:9px">#${e.id}</span></div>
+    <div class="hist-body"><div class="hist-desc">${e.desc_en||'—'}</div><div class="hist-type">${e.type||'—'}</div></div>
+    <div class="hist-amt">${fmtCur(e.amount||0)}</div>
+    <button class="hist-del" onclick="deleteEntry(${e.id})" title="Delete">🗑️</button>
+  </div>`).join('');
   document.getElementById('hcnt').textContent=DB.entries.length;
 }
 
 // ── JOURNAL ──
+function clearJFilter(){document.getElementById('jSearch').value='';document.getElementById('jFrom').value='';document.getElementById('jTo').value='';rJ();}
 function rJ(){
   const el=document.getElementById('jFull');
-  if(!DB.entries.length){el.innerHTML='<div class="empty"><span class="ico">📒</span>No entries yet</div>';return;}
-  let rows='';
-  DB.entries.forEach(e=>{
-    (e.debits||[]).forEach((d,i)=>{rows+=`<tr><td style="white-space:nowrap;font-size:11px">${i===0?e.date:''}</td><td style="font-size:10px;color:var(--gold)">${i===0?'#'+e.id:''}</td><td><span class="drt">Dr</span>${d.acct}<br><small style="color:var(--gold);font-size:10px">${d.atype}</small></td><td class="amt dr">$${fmt(d.amt)}</td><td></td></tr>`;});
-    (e.credits||[]).forEach(c=>{rows+=`<tr><td></td><td></td><td style="padding-left:1.5rem"><span class="crt">Cr</span>${c.acct}<br><small style="color:var(--gold);font-size:10px">${c.atype}</small></td><td></td><td class="amt cr">$${fmt(c.amt)}</td></tr>`;});
-    rows+=`<tr class="mtr"><td colspan="5">${e.memo_en||''}</td></tr>`;
+  const q=(document.getElementById('jSearch')||{}).value||'';
+  const from=(document.getElementById('jFrom')||{}).value||'';
+  const to=(document.getElementById('jTo')||{}).value||'';
+  let list=DB.entries.filter(e=>{
+    if(from&&e.date<from)return false;
+    if(to&&e.date>to)return false;
+    if(q&&!e.desc_en.toLowerCase().includes(q.toLowerCase())&&!e.type.toLowerCase().includes(q.toLowerCase()))return false;
+    return true;
   });
-  el.innerHTML=`<div class="tw"><table><thead><tr><th>Date</th><th>#</th><th>Account</th><th class="amt">Debit</th><th class="amt">Credit</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📒</span>No entries found</div>';return;}
+  let rows='';
+  list.forEach(e=>{
+    (e.debits||[]).forEach((d,i)=>{rows+=`<tr><td style="white-space:nowrap;font-size:11px">${i===0?e.date:''}</td><td style="font-size:10px;color:var(--gold)">${i===0?'#'+e.id:''}</td><td><span class="drt">Dr</span>${d.acct}<br><small style="color:var(--gold);font-size:10px">${d.atype}</small></td><td class="amt dr">${fmtCur(d.amt)}</td><td></td><td>${i===0?`<button class="del-btn" onclick="deleteEntry(${e.id})">🗑️</button>`:''}</td></tr>`;});
+    (e.credits||[]).forEach(c=>{rows+=`<tr><td></td><td></td><td style="padding-left:1.5rem"><span class="crt">Cr</span>${c.acct}<br><small style="color:var(--gold);font-size:10px">${c.atype}</small></td><td></td><td class="amt cr">${fmtCur(c.amt)}</td><td></td></tr>`;});
+    rows+=`<tr class="mtr"><td colspan="6">${e.memo_en||''}</td></tr>`;
+  });
+  el.innerHTML=`<div class="tw"><table><thead><tr><th>Date</th><th>#</th><th>Account</th><th class="amt">Debit</th><th class="amt">Credit</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`;
   document.getElementById('jcnt').textContent=DB.entries.length;
 }
 
@@ -630,54 +818,57 @@ function rLedger(){
     const cr=data.rows.filter(r=>r.side==='cr').reduce((s,r)=>s+r.amt,0);const net=dr-cr;
     const drR=data.rows.filter(r=>r.side==='dr'),crR=data.rows.filter(r=>r.side==='cr');
     let rows='';
-    for(let i=0;i<Math.max(drR.length,crR.length);i++){const d=drR[i],c=crR[i];rows+=`<tr><td style="font-size:11px;white-space:nowrap">${d?d.date:''}</td><td style="font-size:12px">${d?d.desc:''}</td><td class="amt dr">${d?'$'+fmt(d.amt):''}</td><td style="font-size:11px;white-space:nowrap">${c?c.date:''}</td><td style="font-size:12px">${c?c.desc:''}</td><td class="amt cr">${c?'$'+fmt(c.amt):''}</td></tr>`;}
-    rows+=`<tr><td colspan="2" style="background:var(--paper2);font-weight:500;font-size:11px">Total</td><td class="amt dr" style="background:var(--paper2);font-weight:500">$${fmt(dr)}</td><td colspan="2" style="background:var(--paper2)"></td><td class="amt cr" style="background:var(--paper2);font-weight:500">$${fmt(cr)}</td></tr>`;
-    html+=`<div class="la"><div class="lhdr"><div><div class="an">${acc}</div><div class="at">${data.type}</div></div><div class="bal ${net>=0?'bdr':'bcr'}">Balance: ${net>=0?'Dr':'Cr'} $${fmt(Math.abs(net))}</div></div><div class="tw" style="border:none;border-radius:0;box-shadow:none"><table><thead><tr><th>Date</th><th>Debit Side</th><th class="amt">Amount</th><th>Date</th><th>Credit Side</th><th class="amt">Amount</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+    for(let i=0;i<Math.max(drR.length,crR.length);i++){const d=drR[i],c=crR[i];rows+=`<tr><td style="font-size:11px;white-space:nowrap">${d?d.date:''}</td><td style="font-size:11px">${d?d.desc:''}</td><td class="amt dr">${d?fmtCur(d.amt):''}</td><td style="font-size:11px;white-space:nowrap">${c?c.date:''}</td><td style="font-size:11px">${c?c.desc:''}</td><td class="amt cr">${c?fmtCur(c.amt):''}</td></tr>`;}
+    rows+=`<tr><td colspan="2" style="background:var(--paper2);font-weight:500;font-size:11px">Total</td><td class="amt dr" style="background:var(--paper2);font-weight:500">${fmtCur(dr)}</td><td colspan="2" style="background:var(--paper2)"></td><td class="amt cr" style="background:var(--paper2);font-weight:500">${fmtCur(cr)}</td></tr>`;
+    html+=`<div class="la"><div class="lhdr"><div><div class="an">${acc}</div><div class="at">${data.type}</div></div><div class="bal ${net>=0?'bdr':'bcr'}">Balance: ${net>=0?'Dr':'Cr'} ${fmtCur(Math.abs(net))}</div></div><div class="tw" style="border:none;border-radius:0;box-shadow:none"><table><thead><tr><th>Date</th><th>Debit</th><th class="amt">Amt</th><th>Date</th><th>Credit</th><th class="amt">Amt</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
   });
   el.innerHTML=html;
 }
 
-// ── TRIAL BALANCE ──
+// ── TRIAL ──
 function rTrial(){
   const el=document.getElementById('tFull'),b=getBal();
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">⚖️</span>No entries yet</div>';return;}
   const rows=Object.entries(b).map(([a,v])=>({a,ti:v.ti,type:v.type,dr:v.net>0?v.net:0,cr:v.net<0?Math.abs(v.net):0}));
   const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0),ok=Math.abs(tDr-tCr)<0.02;
-  el.innerHTML=`<div class="${ok?'bok':'bno'}">${ok?'✅ Balanced':'⚠️ Not Balanced'} · Dr $${fmt(tDr)} | Cr $${fmt(tCr)}</div>
+  el.innerHTML=`<div class="${ok?'bok':'bno'}">${ok?'✅ Balanced':'⚠️ Not Balanced'} · Dr ${fmtCur(tDr)} | Cr ${fmtCur(tCr)}</div>
   <div class="tw"><table><thead><tr><th>Account</th><th>Type</th><th class="amt">Debit</th><th class="amt">Credit</th></tr></thead>
-  <tbody>${rows.map(r=>`<tr><td>${r.a}<br><small style="color:var(--gold);font-size:10px">${r.type}</small></td><td style="font-size:10px;color:var(--gold);text-transform:uppercase">${r.type}</td><td class="amt dr">${r.dr>0?'$'+fmt(r.dr):''}</td><td class="amt cr">${r.cr>0?'$'+fmt(r.cr):''}</td></tr>`).join('')}</tbody>
-  <tfoot><tr><td colspan="2">Total</td><td class="amt">$${fmt(tDr)}</td><td class="amt">$${fmt(tCr)}</td></tr></tfoot></table></div>`;
+  <tbody>${rows.map(r=>`<tr><td>${r.a}</td><td style="font-size:10px;color:var(--gold);text-transform:uppercase">${r.type}</td><td class="amt dr">${r.dr>0?fmtCur(r.dr):''}</td><td class="amt cr">${r.cr>0?fmtCur(r.cr):''}</td></tr>`).join('')}</tbody>
+  <tfoot><tr><td colspan="2">Total</td><td class="amt">${fmtCur(tDr)}</td><td class="amt">${fmtCur(tCr)}</td></tr></tfoot></table></div>`;
 }
 
-// ── INCOME STATEMENT ──
-// KEY FIX: filter by atype === 'revenue' and atype === 'expense' (lowercase)
+// ── INCOME ──
 function rIncome(){
-  const el=document.getElementById('iFull'),b=getBal();
+  const el=document.getElementById('iFull');
+  const from=(document.getElementById('iFrom')||{}).value||'';
+  const to=(document.getElementById('iTo')||{}).value||'';
+  const b=getBal(from,to);
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">💰</span>No entries yet</div>';return;}
   const rA=Object.entries(b).filter(([,v])=>v.type==='revenue');
   const xA=Object.entries(b).filter(([,v])=>v.type==='expense');
   const tR=rA.reduce((s,[,v])=>s+Math.abs(v.net),0);
   const tX=xA.reduce((s,[,v])=>s+Math.abs(v.net),0);
   const net=tR-tX;
+  const period=from||to?`${from||'start'} to ${to||'now'}`:'All Time';
   el.innerHTML=`
   <div class="krow">
-    <div class="kpi"><div class="kl">Revenue<span class="kti">ጠቅላላ ኣታዊ</span></div><div class="kv pos">$${fmt(tR)}</div></div>
-    <div class="kpi"><div class="kl">Expenses<span class="kti">ጠቅላላ ወጻኢ</span></div><div class="kv neg">$${fmt(tX)}</div></div>
-    <div class="kpi"><div class="kl">${net>=0?'Net Profit':'Net Loss'}<span class="kti">${net>=0?'መኸሰብ':'ክሳራ'}</span></div><div class="kv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</div></div>
+    <div class="kpi"><div class="kl">Revenue</div><div class="kv pos">${fmtCur(tR)}</div></div>
+    <div class="kpi"><div class="kl">Expenses</div><div class="kv neg">${fmtCur(tX)}</div></div>
+    <div class="kpi"><div class="kl">${net>=0?'Net Profit':'Net Loss'}</div><div class="kv ${net>=0?'pos':'neg'}">${fmtCur(Math.abs(net))}</div></div>
   </div>
   <div class="fsc">
-    <div class="fst">Income Statement</div><div class="fsti">መኸሰብ ወይ ክሳራ</div>
-    <div class="fsr lbl"><span>Revenue ኣታዊ</span></div>
-    ${rA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}<small>${v.type}</small></span><span class="fsv pos">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">No revenue yet</span><span class="fsv">$0.00</span></div>'}
-    <div class="fsr sub"><span class="fsn">Total Revenue</span><span class="fsv pos">$${fmt(tR)}</span></div>
-    <div class="fsr lbl" style="margin-top:8px"><span>Expenses ወጻኢ</span></div>
-    ${xA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}<small>${v.type}</small></span><span class="fsv neg">($${fmt(Math.abs(v.net))})</span></div>`).join('')||'<div class="fsr ind"><span class="fsn">No expenses yet</span><span class="fsv">$0.00</span></div>'}
-    <div class="fsr sub"><span class="fsn">Total Expenses</span><span class="fsv neg">($${fmt(tX)})</span></div>
-    <div class="fsr tot"><span class="fsn">${net>=0?'Net Profit':'Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div>
+    <div class="fst">Income Statement</div><div class="fsti">Period: ${period}</div>
+    <div class="fsr lbl"><span>Revenue</span></div>
+    ${rA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv pos">${fmtCur(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span>No revenue</span><span class="fsv">—</span></div>'}
+    <div class="fsr sub"><span class="fsn">Total Revenue</span><span class="fsv pos">${fmtCur(tR)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Expenses</span></div>
+    ${xA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv neg">(${fmtCur(Math.abs(v.net))})</span></div>`).join('')||'<div class="fsr ind"><span>No expenses</span><span class="fsv">—</span></div>'}
+    <div class="fsr sub"><span class="fsn">Total Expenses</span><span class="fsv neg">(${fmtCur(tX)})</span></div>
+    <div class="fsr tot"><span class="fsn">${net>=0?'Net Profit':'Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">${fmtCur(Math.abs(net))}</span></div>
   </div>`;
 }
 
-// ── BALANCE SHEET ──
+// ── BALANCE ──
 function rBalance(){
   const el=document.getElementById('bFull'),b=getBal();
   if(!Object.keys(b).length){el.innerHTML='<div class="empty"><span class="ico">🏛️</span>No entries yet</div>';return;}
@@ -693,23 +884,23 @@ function rBalance(){
   const tE=tEB+re;
   el.innerHTML=`
   <div class="krow">
-    <div class="kpi"><div class="kl">Assets<span class="kti">ሃልዋት</span></div><div class="kv">$${fmt(tA)}</div></div>
-    <div class="kpi"><div class="kl">Liabilities<span class="kti">ዕዳ</span></div><div class="kv neg">$${fmt(tL)}</div></div>
-    <div class="kpi"><div class="kl">Equity<span class="kti">ካፒታል</span></div><div class="kv pos">$${fmt(tE)}</div></div>
+    <div class="kpi"><div class="kl">Assets</div><div class="kv">${fmtCur(tA)}</div></div>
+    <div class="kpi"><div class="kl">Liabilities</div><div class="kv neg">${fmtCur(tL)}</div></div>
+    <div class="kpi"><div class="kl">Equity</div><div class="kv pos">${fmtCur(tE)}</div></div>
   </div>
   <div class="fsc">
     <div class="fst">Balance Sheet</div><div class="fsti">ሚዛን ሓሳብ</div>
-    <div class="fsr lbl"><span>Assets ሃልዋት</span></div>
-    ${aA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">$${fmt(v.net)}</span></div>`).join('')||'<div class="fsr ind"><span>None</span><span class="fsv">$0.00</span></div>'}
-    <div class="fsr tot"><span class="fsn">Total Assets</span><span class="fsv">$${fmt(tA)}</span></div>
-    <div class="fsr lbl" style="margin-top:8px"><span>Liabilities ዕዳ</span></div>
-    ${lA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span>None</span><span class="fsv">$0.00</span></div>'}
-    <div class="fsr sub"><span class="fsn">Total Liabilities</span><span class="fsv neg">$${fmt(tL)}</span></div>
-    <div class="fsr lbl" style="margin-top:8px"><span>Equity ካፒታል</span></div>
-    ${eA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">$${fmt(Math.abs(v.net))}</span></div>`).join('')}
-    <div class="fsr ind"><span class="fsn">Retained ${re>=0?'Earnings':'Loss'}</span><span class="fsv ${re>=0?'pos':'neg'}">$${fmt(re)}</span></div>
-    <div class="fsr sub"><span class="fsn">Total Equity</span><span class="fsv pos">$${fmt(tE)}</span></div>
-    <div class="fsr tot"><span class="fsn">Total Liabilities + Equity</span><span class="fsv">$${fmt(tL+tE)}</span></div>
+    <div class="fsr lbl"><span>Assets</span></div>
+    ${aA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">${fmtCur(v.net)}</span></div>`).join('')||'<div class="fsr ind"><span>None</span><span class="fsv">—</span></div>'}
+    <div class="fsr tot"><span class="fsn">Total Assets</span><span class="fsv">${fmtCur(tA)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Liabilities</span></div>
+    ${lA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">${fmtCur(Math.abs(v.net))}</span></div>`).join('')||'<div class="fsr ind"><span>None</span><span class="fsv">—</span></div>'}
+    <div class="fsr sub"><span class="fsn">Total Liabilities</span><span class="fsv neg">${fmtCur(tL)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Equity</span></div>
+    ${eA.map(([a,v])=>`<div class="fsr ind"><span class="fsn">${a}</span><span class="fsv">${fmtCur(Math.abs(v.net))}</span></div>`).join('')}
+    <div class="fsr ind"><span class="fsn">Retained ${re>=0?'Earnings':'Loss'}</span><span class="fsv ${re>=0?'pos':'neg'}">${fmtCur(re)}</span></div>
+    <div class="fsr sub"><span class="fsn">Total Equity</span><span class="fsv pos">${fmtCur(tE)}</span></div>
+    <div class="fsr tot"><span class="fsn">Total Liabilities + Equity</span><span class="fsv">${fmtCur(tL+tE)}</span></div>
   </div>`;
 }
 
@@ -720,35 +911,33 @@ function rCF(){
   const tR=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0);
   const tX=Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
   const net=tR-tX;
-  const depAccs=['Accumulated Depreciation - Equipment','Accumulated Depreciation - Vehicles','Accumulated Depreciation - Building'];
-  const dep=depAccs.reduce((s,a)=>s+(b[a]?Math.abs(b[a].net):0),0);
+  const dep=['Accumulated Depreciation - Equipment','Accumulated Depreciation - Vehicles','Accumulated Depreciation - Building'].reduce((s,a)=>s+(b[a]?Math.abs(b[a].net):0),0);
   const opCF=net+dep;
-  const fixedAccs=['Equipment','Heavy Machinery','Vehicles','Land','Building'];
-  const fixA=fixedAccs.reduce((s,a)=>s+(b[a]?b[a].net:0),0);
+  const fixA=['Equipment','Heavy Machinery','Vehicles','Land','Building'].reduce((s,a)=>s+(b[a]?b[a].net:0),0);
   const invCF=-fixA;
   const cap=b["Owner's Capital"]?Math.abs(b["Owner's Capital"].net):0;
   const loans=(b['Loans Payable']?Math.abs(b['Loans Payable'].net):0)+(b['Bank Loan Payable']?Math.abs(b['Bank Loan Payable'].net):0);
   const finCF=cap+loans;const netCF=opCF+invCF+finCF;
   el.innerHTML=`
   <div class="krow">
-    <div class="kpi"><div class="kl">Operating</div><div class="kv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</div></div>
-    <div class="kpi"><div class="kl">Investing</div><div class="kv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</div></div>
-    <div class="kpi"><div class="kl">Financing</div><div class="kv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</div></div>
-    <div class="kpi"><div class="kl">Net CF</div><div class="kv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</div></div>
+    <div class="kpi"><div class="kl">Operating</div><div class="kv ${opCF>=0?'pos':'neg'}">${fmtCur(opCF)}</div></div>
+    <div class="kpi"><div class="kl">Investing</div><div class="kv ${invCF>=0?'pos':'neg'}">${fmtCur(invCF)}</div></div>
+    <div class="kpi"><div class="kl">Financing</div><div class="kv ${finCF>=0?'pos':'neg'}">${fmtCur(finCF)}</div></div>
+    <div class="kpi"><div class="kl">Net CF</div><div class="kv ${netCF>=0?'pos':'neg'}">${fmtCur(netCF)}</div></div>
   </div>
   <div class="fsc">
     <div class="fst">Cash Flow Statement</div><div class="fsti">ምንቅስቃስ ገንዘብ</div>
-    <div class="fsr lbl"><span>Operating Activities</span></div>
-    <div class="fsr ind"><span class="fsn">${net>=0?'Net Profit':'Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(net)}</span></div>
-    <div class="fsr ind"><span class="fsn">Add: Depreciation</span><span class="fsv">$${fmt(dep)}</span></div>
-    <div class="fsr sub"><span class="fsn">Net Operating CF</span><span class="fsv ${opCF>=0?'pos':'neg'}">$${fmt(opCF)}</span></div>
-    <div class="fsr lbl" style="margin-top:8px"><span>Investing Activities</span></div>
-    <div class="fsr ind"><span class="fsn">Fixed Asset Purchases</span><span class="fsv neg">($${fmt(fixA)})</span></div>
-    <div class="fsr sub"><span class="fsn">Net Investing CF</span><span class="fsv ${invCF>=0?'pos':'neg'}">$${fmt(invCF)}</span></div>
-    <div class="fsr lbl" style="margin-top:8px"><span>Financing Activities</span></div>
-    <div class="fsr ind"><span class="fsn">Owner Capital + Loans</span><span class="fsv pos">$${fmt(finCF)}</span></div>
-    <div class="fsr sub"><span class="fsn">Net Financing CF</span><span class="fsv ${finCF>=0?'pos':'neg'}">$${fmt(finCF)}</span></div>
-    <div class="fsr tot"><span class="fsn">Net Cash Flow</span><span class="fsv ${netCF>=0?'pos':'neg'}">$${fmt(netCF)}</span></div>
+    <div class="fsr lbl"><span>Operating</span></div>
+    <div class="fsr ind"><span class="fsn">${net>=0?'Net Profit':'Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">${fmtCur(net)}</span></div>
+    <div class="fsr ind"><span class="fsn">Add: Depreciation</span><span class="fsv">${fmtCur(dep)}</span></div>
+    <div class="fsr sub"><span class="fsn">Net Operating CF</span><span class="fsv ${opCF>=0?'pos':'neg'}">${fmtCur(opCF)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Investing</span></div>
+    <div class="fsr ind"><span class="fsn">Fixed Asset Purchases</span><span class="fsv neg">(${fmtCur(fixA)})</span></div>
+    <div class="fsr sub"><span class="fsn">Net Investing CF</span><span class="fsv ${invCF>=0?'pos':'neg'}">${fmtCur(invCF)}</span></div>
+    <div class="fsr lbl" style="margin-top:8px"><span>Financing</span></div>
+    <div class="fsr ind"><span class="fsn">Capital + Loans</span><span class="fsv pos">${fmtCur(finCF)}</span></div>
+    <div class="fsr sub"><span class="fsn">Net Financing CF</span><span class="fsv ${finCF>=0?'pos':'neg'}">${fmtCur(finCF)}</span></div>
+    <div class="fsr tot"><span class="fsn">Net Cash Flow</span><span class="fsv ${netCF>=0?'pos':'neg'}">${fmtCur(netCF)}</span></div>
   </div>`;
 }
 
@@ -761,131 +950,247 @@ function rEq(){
   const tX=Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
   const net=tR-tX;
   const draw=b["Owner's Drawing"]?Math.abs(b["Owner's Drawing"].net):0;
-  const cl=op+net-draw;
   el.innerHTML=`<div class="fsc">
     <div class="fst">Owner's Equity</div><div class="fsti">ካፒታል ናይ ውልቀ</div>
-    <div class="fsr ind"><span class="fsn">Opening Capital</span><span class="fsv">$${fmt(op)}</span></div>
-    <div class="fsr ind"><span class="fsn">${net>=0?'Add: Net Profit':'Less: Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">$${fmt(Math.abs(net))}</span></div>
-    ${draw>0?`<div class="fsr ind"><span class="fsn">Less: Drawings</span><span class="fsv neg">($${fmt(draw)})</span></div>`:''}
-    <div class="fsr tot"><span class="fsn">Closing Equity</span><span class="fsv pos">$${fmt(cl)}</span></div>
+    <div class="fsr ind"><span class="fsn">Opening Capital</span><span class="fsv">${fmtCur(op)}</span></div>
+    <div class="fsr ind"><span class="fsn">${net>=0?'Add: Net Profit':'Less: Net Loss'}</span><span class="fsv ${net>=0?'pos':'neg'}">${fmtCur(Math.abs(net))}</span></div>
+    ${draw>0?`<div class="fsr ind"><span class="fsn">Less: Drawings</span><span class="fsv neg">(${fmtCur(draw)})</span></div>`:''}
+    <div class="fsr tot"><span class="fsn">Closing Equity</span><span class="fsv pos">${fmtCur(op+net-draw)}</span></div>
   </div>`;
 }
 
-// ══════════════════════════════════════════
-// DEPRECIATION SYSTEM
-// ══════════════════════════════════════════
+// ══════════════════════════
+// DEPRECIATION
+// ══════════════════════════
 function getDepAccounts(t){
-  const m={
-    'Equipment':      {dep:'Depreciation Expense - Equipment',acc:'Accumulated Depreciation - Equipment'},
-    'Heavy Machinery':{dep:'Depreciation Expense - Equipment',acc:'Accumulated Depreciation - Equipment'},
-    'Vehicles':       {dep:'Depreciation Expense - Vehicles', acc:'Accumulated Depreciation - Vehicles'},
-    'Building':       {dep:'Depreciation Expense - Building', acc:'Accumulated Depreciation - Building'},
-  };
+  const m={'Equipment':{dep:'Depreciation Expense - Equipment',acc:'Accumulated Depreciation - Equipment'},'Heavy Machinery':{dep:'Depreciation Expense - Equipment',acc:'Accumulated Depreciation - Equipment'},'Vehicles':{dep:'Depreciation Expense - Vehicles',acc:'Accumulated Depreciation - Vehicles'},'Building':{dep:'Depreciation Expense - Building',acc:'Accumulated Depreciation - Building'}};
   return m[t]||m['Equipment'];
 }
 function addAsset(){
-  const name=document.getElementById('aName').value.trim();
-  const type=document.getElementById('aType').value;
-  const cost=parseFloat(document.getElementById('aCost').value);
-  const life=parseInt(document.getElementById('aLife').value);
-  const date=document.getElementById('aDate').value;
-  const st=document.getElementById('assetAddSt');
-  if(!name){st.innerHTML='<span style="color:var(--rust)">Enter asset name</span>';return;}
-  if(!cost||cost<=0){st.innerHTML='<span style="color:var(--rust)">Enter valid cost</span>';return;}
-  if(!life||life<=0){st.innerHTML='<span style="color:var(--rust)">Enter useful life in years</span>';return;}
-  if(!date){st.innerHTML='<span style="color:var(--rust)">Select purchase date</span>';return;}
-  const monthlyDep=Math.round((cost/life/12)*100)/100;
-  DB.assets.push({id:Date.now(),name,type,cost,life,date,monthlyDep,lastPostedMonth:null});
-  saveData();
-  document.getElementById('aName').value='';document.getElementById('aCost').value='';document.getElementById('aLife').value='';
-  st.innerHTML=`<span style="color:var(--green)">✅ ${name} added — $${fmt(monthlyDep)}/month</span>`;
-  rDepPage();checkDepReminder();
-  setTimeout(()=>st.innerHTML='',3000);
+  const name=document.getElementById('aName').value.trim(),type=document.getElementById('aType').value,cost=parseFloat(document.getElementById('aCost').value),life=parseInt(document.getElementById('aLife').value),date=document.getElementById('aDate').value,st=document.getElementById('assetAddSt');
+  if(!name||!cost||!life||!date){st.innerHTML='<span style="color:var(--rust)">Fill all fields</span>';return;}
+  DB.assets.push({id:Date.now(),name,type,cost,life,date,monthlyDep:Math.round((cost/life/12)*100)/100,lastPostedMonth:null});
+  saveData();document.getElementById('aName').value='';document.getElementById('aCost').value='';document.getElementById('aLife').value='';
+  st.innerHTML=`<span style="color:var(--green)">✅ ${name} added</span>`;rDepPage();checkDepReminder();setTimeout(()=>st.innerHTML='',3000);
 }
-function deleteAsset(id){
-  if(!confirm('Delete this asset?'))return;
-  DB.assets=DB.assets.filter(a=>a.id!==id);
-  saveData();rDepPage();checkDepReminder();
-}
+function deleteAsset(id){if(!confirm('Delete?'))return;DB.assets=DB.assets.filter(a=>a.id!==id);saveData();rDepPage();checkDepReminder();}
 function rDepPage(){
   const al=document.getElementById('assetList');
   if(!DB.assets.length){al.innerHTML='<div class="empty"><span class="ico">🏗️</span>No assets yet</div>';document.getElementById('depDueList').innerHTML='<div class="empty"><span class="ico">📉</span>Add assets above</div>';return;}
-  al.innerHTML=DB.assets.map(a=>`
-    <div class="asset-list-item">
-      <div class="ai"><strong>${a.name}</strong> <span style="font-size:10px;color:var(--gold)">${a.type}</span>
-      <small>Cost: $${fmt(a.cost)} · ${a.life}yr life · Since ${a.date} · Last posted: ${a.lastPostedMonth||'Never'}</small></div>
-      <div class="adep">$${fmt(a.monthlyDep)}/mo</div>
-      <button class="del-btn" onclick="deleteAsset(${a.id})">✕</button>
-    </div>`).join('');
-  const now=new Date();
-  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  al.innerHTML=DB.assets.map(a=>`<div class="asset-list-item"><div class="ai"><strong>${a.name}</strong> <span style="font-size:10px;color:var(--gold)">${a.type}</span><small>Cost: ${fmtCur(a.cost)} · ${a.life}yr · Since ${a.date} · Last: ${a.lastPostedMonth||'Never'}</small></div><div class="adep">${fmtCur(a.monthlyDep)}/mo</div><button class="del-btn" onclick="deleteAsset(${a.id})">✕</button></div>`).join('');
+  const now=new Date(),thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
   const due=DB.assets.filter(a=>a.lastPostedMonth!==thisMonth);
   const dl=document.getElementById('depDueList');
   if(!due.length){dl.innerHTML=`<div class="bok">✅ All depreciation posted for ${thisMonth}</div>`;return;}
   const total=due.reduce((s,a)=>s+a.monthlyDep,0);
-  dl.innerHTML=`
-    <p style="font-size:12px;color:var(--gold);margin-bottom:.75rem;font-family:'DM Mono',monospace">
-      📅 ${thisMonth} — ${due.length} pending · Total: <strong>$${fmt(total)}</strong>
-    </p>
-    ${due.map(a=>`
-      <div class="dep-item">
-        <div class="dep-item-info"><div class="dep-item-name">${a.name}</div>
-        <div class="dep-item-detail">${a.type} · $${fmt(a.cost)} / ${a.life}yr straight-line</div></div>
-        <div class="dep-item-amt">$${fmt(a.monthlyDep)}/mo</div>
-        <button class="dep-post-btn" onclick="postDepreciation(${a.id})">Post ↗</button>
-      </div>`).join('')}
-    <button class="dep-post-all" onclick="postAllDepreciation()">✅ Post All for ${thisMonth} — $${fmt(total)}</button>`;
+  dl.innerHTML=`<p style="font-size:12px;color:var(--gold);margin-bottom:.75rem">${thisMonth} — ${due.length} pending · Total: ${fmtCur(total)}</p>
+    ${due.map(a=>`<div class="dep-item"><div class="dep-item-info"><div class="dep-item-name">${a.name}</div><div class="dep-item-detail">${a.type} · ${fmtCur(a.cost)} / ${a.life}yr</div></div><div class="dep-item-amt">${fmtCur(a.monthlyDep)}/mo</div><button class="dep-post-btn" onclick="postDepreciation(${a.id})">Post ↗</button></div>`).join('')}
+    <button class="dep-post-all" onclick="postAllDepreciation()">✅ Post All for ${thisMonth} — ${fmtCur(total)}</button>`;
 }
 function postDepreciation(assetId){
   const asset=DB.assets.find(a=>a.id===assetId);if(!asset)return;
-  const now=new Date();
-  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
-  const today=now.toISOString().split('T')[0];
+  const now=new Date(),thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0'),today=now.toISOString().split('T')[0];
   const accts=getDepAccounts(asset.type);
-  DB.entries.push({
-    id:DB.nextId++,date:today,postedAt:new Date().toISOString(),
-    type:'Monthly Depreciation',amount:asset.monthlyDep,
-    desc_en:`Monthly depreciation - ${asset.name}`,
-    desc_ti:`Monthly depreciation - ${asset.name}`,
-    memo_en:`${asset.name} $${fmt(asset.monthlyDep)}/month (${asset.life}yr straight-line)`,
-    memo_ti:`${asset.name} $${fmt(asset.monthlyDep)}/month (${asset.life}yr straight-line)`,
-    debits:[{acct:accts.dep,acct_ti:accts.dep,amt:asset.monthlyDep,atype:'expense'}],
-    credits:[{acct:accts.acc,acct_ti:accts.acc,amt:asset.monthlyDep,atype:'asset'}]
-  });
-  asset.lastPostedMonth=thisMonth;
-  saveData();rAll();rDepPage();checkDepReminder();
-  showToast(`✅ Depreciation posted — ${asset.name} $${fmt(asset.monthlyDep)}`);
+  DB.entries.push({id:DB.nextId++,date:today,postedAt:new Date().toISOString(),type:'Monthly Depreciation',amount:asset.monthlyDep,desc_en:`Monthly depreciation - ${asset.name}`,desc_ti:`Monthly depreciation - ${asset.name}`,memo_en:`${asset.name} ${fmtCur(asset.monthlyDep)}/month (${asset.life}yr straight-line)`,memo_ti:`${asset.name} ${fmtCur(asset.monthlyDep)}/month`,debits:[{acct:accts.dep,acct_ti:accts.dep,amt:asset.monthlyDep,atype:'expense'}],credits:[{acct:accts.acc,acct_ti:accts.acc,amt:asset.monthlyDep,atype:'asset'}]});
+  asset.lastPostedMonth=thisMonth;saveData();rAll();rDepPage();checkDepReminder();showToast(`✅ Depreciation posted — ${asset.name}`);
 }
 function postAllDepreciation(){
-  const now=new Date();
-  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
-  const due=DB.assets.filter(a=>a.lastPostedMonth!==thisMonth);
-  if(!due.length){showToast('✅ All already posted!');return;}
-  due.forEach(a=>postDepreciation(a.id));
+  const now=new Date(),thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  DB.assets.filter(a=>a.lastPostedMonth!==thisMonth).forEach(a=>postDepreciation(a.id));
 }
 function checkDepReminder(){
   const banner=document.getElementById('depReminder');
   if(!DB.assets.length){banner.style.display='none';return;}
-  const now=new Date();
-  const thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const now=new Date(),thisMonth=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
   const due=DB.assets.filter(a=>a.lastPostedMonth!==thisMonth);
   if(!due.length){banner.style.display='none';return;}
   const total=due.reduce((s,a)=>s+a.monthlyDep,0);
   banner.style.display='block';
-  banner.innerHTML=`<div class="dep-banner">
-    <h3>⏰ Monthly Depreciation Reminder</h3>
-    <p>${due.length} asset(s) need depreciation for ${thisMonth} — Total: $${fmt(total)}</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="dep-post-all" style="flex:1;margin-top:0" onclick="postAllDepreciation()">✅ Post All Now — $${fmt(total)}</button>
-      <button onclick="go('depreciation',null)" style="padding:11px 16px;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:2px;cursor:pointer;font-size:12px">View Details ↗</button>
+  banner.innerHTML=`<div class="dep-banner"><h3>⏰ Monthly Depreciation Reminder</h3><p>${due.length} asset(s) pending for ${thisMonth} — Total: ${fmtCur(total)}</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="dep-post-all" style="flex:1;margin-top:0" onclick="postAllDepreciation()">✅ Post All Now — ${fmtCur(total)}</button><button onclick="go('depreciation',null)" style="padding:11px 16px;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:2px;cursor:pointer;font-size:12px">View ↗</button></div></div>`;
+}
+
+// ══════════════════════════
+// INVENTORY
+// ══════════════════════════
+function addInventory(){
+  const name=document.getElementById('iName').value.trim(),cat=document.getElementById('iCat').value,qty=parseFloat(document.getElementById('iQty').value),unit=document.getElementById('iUnit').value,min=parseFloat(document.getElementById('iMin').value)||0,cost=parseFloat(document.getElementById('iCost').value)||0,st=document.getElementById('invAddSt');
+  if(!name||!qty){st.innerHTML='<span style="color:var(--rust)">Enter name and quantity</span>';return;}
+  const existing=DB.inventory.find(i=>i.name.toLowerCase()===name.toLowerCase());
+  if(existing){existing.qty+=qty;existing.cost=cost||existing.cost;st.innerHTML=`<span style="color:var(--green)">✅ Updated ${name}: now ${existing.qty} ${unit}</span>`;}
+  else{DB.inventory.push({id:Date.now(),name,cat,qty,unit,min,cost,addedAt:new Date().toISOString()});st.innerHTML=`<span style="color:var(--green)">✅ ${name} added — ${qty} ${unit}</span>`;}
+  document.getElementById('iName').value='';document.getElementById('iQty').value='';
+  saveData();renderInventory();checkLowStock();setTimeout(()=>st.innerHTML='',3000);
+}
+function updateInvQty(id,delta){
+  const item=DB.inventory.find(i=>i.id===id);if(!item)return;
+  item.qty=Math.max(0,item.qty+delta);saveData();renderInventory();checkLowStock();
+}
+function deleteInv(id){if(!confirm('Delete?'))return;DB.inventory=DB.inventory.filter(i=>i.id!==id);saveData();renderInventory();checkLowStock();}
+function renderInventory(){
+  const el=document.getElementById('invList');
+  const q=(document.getElementById('invSearch')||{}).value||'';
+  if(!DB.inventory.length){el.innerHTML='<div class="empty"><span class="ico">📦</span>No inventory yet</div>';return;}
+  let list=DB.inventory.filter(i=>!q||i.name.toLowerCase().includes(q.toLowerCase())||i.cat.toLowerCase().includes(q.toLowerCase()));
+  if(!list.length){el.innerHTML='<div class="empty"><span class="ico">📦</span>No matching items</div>';return;}
+  const totalValue=DB.inventory.reduce((s,i)=>s+(i.qty*i.cost),0);
+  el.innerHTML=`<div style="font-size:11px;color:var(--gold);margin-bottom:.75rem;font-family:'DM Mono',monospace">Total Stock Value: ${fmtCur(totalValue)} · ${DB.inventory.length} items</div>`+
+  list.map(i=>{
+    const low=i.min>0&&i.qty<=i.min;
+    return`<div class="inv-item ${low?'low':''}">
+      <div class="ii"><strong>${i.name}</strong> <span class="inv-badge ${low?'low':''}">${i.cat}</span>
+      <small>Unit cost: ${fmtCur(i.cost)} · Total: ${fmtCur(i.qty*i.cost)}${i.min>0?` · Min alert: ${i.min} ${i.unit}`:''}</small></div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <button onclick="updateInvQty(${i.id},-1)" style="padding:2px 8px;background:var(--ink);color:var(--gold2);border:1px solid var(--border);border-radius:2px;cursor:pointer;font-size:14px">−</button>
+        <div class="inv-qty ${low?'low':''}">${i.qty} ${i.unit}</div>
+        <button onclick="updateInvQty(${i.id},1)" style="padding:2px 8px;background:var(--ink);color:var(--gold2);border:1px solid var(--border);border-radius:2px;cursor:pointer;font-size:14px">+</button>
+      </div>
+      <button class="del-btn" onclick="deleteInv(${i.id})">✕</button>
+    </div>`;
+  }).join('');
+}
+function checkLowStock(){
+  const banner=document.getElementById('lowStockAlert');
+  const low=DB.inventory.filter(i=>i.min>0&&i.qty<=i.min);
+  if(!low.length){banner.style.display='none';return;}
+  banner.style.display='block';
+  banner.innerHTML=`<div class="dep-banner" style="border-color:var(--gold)"><h3>⚠️ Low Stock Alert · ዕቃ ውሒዱ</h3><p>${low.map(i=>`${i.name}: ${i.qty} ${i.unit} (min: ${i.min})`).join(' · ')}</p><button onclick="go('inventory',null)" style="padding:8px 16px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;cursor:pointer;font-size:12px">View Inventory ↗</button></div>`;
+}
+
+// ══════════════════════════
+// PROJECTS
+// ══════════════════════════
+function addProject(){
+  const name=document.getElementById('pjName').value.trim(),client=document.getElementById('pjClient').value.trim(),value=parseFloat(document.getElementById('pjValue').value)||0,start=document.getElementById('pjStart').value,end=document.getElementById('pjEnd').value,st=document.getElementById('projAddSt');
+  if(!name){st.innerHTML='<span style="color:var(--rust)">Enter project name</span>';return;}
+  DB.projects.push({id:Date.now(),name,client,value,start,end,status:'active',createdAt:new Date().toISOString()});
+  saveData();document.getElementById('pjName').value='';document.getElementById('pjClient').value='';document.getElementById('pjValue').value='';
+  st.innerHTML=`<span style="color:var(--green)">✅ ${name} added</span>`;renderProjects();setTimeout(()=>st.innerHTML='',3000);
+}
+function updateProjectStatus(id,status){const p=DB.projects.find(p=>p.id===id);if(p){p.status=status;saveData();renderProjects();}}
+function deleteProject(id){if(!confirm('Delete project?'))return;DB.projects=DB.projects.filter(p=>p.id!==id);saveData();renderProjects();}
+function renderProjects(){
+  const el=document.getElementById('projList');
+  if(!DB.projects.length){el.innerHTML='<div class="empty"><span class="ico">🏗️</span>No projects yet</div>';return;}
+  const totalValue=DB.projects.filter(p=>p.status==='active').reduce((s,p)=>s+p.value,0);
+  el.innerHTML=`<div style="font-size:11px;color:var(--gold);margin-bottom:.75rem">Active Projects Value: ${fmtCur(totalValue)}</div>`+
+  DB.projects.map(p=>`<div class="proj-item">
+    <div class="pi"><strong>${p.name}</strong> <span class="proj-tag ${p.status==='active'?'active':'done'}">${p.status}</span>
+    <small>Client: ${p.client||'—'} · Value: ${fmtCur(p.value)} · ${p.start||'?'} → ${p.end||'?'}</small></div>
+    <div style="display:flex;gap:5px">
+      ${p.status==='active'?`<button class="del-btn" style="border-color:var(--green);color:var(--green)" onclick="updateProjectStatus(${p.id},'done')">✅ Done</button>`:''}
+      <button class="del-btn" onclick="deleteProject(${p.id})">🗑️</button>
     </div>
-  </div>`;
+  </div>`).join('');
+}
+
+// ══════════════════════════
+// AI ADVISOR
+// ══════════════════════════
+async function askAdvisor(){
+  const inp=document.getElementById('advisorInp'),q=inp.value.trim();
+  if(!q)return;inp.value='';
+  const msgs=document.getElementById('advisorMsgs');
+  msgs.innerHTML+=`<div class="msg user">${q}</div>`;
+  msgs.innerHTML+=`<div class="msg ai loading" id="aiLoading">🤖 Thinking...</div>`;
+  msgs.scrollTop=msgs.scrollHeight;
+
+  // Build context from all business data
+  const b=getBal();
+  const tR=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tX=Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const cashBal=b['Cash']?b['Cash'].net:0;
+  const context=`
+FINANCIAL SUMMARY:
+- Total Revenue: $${fmt(tR)}
+- Total Expenses: $${fmt(tX)}
+- Net Profit/Loss: $${fmt(tR-tX)}
+- Cash Balance: $${fmt(cashBal)}
+- Total Entries: ${DB.entries.length}
+
+INVENTORY (${DB.inventory.length} items):
+${DB.inventory.map(i=>`- ${i.name}: ${i.qty} ${i.unit} (unit cost $${fmt(i.cost)}, total value $${fmt(i.qty*i.cost)}, min alert: ${i.min})`).join('\n')||'No inventory'}
+
+PROJECTS (${DB.projects.length} total):
+${DB.projects.map(p=>`- ${p.name}: ${p.status}, client: ${p.client}, value: $${fmt(p.value)}`).join('\n')||'No projects'}
+
+ASSETS (${DB.assets.length} items):
+${DB.assets.map(a=>`- ${a.name}: ${a.type}, cost $${fmt(a.cost)}, $${fmt(a.monthlyDep)}/month depreciation`).join('\n')||'No assets'}
+
+ACCOUNT BALANCES:
+${Object.entries(b).map(([a,v])=>`- ${a}: ${v.net>=0?'Dr':'Cr'} $${fmt(Math.abs(v.net))}`).join('\n')||'No balances yet'}`;
+
+  try{
+    const res=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:q,mode:'advisor',context})});
+    const data=await res.json();
+    const answer=data.result||'Sorry, I could not get an answer.';
+    document.getElementById('aiLoading').remove();
+    msgs.innerHTML+=`<div class="msg ai">${answer}</div>`;
+    msgs.scrollTop=msgs.scrollHeight;
+  }catch(err){
+    document.getElementById('aiLoading').remove();
+    msgs.innerHTML+=`<div class="msg ai">Error: ${err.message}</div>`;
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+}
+document.getElementById('advisorInp').addEventListener('keydown',e=>{if(e.key==='Enter')askAdvisor();});
+
+// ══════════════════════════
+// EMAIL REPORT
+// ══════════════════════════
+function emailReport(){
+  const email=document.getElementById('emailF').value.trim();
+  const st=document.getElementById('emailSt');
+  if(!email||!email.includes('@')){st.innerHTML='<div class="serr">Enter valid email</div>';return;}
+  const b=getBal();
+  const tR=Object.entries(b).filter(([,v])=>v.type==='revenue').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const tX=Object.entries(b).filter(([,v])=>v.type==='expense').reduce((s,[,v])=>s+Math.abs(v.net),0);
+  const net=tR-tX;
+  const cashBal=b['Cash']?b['Cash'].net:0;
+  const biz=document.getElementById('topBiz').textContent;
+  const date=new Date().toLocaleDateString();
+  const subject=encodeURIComponent(`${biz} — Financial Report ${date}`);
+  const body=encodeURIComponent(`ASMARA HISAB — FINANCIAL REPORT
+Business: ${biz}
+Date: ${date}
+
+INCOME STATEMENT
+================
+Total Revenue:  $${fmt(tR)}
+Total Expenses: $${fmt(tX)}
+Net ${net>=0?'Profit':'Loss'}:    $${fmt(Math.abs(net))}
+
+BALANCE SUMMARY
+===============
+Cash Balance:   $${fmt(cashBal)}
+Total Entries:  ${DB.entries.length}
+
+INVENTORY SUMMARY
+=================
+${DB.inventory.map(i=>`${i.name}: ${i.qty} ${i.unit}`).join('\n')||'No inventory'}
+
+PROJECTS
+========
+${DB.projects.map(p=>`${p.name} (${p.status}): $${fmt(p.value)}`).join('\n')||'No projects'}
+
+Generated by Asmara Hisab — asmara-hisab.vercel.app`);
+  window.location.href=`mailto:${email}?subject=${subject}&body=${body}`;
+  st.innerHTML='<div class="sok">✅ Email client opened! Copy the report and send.</div>';
+}
+
+// ══════════════════════════
+// PDF PRINT
+// ══════════════════════════
+function printReport(){
+  // Show all pages momentarily for printing
+  const active=document.querySelector('.page.on');
+  window.print();
+  showToast('🖨️ Use browser Print dialog — Ctrl+P');
 }
 
 // ── HELPERS ──
-function fmt(v){return(+v||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
 
+// keyboard
 document.getElementById('lp').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 document.getElementById('lu').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('lp').focus();});
 </script>
