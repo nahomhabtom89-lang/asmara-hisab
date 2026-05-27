@@ -6,11 +6,44 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { prompt } = req.body;
+    const { prompt, mode, context } = req.body;
     const apiKey = process.env.GEMINI_KEY;
     if (!prompt) return res.status(400).json({ error: 'Missing prompt' });
     if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
+    // ── MODE: business advisor ──
+    if (mode === 'advisor') {
+      const advisorSystem = `You are a smart business advisor and accountant for a construction company using the Asmara Hisab app.
+You have access to the business financial data provided in the context.
+Answer questions about inventory, finances, profits, project costs, and give practical business advice.
+Be concise, friendly, and specific with numbers from the context.
+Answer in the same language the user writes in (English or Tigrinya).
+If asked about inventory (tomatoes, cement, steel etc), check the inventory context and give exact quantities.
+Always respond in plain text, no markdown, no JSON.`;
+
+      const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+          'HTTP-Referer': 'https://asmara-hisab.vercel.app',
+          'X-Title': 'Asmara Hisab'
+        },
+        body: JSON.stringify({
+          model: 'openrouter/auto',
+          messages: [
+            { role: 'system', content: advisorSystem },
+            { role: 'user', content: `Business Data:\n${context||'No data yet'}\n\nUser Question: ${prompt}` }
+          ],
+          max_tokens: 500
+        })
+      });
+      const data = await r.json();
+      if (!r.ok) return res.status(r.status).json({ error: data.error?.message || 'API error' });
+      return res.status(200).json({ result: data.choices?.[0]?.message?.content || '' });
+    }
+
+    // ── MODE: accounting (default) ──
     const systemPrompt = `You are a Senior Construction Accountant in the Asmara Hisab app.
 
 Analyze the transaction and return ONLY a valid JSON object.
@@ -41,12 +74,12 @@ RULES:
 - date = today if not specified
 - If unrecognizable: {"error": "Cannot identify transaction"}
 
-ACCOUNT TYPE MAPPING (MUST follow exactly):
-- All Cash, Bank, Receivable, Inventory, Equipment, Vehicles, Land, Building, Prepaid, WIP accounts = "asset"
-- All Payable, Loan, Unearned Revenue, Accrued accounts = "liability"
+ACCOUNT TYPE MAPPING:
+- Cash, Bank, Receivable, Inventory, Equipment, Vehicles, Land, Building, Prepaid, WIP = "asset"
+- Payable, Loan, Unearned Revenue, Accrued accounts = "liability"
 - Owner Capital, Owner Drawing, Retained Earnings = "equity"
 - Sales Revenue, Contract Revenue, Service Revenue, Interest Revenue = "revenue"
-- ALL expense accounts (Salary, Rent, Depreciation, COGS, Fuel, Utilities, etc.) = "expense"
+- ALL expense accounts (Salary, Rent, Depreciation, COGS, Fuel, Utilities etc) = "expense"
 
 CHART OF ACCOUNTS:
 ASSETS: Cash, Petty Cash, Bank - Checking, Accounts Receivable, Notes Receivable,
@@ -59,8 +92,7 @@ Accumulated Depreciation - Building, Security Deposit, Due from Employee
 LIABILITIES: Accounts Payable, Notes Payable, Loans Payable, Bank Loan Payable,
 Mortgage Payable, Unearned Revenue, Advance from Client, Retention Payable,
 Salaries Payable, Wages Payable, Tax Payable, VAT Payable, Income Tax Payable,
-Interest Payable, Accrued Expenses, Accrued Salaries, Accrued Interest,
-Due to Subcontractor
+Interest Payable, Accrued Expenses, Accrued Salaries, Accrued Interest, Due to Subcontractor
 
 EQUITY: Owner's Capital, Owner's Drawing, Retained Earnings, Common Stock
 
@@ -77,135 +109,43 @@ Interest Expense, Bank Charges Expense, Tax Expense, Bad Debt Expense,
 Miscellaneous Expense, Loss on Disposal of Asset
 
 TRANSACTION RULES:
-
-Owner invests / adds money / puts cash in company:
-  Dr. Cash (asset) / Cr. Owner's Capital (equity)
-  type label: "Owner Investment"
-  NEVER use Inventory. ALWAYS Owner's Capital.
-
-Owner withdraws money:
-  Dr. Owner's Drawing (equity) / Cr. Cash (asset)
-  type label: "Owner Drawing"
-
-Paid salary / wages / payroll:
-  Dr. Salary Expense (expense) / Cr. Cash (asset)
-  type label: "Salary Payment"
-
-Accrued salary not yet paid:
-  Dr. Salary Expense (expense) / Cr. Accrued Salaries (liability)
-  type label: "Accrued Salaries"
-
-Paid rent for current month:
-  Dr. Rent Expense (expense) / Cr. Cash (asset)
-  type label: "Rent Payment"
-
-Prepaid rent (paid for multiple future months):
-  Dr. Prepaid Rent (asset) / Cr. Cash (asset)
-  type label: "Prepaid Rent"
-  amount = total paid (e.g. 5 months x $1000 = $5000)
-
-Prepaid rent used up each month:
-  Dr. Rent Expense (expense) / Cr. Prepaid Rent (asset)
-  type label: "Prepaid Rent Recognized"
-
-Prepaid insurance paid:
-  Dr. Prepaid Insurance (asset) / Cr. Cash (asset)
-  type label: "Prepaid Insurance"
-
-Prepaid insurance used up:
-  Dr. Insurance Expense (expense) / Cr. Prepaid Insurance (asset)
-  type label: "Prepaid Insurance Recognized"
-
-Client pays advance before work done:
-  Dr. Cash (asset) / Cr. Unearned Revenue (liability)
-  type label: "Unearned Revenue"
-
-Revenue earned from advance:
-  Dr. Unearned Revenue (liability) / Cr. Contract Revenue (revenue)
-  type label: "Revenue Recognition"
-
-Bought construction materials (cement, steel, sand, bricks) cash:
-  Dr. Construction Materials (asset) / Cr. Cash (asset)
-  type label: "Materials Purchase - Cash"
-
-Bought construction materials on credit:
-  Dr. Construction Materials (asset) / Cr. Accounts Payable (liability)
-  type label: "Materials Purchase - Credit"
-
-Materials used on job site:
-  Dr. Work in Progress (asset) / Cr. Construction Materials (asset)
-  type label: "Materials Used on Project"
-
-Project completed:
-  Dr. Cost of Goods Sold (expense) / Cr. Work in Progress (asset)
-  type label: "WIP Completion"
-
-Bought equipment / machine cash:
-  Dr. Equipment (asset) / Cr. Cash (asset)
-  type label: "Equipment Purchase"
-
-Bought vehicle / truck / car cash:
-  Dr. Vehicles (asset) / Cr. Cash (asset)
-  type label: "Vehicle Purchase"
-
-Received bank loan:
-  Dr. Cash (asset) / Cr. Bank Loan Payable (liability)
-  type label: "Loan Received"
-
-Repaid loan:
-  Dr. Loans Payable (liability) / Cr. Cash (asset)
-  type label: "Loan Repayment"
-
-Paid interest:
-  Dr. Interest Expense (expense) / Cr. Cash (asset)
-  type label: "Interest Payment"
-
-Progress billing sent to client:
-  Dr. Accounts Receivable (asset) / Cr. Contract Revenue (revenue)
-  type label: "Progress Billing"
-
-Client paid their invoice:
-  Dr. Cash (asset) / Cr. Accounts Receivable (asset)
-  type label: "Receivable Collected"
-
-Paid supplier / accounts payable:
-  Dr. Accounts Payable (liability) / Cr. Cash (asset)
-  type label: "Payable Paid"
-
-Depreciation on equipment:
-  Dr. Depreciation Expense - Equipment (expense) / Cr. Accumulated Depreciation - Equipment (asset)
-  type label: "Equipment Depreciation"
-
-Depreciation on vehicle:
-  Dr. Depreciation Expense - Vehicles (expense) / Cr. Accumulated Depreciation - Vehicles (asset)
-  type label: "Vehicle Depreciation"
-
-Paid fuel:
-  Dr. Fuel Expense (expense) / Cr. Cash (asset)
-  type label: "Fuel Expense"
-
-Paid utilities (electricity, water, internet):
-  Dr. Utilities Expense (expense) / Cr. Cash (asset)
-  type label: "Utilities Payment"
-
-Paid subcontractor:
-  Dr. Subcontractor Expense (expense) / Cr. Cash (asset)
-  type label: "Subcontractor Payment"
-
-Sold goods cash:
-  Dr. Cash (asset) / Cr. Sales Revenue (revenue)
-  type label: "Cash Sale"
-
-Sold goods on credit:
-  Dr. Accounts Receivable (asset) / Cr. Sales Revenue (revenue)
-  type label: "Credit Sale"
+Owner invests/adds money: Dr. Cash (asset) / Cr. Owner's Capital (equity) — type: "Owner Investment"
+Owner withdraws: Dr. Owner's Drawing (equity) / Cr. Cash (asset) — type: "Owner Drawing"
+Paid salary: Dr. Salary Expense (expense) / Cr. Cash (asset) — type: "Salary Payment"
+Accrued salary: Dr. Salary Expense (expense) / Cr. Accrued Salaries (liability) — type: "Accrued Salaries"
+Paid rent current month: Dr. Rent Expense (expense) / Cr. Cash (asset) — type: "Rent Payment"
+Prepaid rent multiple months: Dr. Prepaid Rent (asset) / Cr. Cash (asset) — type: "Prepaid Rent"
+Prepaid rent used: Dr. Rent Expense (expense) / Cr. Prepaid Rent (asset) — type: "Prepaid Rent Recognized"
+Prepaid insurance paid: Dr. Prepaid Insurance (asset) / Cr. Cash (asset) — type: "Prepaid Insurance"
+Prepaid insurance used: Dr. Insurance Expense (expense) / Cr. Prepaid Insurance (asset) — type: "Prepaid Insurance Recognized"
+Client advance: Dr. Cash (asset) / Cr. Unearned Revenue (liability) — type: "Unearned Revenue"
+Revenue earned from advance: Dr. Unearned Revenue (liability) / Cr. Contract Revenue (revenue) — type: "Revenue Recognition"
+Bought materials cash: Dr. Construction Materials (asset) / Cr. Cash (asset) — type: "Materials Purchase - Cash"
+Bought materials credit: Dr. Construction Materials (asset) / Cr. Accounts Payable (liability) — type: "Materials Purchase - Credit"
+Materials used on site: Dr. Work in Progress (asset) / Cr. Construction Materials (asset) — type: "Materials Used on Project"
+Project complete: Dr. Cost of Goods Sold (expense) / Cr. Work in Progress (asset) — type: "WIP Completion"
+Bought equipment cash: Dr. Equipment (asset) / Cr. Cash (asset) — type: "Equipment Purchase"
+Bought vehicle: Dr. Vehicles (asset) / Cr. Cash (asset) — type: "Vehicle Purchase"
+Bank loan: Dr. Cash (asset) / Cr. Bank Loan Payable (liability) — type: "Loan Received"
+Repaid loan: Dr. Loans Payable (liability) / Cr. Cash (asset) — type: "Loan Repayment"
+Paid interest: Dr. Interest Expense (expense) / Cr. Cash (asset) — type: "Interest Payment"
+Progress billing: Dr. Accounts Receivable (asset) / Cr. Contract Revenue (revenue) — type: "Progress Billing"
+Client paid invoice: Dr. Cash (asset) / Cr. Accounts Receivable (asset) — type: "Receivable Collected"
+Paid supplier: Dr. Accounts Payable (liability) / Cr. Cash (asset) — type: "Payable Paid"
+Equipment depreciation: Dr. Depreciation Expense - Equipment (expense) / Cr. Accumulated Depreciation - Equipment (asset) — type: "Equipment Depreciation"
+Vehicle depreciation: Dr. Depreciation Expense - Vehicles (expense) / Cr. Accumulated Depreciation - Vehicles (asset) — type: "Vehicle Depreciation"
+Paid fuel: Dr. Fuel Expense (expense) / Cr. Cash (asset) — type: "Fuel Expense"
+Paid utilities: Dr. Utilities Expense (expense) / Cr. Cash (asset) — type: "Utilities Payment"
+Paid subcontractor: Dr. Subcontractor Expense (expense) / Cr. Cash (asset) — type: "Subcontractor Payment"
+Sold goods cash: Dr. Cash (asset) / Cr. Sales Revenue (revenue) — type: "Cash Sale"
+Sold goods credit: Dr. Accounts Receivable (asset) / Cr. Sales Revenue (revenue) — type: "Credit Sale"
 
 AMOUNT PARSING:
-- "30 bags each 200$" = 30 x 200 = 6000
+- "30 bags each 200$" = 6000
 - "5 months x 1000" = 5000
 - "$300", "300 dollars", "300" = 300
 
-LANGUAGE: Understand English, Tigrinya, Arabic mixed input. Output JSON in English only.`;
+LANGUAGE: Understand English, Tigrinya, Arabic. Output JSON in English only.`;
 
     const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -230,19 +170,13 @@ LANGUAGE: Understand English, Tigrinya, Arabic mixed input. Output JSON in Engli
 
     let result = (data.choices?.[0]?.message?.content || '').trim();
     result = result.replace(/^```json\s*/i, '').replace(/^```\s*/, '').replace(/```\s*$/, '').trim();
-
     const match = result.match(/\{[\s\S]*\}/);
     if (!match) return res.status(200).json({ result: '{"error": "AI did not return valid JSON"}' });
 
-    // Validate JSON parses correctly
     try {
       const parsed = JSON.parse(match[0]);
-      // Force all entry types to lowercase so frontend matching always works
       if (parsed.entries && Array.isArray(parsed.entries)) {
-        parsed.entries = parsed.entries.map(e => ({
-          ...e,
-          type: (e.type || 'asset').toLowerCase()
-        }));
+        parsed.entries = parsed.entries.map(e => ({ ...e, type: (e.type || 'asset').toLowerCase() }));
       }
       return res.status(200).json({ result: JSON.stringify(parsed) });
     } catch(e) {
